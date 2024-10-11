@@ -1,3 +1,8 @@
 *.fls
 *.log
 *.synctex.gz
+*.fdb_latexmk
+*.aux
+*.png
+*.svg
+*.bbl

@@ -1,0 +1,129 @@
+\documentclass[10pt,leqno]{report}
+\usepackage{amsmath,amssymb,graphicx,enumitem} 
+\usepackage{calc,parskip}
+\usepackage[T1]{fontenc}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{October 5th, 2024}
+\begin{document}
+If \(X\sim \mathrm{Bin}(n,p)\) then for large enough \(n, \quad X\mathrel{\dot\sim} \mathcal{N}(np,np(1-p))\).
+
+\section*{\underline{Moment Generating Function of \( X\sim \mathrm{Pois(\lambda)}\)}}
+PMF: \(P_{X}(x)=\frac{e^{-\lambda}\lambda ^x}{x!}\)
+
+MGF;
+
+\begin{align*}
+    M_{X}(t)=\mathbb{E}[e^{tx}]&=\sum_{x=0}^{\infty}e^{tx}\frac{e^{-\lambda}\lambda ^{x}}{x!}\\
+    & = \sum_{x=0}^{\infty}e^{-\lambda }\frac{e^t\lambda }{x!}\\
+    & = \sum_{x=0}^{\infty}\frac{e^{-\lambda}(e^t\lambda )^xe^{-e^{t}\lambda}e^{e^{t}\lambda}}{x!} \cdots (1)\\
+    & = e^{e^{t}\lambda - \lambda} = e^{(e^{t}-1)\lambda}\\
+\end{align*} 
+where the above holds since \((1); \sum_{x=0}^{\infty}\frac{e^{-e^{t}\lambda}(e^t\lambda)^x}{x!}=1\)
+
+So If \(X_1, X_2, X_3, \ldots, X_n\) are \(iid\) Pois\((1)\) then the Distribution of \(X_1+X_2+\cdots+X_n\) is ?
+
+when Random Variables are independent; 
+\begin{flalign*}
+ M_{X_1+X_2+\ldots X_n}(t)&=M_{X_1}(t)M_{X_2}(t)\ldots M_{X_n}(t)\\
+&=\left(M_{X_1}(t)\right)^n \\
+&=\left(e^{\left(e^t-1\right)}\right)^n\\
+so, X_1+X_2+\cdots+X_n \sim Pois(n)   
+\end{flalign*}
+and for \(n\) longe enough;
+\(X_1+X_2+\cdots+X_n \dot{\sim} N(n,n)\)
+So By Central Limit Theorem; If \(X \sim\) Pois\((n)\) then \(X\dot{\sim}\mathcal{N}(n, n)\) for large enough $n$.  \{Use Continuity Correction\}
+
+
+\(\rightarrow\) Gamma convergence to Normal; (Excercise)
+(1) MGF of Gamma \((n, \lambda)\)
+(2) Show that the MGF of \(X_1+X_2+\cdots+X_n\) is same as MGF of Gamma \((n, \lambda)\) where \(X_1, X_n, \ldots, X_n\) are \(iid\) Expo\((\lambda)\).
+(3) Then by CLT for \(n\) large enough; \(X_1+X_2+\cdots+X_n\overset{\cdot}{\sim}\mathcal{N} \left(\frac{n}{\lambda},\frac{n}{\lambda ^2}\right)\)
+
+Suppose \(Z_1, Z_2, \ldots, Z_n\) are ind \(\mathcal{N}(0,1)\)
+then \(\bar{Z}_n=\frac{Z_1+Z_n+\cdots+Z_n}{n}\) will have \(\bar{Z}_n \sim N\left(0, \frac{1}{n}\right)\).
+Note that \(\bar{Z}_n\) and \(\sum_{j=1}^n\left(Z_j-\bar{Z}_n\right)^2\) are independent and
+\(\sum_{j=1}^n\left(Z_j-\bar{Z}_n\right)^2 \sim \chi_{n-1}^2\)
+
+For \(n=2 ; \quad \bar{Z}_n=\frac{Z_1+Z_2}{2}\) and \(\sum_{j=1}^2\left(Z_j-\bar{Z}_2\right)^2=\left(Z_1-\bar{Z}_2^2\right)+\left(Z_2-\bar{Z}_2\right)^2\)
+
+\begin{align*}
+    & = \left(Z_1-\frac{Z_1+Z_2}{2}\right)^2+\left(Z_2-\frac{Z_1+Z_2}{2}\right)^2\\
+    & = \left(\frac{Z_1-Z_2}{2}\right)^2+\left(\frac{Z_2-Z_1}{2}\right)^2=2\left(\frac{Z_1-Z_2}{2}\right)^2=\left(\frac{Z_1-Z_2}{\sqrt{2}}\right)^2
+\end{align*}
+
+Note
+\begin{align*}
+\begin{aligned}
+& Z_1-Z_2 \sim N(0,2)\\
+& \frac{Z_1-Z_2}{\sqrt{2}} \sim N(0,1) \\
+\Rightarrow & \left(\frac{Z_1-Z_2}{\sqrt{2}}\right)^2 \sim \chi_1^2(1)
+\end{aligned}
+\end{align*}
+
+
+Now to show that \(\bar{Z}_2\) and \(\sum_{j=1}^2\left(Zj-Z_n\right)^2\) are independent, we reed to show that \(Z_1+Z_2\) and \(Z_1-Z_2\), are independent since \(\sum_{j=1}^{2}(Zj-Zn)^2=\left(\frac{Z_1-Z_2}{\sqrt{2}}\right)^2\) is some function of \(Z_1\) and \(Z_2\) same as \(\bar{Z}_2=\frac{Z_1+Z_2}{2}\) is a function of \(Z_1\) and \(Z_2\).
+
+Now If,\(\bar{Z}_n\sim \mathcal{N}\left(0,\frac{1}{n}\right)\) 
+then \(\sqrt{n} \bar{Z}_n \sim \mathcal{N}(0,1)\) 
+and it is independent of \(\sum_{j=1}^n\left(Z_j - Z_n\right)^2\) too.
+
+Now, \(T=\frac{Z}{\sqrt{\frac{X}{n}}}\) where \(Z \sim \mathcal{N}(0,1)\) 
+and \(X\sim \chi^2_{n}\) and,
+
+\(\Rightarrow \frac{\sqrt{n} \bar{Z}_n}{\sqrt{\frac{\Sigma\left(Z_j-Z_n\right)^2}{n-1}}} \sim t_{n-1}\) distribution with \(n-1\) deg of freedom.
+
+
+Now suppose \(X_1, X_2, \ldots, X_n \overset{iid}{\sim}  \mathcal{N}\left(\mu, \sigma^2\right)\), then
+
+\begin{align*}
+    S_n^2=\frac{\sum_{i=1}^n\left(X_i-\bar{X}_n\right)^2}{n-1}
+    \end{align*}
+is the sample variance, when \(\bar{X_{n}}\) is the sample mean,
+and the distribution of \(\frac{(n-1) S_n^2}{\sigma^2}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2}{\sigma_2} \sim \chi_{n-1}^2\).
+
+Note that, 
+\begin{align*}
+ \frac{(n-1) S_n^2}{\sigma^2}&=\sum_{i=1}^n\left(\frac{X_i-\bar{X}}{\sigma}\right)^2 \\
+ &=\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}-\frac{\bar{X}_n-\mu}{\sigma}\right)^2 \\
+ &=\sum_{i=1}^n\left(Z_i-\bar{Z}_n\right) \sim \chi_{n-1}^2 
+\end{align*}
+and
+
+\begin{flalign*}
+ Z_i&=\frac{X_i - \mu}{\sigma} \sim \mathcal{N}(0,1)\\
+ \bar{Z}_n&=\frac{\sum \frac{X_i}{n}-\mu}{\sigma}=\frac{\sum\frac{\left(X_i-\mu\right)}{\sigma}}{n}=\bar{Z}_n
+\end{flalign*}
+  
+\begin{align*}
+    \begin{aligned}
+    & \bar{Z}_n=\frac{\sum_{i=1}^n\left(\frac{x_i-\mu}{\sigma}\right)}{n} \text { and } \frac{(n-1) s_n^2}{\sigma^2} \\
+    & \text { are independent by \(\cdots\) (1)} \\
+    & \bar{Z}_n=\frac{\bar{X}_n-\mu}{\sigma} \sim N\left(0, \frac{1}{n}\right) \\
+    & \text { then } \sqrt{n} \bar{Z}_n=\sqrt{n}\left(\frac{\bar{X_n}-\mu}{\sigma}\right) \sim \mathcal{N}(0,1)\\
+    & \implies \frac{\sqrt{n}\left(\frac{\bar{X_n}-\mu}{\sigma}\right)}{\sqrt{\frac{(n-1)S_n^2}{\sigma^2(n-1)}}} = \frac{\sqrt{n}\left(\frac{\bar{X_n}-\mu}{\sigma}\right)}{\sqrt{\frac{(S_n)^2}{\sigma^2}}} \sim t_{n-1}\\
+\end{aligned}
+\end{align*}
+
+Now, \(\frac{\sqrt{n}\left(\bar{x}_n-\mu\right)}{\sigma} \sim N(0,1)\) in this we can
+replace \(\sigma\) by \(S_n\) which will then give us \(\quad t_{n-1}\)  distribution and will have a fatter tail than \(\mathcal{N}(0,1)\).
+
+\section*{Statistics}
+\subsubsection{Point Estimation}
+When we are trying to estimate a finite number of points or parameter; e.g; trying to estimate the average height ofthe class of some tudents, where average height \(=\mu\) 
+So population \(\mu\) in the unknown parameter of interest.
+Say distribution of the whole Class’s average height is \(\mathcal{N}(\mu,1)\)
+then we draw a sample \(X_1, X_2, X_3, \ldots, X_n \overset{iid}{\sim}\mathcal{N}\left(\mu, 1\right)\) then we find a reasonable function \( h\left(X_1, X_2, \ldots, X_n\right)\) which will be equal to the estimator of \(\mu\).
+
+one good estimator of \(\mu\) is \(\frac{X_1+X_2+\cdots+X_n}{n}\), the sample mean, and it is good estimator because by law of large numbers as \(n \rightarrow \infty \quad \frac{X_1+X_2+\ldots X_n}{n}\) converges to \(\mu\) in probability.
+
+\subsubsection{Biased and Unbiased Estimators}
+(1) \(\hat{H }_1=X_1 \quad\) (is unbiased but not a very good estimator, since variance does not tend to $0$) 
+
+(2) \(\hat{H}_2=\frac{\sum_{i=1}^n X_i}{n}\) (is unbiased and also a good estimator)
+
+(3) \(\hat{H}_3=\frac{\sum_{i=1}^n X_i}{n}+\frac{1}{n}\) is a biased estimator.
+\end{document}
