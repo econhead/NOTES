@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{September 29th, 2024 }
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\author{Laxman Singh}
+\date{\today}
+\title{Convergence in Probability}
+
+\begin{document}
+ \section*{Convergence in Probability}
+    Let \(Y_{1},Y_{2},Y_{3},\ldots\) be a sequence of random variables (which can be dependent or independent). Let \(a \in \mathbb{R}\), we say that \(Y_{n}\) converges to $a$ in Probability, if \[\forall \epsilon > 0,\quad \lim_{n\to \infty} Pr\left( |Y_{n}-a|>\epsilon  \right) =0 \]
+    
+    or
+    \begin{equation*}
+        Pr\left( Y_{n} \notin \left( a-\epsilon,a+\epsilon \right)  \right)=0 
+    \end{equation*} 
+  \subsection{Limit of a sequence } 
+    If \(a_{1},a_{2},\ldots,a_{n+1},\ldots\) is a sequence of reals where,
+    \(a: \mathbb{N}\to \mathbb{R}\), \(a_{n}\in \mathbb{N}\)
+    
+    So \(\left( a_{n} \right) \) has a limit \(l\in \mathbb{R}\) if the following is true;
+    \begin{equation*}
+    \left( \forall \epsilon > 0 \right) \left( \exists N \in \mathbb{N}\right) \left( \forall n \in \mathbb{N} \right) \left( n>\mathbb{N} \implies |a_{n}-l|<\epsilon \right) 
+    \end{equation*}    
+
+    We say that the sequence of Random variables \(Y_{1},Y_{2},\ldots,Y_{n},\ldots\) converges in probabilty to \(a \epsilon \mathbb{R}\) if;
+    \begin{equation*}
+        \forall \epsilon >0 \quad \lim_{n\to \infty} Pr \left( |Y_{n}-a|>\epsilon \right) =0
+    \end{equation*}    
+    
+    Consider a sequence of \(iid\) random variables \(X_{1},X_{2},\ldots,X_{n},\ldots\), with \(\mathbb{E}[X_{i}]=\mu\) and \(Var\left( X_{i} \right)=\sigma^2 \). 
+    
+    We define Sample mean as follows;
+    \begin{equation*}
+        M_{n}=\bar{X_{n}}=\frac{\sum_{i=1}^{n}X_{i} }{n}    
+    \end{equation*}
+    Note that \(M_{1},M_{2},\ldots,M_{n}\) is also a sequnce of random variables with \(\mathbb{E}[M_{1}]=\mathbb{E}[M_{2}]=\ldots=\mathbb{E}[M_{n}]=\mu\) and \(Var[M_{n}]=\frac{\sigma^2}{n}=\mathbb{E}[M_{n}-\mu]^2\). 
+    So as \(n\) increases \(Var(M_{n})\) tends to \(\mu\) as it gets smaller and smaller. Which gives us the Weak law of large numbers. 
+    
+    \section*{Weak Law of Large numbers}
+     Let \(M_{n}\) be a sequence of sample means generated from \(iid\)  sample \(X_{n}\) with \(\mathbb{E}[X_{i}]=\mu \) and \(Var[X_{i}]=\sigma^2 \) then \(M_{n}\) converges in probability to \(\mu\)             
+
+    \end{document}
+
+
+
