@@ -28,7 +28,7 @@
     &= \mathbb{E}_{\theta}(\hat{\Theta}-\mathbb{E}_{\theta}(\hat{\Theta})+ \mathbb{E}_{\theta}(\hat{\Theta})-\theta)^2\\
     &= \mathbb{E}_{\theta}\left( \hat{\Theta} - \mathbb{E}_{\theta}(\hat{\Theta})\right)^2 + 
     \left( \mathbb{E}_{\theta}(\hat{\Theta}) - \theta \right)^2 \\  
-    &= \mathbb{V}_{\theta}(\hat{\Theta})+ (B_{\hat{\Theta}}(\theta))^2
+    &= \mathbb{V}_{\theta}(\hat{\Theta})+ {(B_{\hat{\Theta}}(\theta))}^2
    \end{align*}
     So Mean Squared Error (MSE) is equal to the Variance of the estimator \(\hat{\Theta}\) plus the squared bias of the estimator \(\hat{\Theta}\).
 
@@ -37,7 +37,7 @@
    \begin{itemize}
     \item \(\hat{\Theta}=\max(X_{1},X_{2},\ldots,X_{n})\).
     \item Check for the unbiasedness and consistency of \(\hat{\Theta}\).
-    \item Determine the \(\mathrm{MSE}_{\hat{\Theta}}(\theta)\quad \forall \theta\).     
+    \item Determine the \(\mathrm{MSE}_{\hat{\Theta}}(\theta)\quad \forall \theta \).     
    \end{itemize}
 
    We can easily see that the estimator is not unbiased because we are taking the maximum possible value of one particular sample, 
@@ -49,8 +49,8 @@
    \end{equation*}    
    Now,
    \begin{align*}
-    F_{\hat{\Theta}}(x)&= Pr_{\theta}(\max(X_{1},\ldots,X_{n})\leq x) \\
-    &= (Pr_{\theta}\left( X_{1}\leq x \right))^n \\
+    F_{\hat{\Theta}}(x)&= \Pr_{\theta}(\max(X_{1},\ldots,X_{n})\leq x) \\
+    &= (\Pr_{\theta}\left( X_{1}\leq x \right))^n \\
     &= \left( \frac{x}{\theta} \right)^n\\
     f_{\hat{\Theta}}(x)&= \frac{nx^{n-1}}{\theta^n},  \quad 0\leq x\leq \theta
    \end{align*}
@@ -176,5 +176,5 @@
         &\Rightarrow n\mu = \sum_{i=1}^n x_i\\
         &\hat{\mu_{MLE}} = \frac{1}{n} \sum_{i=1}^n X_i        
     \end{align*} 
-    This is the sample mean, which makes intuitive sense as the best estimator of the population mean \(\mu\)  .
+    This is the sample mean, which makes intuitive sense as the best estimator of the population mean \(\mu\). 
 \end{document}

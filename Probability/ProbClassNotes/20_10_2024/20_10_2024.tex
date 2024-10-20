@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx, hyperref}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\author{Laxman Singh}
+\date{\today}
+\title{}
+
+\begin{document}
+ \section*{Interval Estimation} 
+ \href{https://www.probabilitycourse.com/chapter8/8_3_0_interval_estimation.php}{ProbabilityCourse.com}
+ 
+ \subsection*{Example 8.13}
+ Let \(X_1, X_2, X_3, \ldots, X_n\) be a random sample from a normal distribution \(N(\theta, 1)\). Find a \(95 \%\) confidence interval for \(\theta\). 
+
+ \(\implies X_{1},X_{2}\ldots,X_{n}\sim \mathcal{N}(\theta,1)\) find \((1-\alpha)100\% \) CI for \(\theta\) 
+ 
+ More generally, we can find a \((1-\alpha)\) interval for the standard normal random variable. Assume \(Z \sim N(0,1)\). Let us define a notation that is commonly used. For any \(p \in[0,1]\), we define \(z_p\) as the real value for which
+
+ \begin{align*}
+ P\left(Z>z_p\right)=p .
+ \end{align*}
+ 
+ 
+ Therefore,
+ 
+ \begin{align*}
+ \Phi\left(z_p\right)=1-p, \quad z_p=\Phi^{-1}(1-p)
+ \end{align*}
+ 
+ 
+ By symmetry of the normal distribution, we also conclude
+ 
+ \begin{align*}
+ z_{1-p}=-z_p
+ \end{align*}
+
+ Note that,
+
+ \(\sqrt{n}(\bar{X}_{n}-\theta)\sim \mathcal{N}(0,1)\)
+ 
+ \(\Pr_{\theta} (-z_{\frac{\alpha}{2}}\leq \sqrt{n}(\bar{X}_{n}-\theta) \leq z_{\frac{\alpha}{2}})=1-\alpha \quad \forall \theta\)
+
+ \(\Pr_{\theta}\left(\frac{-z_{\frac{\alpha}{2}}}{\sqrt{n}}\leq (\bar{X}_{n}-\theta) \leq \frac{z_{\frac{\alpha}{2}}}{\sqrt{n}}\right)=1-\alpha\)  
+
+ \(\Pr_{\theta}\left(\frac{-z_{\frac{\alpha}{2}}}{\sqrt{n}}\leq \theta-\bar{X}_{n} \leq \frac{z_{\frac{\alpha}{2}}}{\sqrt{n}}\right)=1-\alpha\)  
+
+ \(\Pr_{\theta}\left(\bar{X}_{n}-\frac{z_{\frac{\alpha}{2}}}{\sqrt{n}}\leq \theta \leq \bar{X}_{n}+\frac{z_{\frac{\alpha}{2}}}{\sqrt{n}}\right)=1-\alpha\)  
+
+ \(\Pr_{\theta}\left( \theta \in\left[ \bar{X}_{n}-\frac{z_{\frac{\alpha}{2}}}{\sqrt{n}} \ ,\  \bar{X}_{n}+\frac{z_{\frac{\alpha}{2}}}{\sqrt{n}} \right] \right) =1-\alpha\)  
+ 
+ \subsection*{Example 8.15}
+ Let \(X_1, X_2, X_3, \ldots, X_n\) be a random sample from a distribution with known variance \(\operatorname{Var}\left(X_i\right)=\sigma^2\) , and unknown mean \(E X_i=\theta\). Find a \((1-\alpha)\) confidence interval for \(\theta\). Assume that \(n\) is large.
+ 
+ \begin{align*}
+     &X_{1},X_{2},\ldots,X_{n} \quad \text{distributed with some} \quad \mathbb{V}(X_{i})=\sigma^2 \text{(known)} \\
+    &\mathbb{E}(X_{i})= \theta \text{(unknown)} \ \text{find} \
+    (1-\alpha) 100\% \text{ CI for} \ \theta \\
+    &\text{Note That,}\\
+    &\frac{\sqrt{n}(\bar{X}_{n}-\theta)}{\sigma} \overset{\cdot}{\sim} \mathcal{N}(0,1)\\ 
+    &\Pr_{\theta}\left( -z_{\frac{\alpha}{2}} \leq \frac{\sqrt{n}(\bar{X}_n - \theta)}{\sigma} \leq z_{\frac{\alpha}{2}} \right) = 1-\alpha\\
+    &\Pr_{\theta}\left( -z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \leq (\bar{X}_n - \theta) \leq z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right) = 1-\alpha\\
+    &\Pr_{\theta}\left(\bar{X}_{n} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \leq \theta \leq \bar{X}_{n}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right) = 1-\alpha\\
+    &\Pr_{\theta}\left( \theta \in \left[ \bar{X}_{n} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \ , \ \bar{X}_{n}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}  \right]  \right) =1 - \alpha
+\end{align*}
+
+\subsection*{Example 8.17}
+ (Public Opinion Polling) We would like to estimate the portion of people who plan to vote for Candidate A in an upcoming election. It is assumed that the number of voters is large, and \(\theta\) is the portion of voters who plan to vote for Candidate A . We define the random variable \(X\) as follows. A voter is chosen uniformly at random among all voters and we ask her/him: "Do you plan to vote for Candidate \(A\) ?" If she/he says "yes," then \(X=1\), otherwise \(X=0\). Then,
+
+\begin{align*}
+X \sim \operatorname{Bernoulli}(\theta) .
+\end{align*}
+Let \(X_1, X_2, X_3, \ldots, X_n\) be a random sample from this distribution, which means that the \(X_i\) 's are i.i.d. and \(X_i \sim \operatorname{Bernoulli(\theta )}\). In other words, we randomly select \(n\) voters (with replacement) and we ask each of them if they plan to vote for Candidate A . Find a \((1-\alpha) 100 \%\) confidence interval for \(\theta\) based on \(X_1, X_2, X_3, \ldots, X_n\).
+
+\begin{align*}
+    &X_{1},X_{2},\ldots,X_{n} \ iid \ \mathrm{Bern}(\theta) , \quad \mathbb{E}(X_{i})= \theta \quad , \mathbb{V}(X_{i})=\theta(1-\theta) \leq \frac{1}{4} \\
+    &\text{Since,}\\
+    &\max_{\theta \in [0,1]}\theta(1-\theta) = \frac{1}{4} \\
+    &\text{then if we find} \quad (1-\alpha) \ 100\% \ \text{CI for} \ \theta \text{ We get,}\\
+    &\left[ \bar{X}_{n} - z_\frac{{\alpha}}{2}\frac{1}{2\sqrt{n}} \ , \ \bar{X}_{n} + z_\frac{{\alpha}}{2}\frac{1}{2\sqrt{n}}  \right]\\
+    \text{OR}\\
+    &\mathbb{V}(X_{i})\approx \bar{X}_{n}(1-\bar{X}_{n})\\
+    &\left[ \bar{X}_{n} - z_\frac{{\alpha}}{2}\sqrt{\frac{\bar{X}_{n}(1-\bar{X}_{n}}{n}} \ , \ \bar{X}_{n} + z_\frac{{\alpha}}{2}\sqrt{\frac{\bar{X}_{n}(1-\bar{X}_{n}}{n}} \ \right]\\
+\end{align*}
+
+\end{document}
