@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\author{Laxman Singh}
+\date{\today}
+\title{Hypothesis Testing}
+
+\begin{document}
+ \section*{\underline{Hypothesis Testing}}
+We have two hypotheses, a default (null) (\(H_{0}\)) hypothesis and some challenging (alternative) (\(H_{1}\) or \(H_{A}\)) hypothesis.
+Say we have an experiment of tossing a coin 100 times and two hypotheses that the coin is fair \(H_{0}\)  and the coin is not fair \(H_{A}\).  
+\begin{align*}
+    H_{0} & : \theta =\frac{1}{2}\\
+    H_{A} & : \theta \neq \frac{1}{2}\\
+    \text{Test} & : \text{Possible Observations} \to \{H_{0},H_{A}\}
+\end{align*}
+A test will classify the observations of an experiment according to our two possible hypotheses.
+As statisticians our job is to design a sensible test.
+A sensible test in our example could be \[|X - 50| \leq t \to H_{0}\]
+where \(X\) is the number of Heads.  
+
+Now under the null Hypothesis, \(X \sim \text{Bin}(100,\frac{1}{2}) \), and \(X \overset{\cdot}{\sim} \mathcal{N}(50,25)\) and \(\frac{X-50}{5} \overset{\cdot}{\sim} \mathcal{N}(0,1)\) then under this a sensible type 1 error probability would be,
+\begin{align*}
+    \Pr_{H_{0}}(|X-50| > t) &=0.05\\
+    \Pr (|Z|>2) &= 0.05 \\
+    \Pr \bigg( \left|\frac{X-50}{5}\right| > 2 &= 0.05\bigg) \\
+    \Pr (|X-50| > 10) &= 0.05
+\end{align*}  
+So in this case we accept \(H_{0}\) for \(40,41,\ldots,50,\ldots,60\) and for the other values we reject the null \(H_{0}\).  
+\pagebreak
+
+Suppose you draw a sample of size \(1\) and we have the following two hypotheses,
+\begin{align*}
+    H_{0} &: X \sim \text{Unif}(0,1)\\
+    H_{1} &: X \sim \text{Beta}(2,1)\\
+\end{align*} 
+We need to find a sensible test for the \(\alpha = 0.1\) level of significance, and also find the type 2 error probability; 
+
+\(T : [0,1] \to \{H_{0},H_{1}\} \)  will be the sensible test we are looking for, 
+
+Suppose \(X\) is one observation,
+\begin{align*}
+    H_{0} &: X \sim \text{Unif}(0,1)\\
+    H_{1} &: f_{X}(x)=\begin{cases} 4x \ \text{for} \ x \in [0,\frac{1}{2}]\\
+        4-4x  \ \text{for} \ x \in (\frac{1}{2},1] % chktex 9\\
+    \end{cases}
+    \alpha = 0.1    
+\end{align*} 
+Find a sensible test for the \(\alpha \) level of significance.
+
+\( \implies \) Reject if \(0.45<X<0.55\), Accept \(H_{0}\) otherwise.  
+
+And the probability of type 2 error would be,
+
+\pagebreak
+
+Suppose \(X_{1},X_{2},\ldots,X_{n} \ iid \ \mathcal{N}(\theta,1), \quad n = 25 \).  
+\begin{align*}
+    H_{0} &: \theta =0\\
+    H_{1} &: \theta =1\\
+    \alpha &= 0.05 
+\end{align*}
+Note that, 
+\begin{align*}
+    \overline{X}_{25} \sim \mathcal{N}\left( 0,\frac{1}{25} \right) \quad \text{Under} \ H_{0}\\
+    \overline{X}_{25} \sim \mathcal{N}\left( 1,\frac{1}{25} \right)
+    \quad \text{Under} \ H_{1}\\ 
+\end{align*}
+A sensible test in this example would be \(T : (-\infty, \infty) \to \{H_{0},H_{1}\} \)  
+\end{document} 

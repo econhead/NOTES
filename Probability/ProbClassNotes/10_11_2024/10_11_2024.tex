@@ -1,0 +1,166 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Probability/ProbClassNotes/10_11_2024/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Linear Regression}
+
+\begin{document}
+    \section*{\underline{Linear Regression}}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{Screenshot 2024-11-10 at 16.10.47}
+        \caption{The Best fit line}
+        \label{Label}
+    \end{figure}
+   
+   \(\min_{a,b}\sum_{i=1}^{n}(y_{i}-a-bx_{i})^2\)  
+
+   Differentiating w.r.t \(a\) we get,
+   
+   \(-2\sum_{i=1}^{n}(y_i-a-bx_i)=0\)
+
+   Differentiating w.r.t \(b\) we get,
+   
+   \(-2\sum_{i=1}^{n}(y_i-a-bx_i)x_{i}=0\)
+
+   Rewriting the above equations;
+   \begin{equation*}
+    \begin{split}
+        na + b\sum x_{i}= \sum y_{i}\\
+        a\sum x_{i} +b \sum x_{i}^2 = \sum x_{i}y_{i}\\ 
+    \end{split}
+    \end{equation*}
+    or,
+    \begin{equation*}
+        \begin{split}
+            \frac{\sum x_{i}}{n}\times [na + b\sum x_{i}= \sum y_{i}] \qquad \ldots (1)\\
+            a\sum x_{i} +b \sum x_{i}^2 = \sum x_{i}y_{i} \qquad \ldots (2)\\ 
+        \end{split}
+        \end{equation*}  
+    From 1 we get;
+
+    \begin{equation*}
+       a\sum x_{i}+ \frac{b\left( \sum x_{i} \right)^2}{n} = \frac{\sum x_{i}\sum y_{i}}{n} \qquad \ldots (3) 
+    \end{equation*} 
+    
+    Subtracting 3 from 2 we get;
+    \begin{align*}
+        b \left(\sum x_{i}^2 - \frac{(\sum x_{i})^2}{n} \right)&= \sum x_{i}y_{i} - \frac{\sum x_{i}\sum y_{i}}{n}\\
+        \implies \text{Slope of the best fit line,} \ b&= \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}{n\sum x_{i}^2 - \left( \sum x_{i} \right)^2} 
+    \end{align*}    
+ So,
+  \begin{align*}
+    b&= \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}{n\sum x_{i}^2 - \left( \sum x_{i} \right)^2}\\
+    &= \frac{\sum(X_{i}-\bar{X})(Y_{i}-\bar{Y})}{\sum (X_{i}-\bar{X})^2}\\
+    &= \frac{\sum (X_{i}-\bar{X})Y_{i}}{\sum (X_{i}-\bar{X})^2}, \qquad \text{where} \ \bar{X}= \frac{\sum x_{i}}{n} \ \text{and} \ \bar{Y}= \frac{\sum y_{i}}{n} \\
+ \end{align*}
+
+ and since, \(a+b\bar{X} = \bar{Y}\)  we get, 
+ \begin{align*}
+    a&= \bar{Y}-b\bar{X}
+\end{align*}
+ \subsection*{Linear Regression Model} 
+ \begin{figure}[ht]
+     \centering
+     \includegraphics[scale=0.6]{Screenshot 2024-11-10 at 16.39.20}
+     \caption{Linear Regression Model}
+     \label{Label}
+ \end{figure}
+     
+ There are some unknown parameters that we want to estimate just like in estimation.
+
+ \(E(Y_{i}|X_{i})= \alpha + \beta X_{i}\)
+ 
+ Now we have the following assumptions about our model;
+ \begin{itemize}
+ 
+ \item \(Y_{i}= \alpha + \beta X_{i} + \epsilon_{i}\) \qquad \ldots \((A_1)\)
+ 
+ where \(\epsilon_{i}\) is a random variable.
+ 
+ So we are trying to estimate \(\alpha \ \text{and} \ \beta\)  for which we will draw some points from around the line(population) \((x_{1},y_{1}),(x_{2},y_{2})\ldots(x_{n},y_{n})\)   and then using those points we will try to estimate the line.
+
+ \item Now if we fix \(X_{i}\)'s and then for each \(X_{i}\) we draw a value of \(Y_{i}\) then \(E(\epsilon_{i})=0 \quad \forall i\) \qquad \ldots \((A_2)\)
+ 
+ and if we do not fix \(X_{i}\)'s then \(E(\epsilon_{i}|X_{i})=0  \quad \forall X_{i}\)   
+ 
+ \item \(E(\epsilon_{i}^2)=\sigma^2 \quad \forall i\). 
+ \qquad \ldots \((A_3)\) 
+ \item \(E(\epsilon_{i}\epsilon_{j})=0 \quad \forall i \neq j\) \qquad \ldots \((A_4)\)  
+\end{itemize}
+or we can have a much stronger assumption rather than all the last three above, i.e.,
+
+\(\epsilon_{i}\)'s \(\overset{iid}{\sim} \mathcal{N}(0,\sigma^2)\). \qquad \ldots \((A_5)\)
+
+So now,
+\begin{equation*}
+    \hat{\beta}_{\text{OLS}}=\frac{\sum_{i=1}^{n}(X_{i}-\bar{X})Y_{i}}{\sum_{i=1}^{n}(X_{i}-\bar{X})^2}
+\end{equation*}
+and
+\begin{equation*}
+    \hat{\alpha}_{\text{OLS}}= \bar{Y}- \hat{\beta}_{\text{OLS}}\bar{X}
+\end{equation*}     
+Now under assumptions \(A_{1},A_{2},A_{3},A_{4}\) and specifically \(A_{1},A_{2}\);  
+\begin{align*} 
+    & E\left(\hat{\beta}_{OLS}\right)=E\left(\frac{\sum\left(X_i-\bar{X}\right)\left(\alpha+\beta X_i+\epsilon_i\right)}{\sum\left(X_i-\bar{X}\right)^2}\right) \\ 
+    & \quad=E\left(\frac{\alpha \sum\left(X_i-\bar{X}\right)}{\sum\left(X_i-\bar{X}\right)^2}+\frac{\beta \sum\left(X_i-\bar{X}\right) X_i}{\sum\left(X_i-\bar{X}\right)^2}+\frac{\sum\left(X_i-\bar{X}\right) \epsilon_i}{\sum\left(X_i-\bar{X}\right)^2}\right. \\ 
+    & \quad=E\left(\beta+\frac{\sum\left(X_i-\bar{X}\right) \epsilon_i}{\sum\left(X_i-\bar{X}\right)^2}\right)=\beta \qquad \text{since} \ \frac{\sum (X_{i}-\bar{X})X_{i}}{\sum (X_{i}-\bar{X})^2}=1 \ \text{and} \ \frac{\alpha\sum (X_{i}-\bar{X})}{\sum (X_{i}-\bar{X})^2}=0
+\end{align*}
+\pagebreak
+
+Now under assumptions \(A_1,A_2,A_3,A_4\);
+\begin{align*}
+    Var(\hat{\beta}_{\text{OLS}})&= E(\hat{\beta}_{\text{OLS}}-\beta)^2\\
+    &= E\left( \left(\frac{\sum (X_{i}-\bar{X})\epsilon_{i}}{\sum(X_{i}-\bar{X})^2} \right)^2 \right)\\
+    &=\frac{1}{\left( \sum (X_{i}-\bar{X})^2 \right)^2 }E\left( \left( \sum (X_{i} -\bar{X})\epsilon_{i} \right)^2  \right) \\
+    &=\frac{1}{\left( \sum (X_{i}-\bar{X})^2 \right)^2 } E\left( \sum_{i=1}^n (X_{i}-\bar{X})^2 +2\sum_{i<j}(X_{i}-\bar{X})(X_{j}- \bar{X} )\epsilon_{i}\epsilon_{j}  \right) \\
+    &= \frac{\sum (X_{i}-\bar{X})^2}{\left( \sum \left( X_{i}-\bar{X} \right)^2  \right)^2 }= \frac{\sigma^2}{\sum (X_{i}-\bar{X})^2}\\
+\end{align*}
+
+Now if we assume assumption \(A_5\) we can even find the distribution of \(\hat{\beta}_{\text{OLS}}\);
+
+ \begin{align*}
+    \hat{\beta}_{\text{OLS}}&= \beta + \frac{\sum (X_{i}-\bar{X})\epsilon_{i}}{\sum (X_{i}- \bar{X} )^2 } \qquad \text{ is }  \ \mathcal{N}\left( \beta,\frac{\sigma^2}{\sum (X_{i}-\bar{X})^2}  \right) 
+\end{align*}
+\pagebreak
+
+\subsection*{Multiple Linear Regression}
+
+Suppose we have \(n\) observations; and  Assume that \(x\) is full rank;
+
+\(\left[\begin{array}{c}y_1 \\ y_2 \\ \vdots \\ y_n\end{array}\right]_{n \times 1}\left[\begin{array}{ccc}x_{11} & \cdots & x_{1 m} \\ \vdots & & \\ \vdots & & \\ x_{m 1} & \cdots & x_{n m}\end{array}\right]_{n \times m}\left[\begin{array}{c}\beta_1 \\ \vdots \\ \vdots \\ \beta_m\end{array}\right]_1 + \epsilon_{i}\)
+ 
+\begin{align*}
+    &\left( y-x\beta \right)^{T}_{1\times n}(y-x\beta)_{n\times 1}\\
+    &=(y^T-\beta^Tx^T)(y-x\beta)\\
+    &=y^Ty-y^Tx\beta-\beta^Tx^Ty+ \beta^{T}x^{T}x\beta\\
+    &=y^T y-2\beta^{T} x^{T} y+ \beta^{T} x^{T} x \beta\\
+    &\text{differentiating w.r.t} \ \beta^T \ \text{we get,}\\
+    &=-2x^{T}y +2x^{T}x\beta =0 \\
+    &=\hat{\beta}_{\text{OLS}}=\left( x^Tx \right)^{-1}(x^Ty)\\ 
+    &E(\hat{\beta}_{\text{OLS}})=E(\beta + (x^Tx)^{-1}x^T \epsilon)= \beta\\
+\end{align*}
+and
+\begin{align*}
+    \begin{aligned}
+    & Var(\hat{\beta}_{\text{OLS}})=E\left(\hat{\beta}_{\text {OLS}}-\beta\right)^2 \\
+    &=E\left(\left(x^{\top} x\right)^{-1} x^{\top} \epsilon \epsilon^{\top} x\left(x^{\top} x\right)^{-1}\right) \\
+    &= \sigma^2 E\left(\left(x^{\top} x\right)^{-1} x^{\top} x\left(x^{\top} x\right)^{-1}\right) \qquad \text{ since } \ E\left( \epsilon_{n \times 1}-\epsilon^{\top}_{1 \times n} \right) = \sigma^2I_{n \times n} \\
+    &=\sigma^2\left(x^{\top} x\right)^{-1}
+    \end{aligned}
+    \end{align*}
+\end{document}

@@ -1,0 +1,212 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\author{Laxman Singh}
+\date{\today}
+\title{Bayesian Games}
+\begin{document}
+\section{\underline{Bayesian Games}}
+\subsection{Swap/Retain Game}
+
+Consider the following two-player game.
+\begin{itemize}
+\item The players simultaneously and independently draw a number from the set \(\{10,20,30,40,50\}\).
+
+\item After observing the value of her own sample, which is private information (that is, opponent does not observe it), players simultaneously and independently choose one of the following: 
+SWAP,RETAIN.
+
+\item If both the players choose SWAP then they exchange their initially drawn numbers. Otherwise, if at least one person chooses RETAIN, both of them retain their numbers.
+
+\item A player earns as many Rupees as the number she is holding at the end of the game.
+\end{itemize}
+ 
+The Choice in this game will be a strategy s, such that;
+\begin{equation*}
+    s:\{10,20,30,40,50\} \rightarrow \{\text{SWAP,RETAIN}\}
+\end{equation*}    
+
+Note that there are \(2^5\) number of such strategies for each of the players, and therefore there are \((2^5)^2=32^2\) number of ways in which this game can be played assuming there are no mixed strategies that can be played!
+
+Now we can choose the strategies in this way;
+ \begin{align*}
+    s(50)= \text{RETAIN} & \qquad s_{\text{other}}(50)=\text{RETAIN}\\
+    s(40)= \text{RETAIN} & \qquad s_{\text{other}}(40)=\text{RETAIN}\\
+    s(30)= \text{RETAIN} & \qquad s_{\text{other}}(30)=\text{RETAIN}\\
+    s(20)= \text{RETAIN} & \qquad s_{\text{other}}(20)=\text{RETAIN}\\
+    s(10)= \text{SWAP,RETAIN} & \qquad s_{\text{other}}(10)=\text{SWAP,RETAIN}\\
+\end{align*}
+
+Note that there are four Nash Equilibriums in this game!
+
+More Formally, 
+
+A Bayesian Game consists of
+\begin{itemize}
+
+\item Set of Players: \(N=\{1,2, \ldots, n\}\)
+
+\item Action Sets: Action set of player \(i\) is denoted by \(A_i\). Set of all action profiles: \(A=A_1 \times \cdots \times A_n\)
+
+\item Type Sets: Type set of player \(i\) is denoted by \(\Theta_i\). Set of all type profiles: \(\Theta=\Theta_1 \times \cdots \times \Theta_n\)
+
+\item Utility: Utility function of player \(i\) is: \(u_i: A \times \Theta \rightarrow \mathbb{R}\)
+
+\item Belief: \(p_i\left(\theta_{-i} \mid \theta_i\right)\) is the conditional probability that \(i\) gives to others' types being \(\theta_{-i}\) given \(\theta_i\)
+\end{itemize}
+
+
+Now we can formally define the Swap/Retain game;
+
+\begin{itemize}
+    \item \(N=\{1,2\}\)  
+    \item Action Sets: 
+    \begin{flalign*}&A_{1}=\{\text{SWAP,RETAIN}\}&\\
+    &A_{1}=\{\text{SWAP,RETAIN}\}&\\
+    &A=A_{1}\times A_{2}&
+    \end{flalign*}
+    \item Type Sets:
+    \begin{flalign*} 
+     &\Theta_{1}=\{10,20,30,40,50\}&\\
+     &\Theta_{2}=\{10,20,30,40,50\}&\\
+     &\Theta = \Theta_{1} \times \Theta_{2}&
+    \end{flalign*}
+    \item Utility: \(u_{i}A_{1}\times A_{2} \times \Theta_{1} \times \Theta_{2} \to \mathbb{R}\) is defined as follows
+     \begin{flalign*}
+        &u_{1}(a_{1},a_{2},\theta_{1},\theta_{2})=
+        \begin{cases}
+            \theta_{2} & \text{if} \ a_{1}=a_{2}=\text{SWAP}\\
+            \theta_{1} & \text{otherwise}
+        \end{cases}&\\
+        &u_{2}(a_{1},a_{2},\theta_{1},\theta_{2})=
+        \begin{cases}
+            \theta_{1} & \text{if} \ a_{1}=a_{2}=\text{SWAP}\\
+            \theta_{2} & \text{otherwise}
+        \end{cases}&
+    \end{flalign*}
+    \item \(p_{1}(\theta_{2}|\theta_{1})=\frac{1}{5} \qquad \forall \theta_{2} \in \Theta_{2}, \quad \forall \theta_{1} \in \Theta_{1}\) 
+    
+    \(p_{2}(\theta_{1}|\theta_{2})=\frac{1}{5} \qquad \forall \theta_{1} \in \Theta_{1}, \quad \forall \theta_{2} \in \Theta_{2}\)  
+\end{itemize}
+Both players know the joint distribution of their types!
+\paragraph{}
+Now, Strategy of Player \(i\) in a Bayesian Game is a function from type set of the player \(\Theta_{i}\); to the set fo actions \(A_{i}\)   he can take.
+\begin{align*}
+s_{i}: \theta_i \rightarrow A_i
+\end{align*}
+\(s\left(\theta_i\right) \in A_1\) is the action specified by strategy s; for type
+\(\hat{\theta}_i \in \Theta_i\), i.e. if \(i\) plays according to s, then he takes an action \(s_5\left(\theta_1\right)\) when his type his \(\theta_i\). Let \(S_i\) denotes set of all such functions.
+
+- A strategy profile is given by
+\begin{align*}
+s=\left(s_1, s_2, \ldots, s_n\right) \in S_1 \times \cdots \times S_n
+\end{align*}
+
+- Let us call the set of all strategy profiles \(S\) i.e.
+\begin{align*}
+S=S_1 \times \cdots \times S_n
+\end{align*}
+
+- Expected utility is a function \(U_i: A_{i} \times S_{-i} \times \Theta_i \rightarrow \mathbb{R}\).
+- Expected utility of type \(\theta_i\) of player \(i\) when players play according to \(s\) is given by
+
+\begin{align*}
+U_i\left(s_i\left(\theta_i\right), s_{-i}, \theta_i\right)=\sum_{\theta_{-i} \in \Theta_{-i}} p_i\left(\theta_{-i} \mid \theta_i\right) u_i\left(s_i\left(\theta_i\right), s_{-i}\left(\theta_{-i}\right), \theta_i, \theta_{-i}\right)
+\end{align*}
+\pagebreak
+
+Bayesian Nash equilibrium
+\begin{itemize}
+\item Strategy profile \(s^*=\left(s_1^*, s_2^*, \ldots, s_n^*\right) \in S\) constitutes the Bayesian Nash equilibrium if for all \(i\), for all \(\theta_i, s_i^*\left(\theta_i\right)\) maximizes player \(i\) 's expected utility given that the other players play according to \(s_{-i}^*\) i.e. \(s^*\) is the Bayesian Nash equilibrium if \(\forall i \in N, \forall \theta_i \in \Theta_i\),
+
+\begin{align*}
+U_i\left(s_i^*\left(\theta_i\right), s_{-i}^*, \theta_i\right) \geq U_i\left(a_i, s_{-i}^*, \theta_i\right) \quad \forall a_i \in A_i
+\end{align*}
+\end{itemize}
+
+Suppose 
+
+\(s_{2}(10)=s_{2}(20)=\text{SWAP}\)  
+
+\(s_{2}(30)=s_{2}(40)=s_{2}(50)=\text{RETAIN}\)  
+
+Find the Best Response strategy for player 1?
+
+ \begin{align*}
+    s_{1}(50)=\text{RETAIN}\\
+    s_{1}(50)=\text{RETAIN}\\
+    s_{1}(50)=\text{RETAIN}\\
+    s_{1}(50)=\text{RETAIN}\\
+    s_{1}(50)=\text{SWAP}\\
+\end{align*}
+
+Given this best response of player 1, player 2 will also fix his own
+
+\subsection{Battle of Sexes}
+\begin{itemize}
+
+\item There are two possible types of player 2 (column): "Meet" player 2 wishes to be at the same place as player 1, just as in the usual game (This type has probability \(p=1 / 4\) ). "Avoid" 2 wishes to avoid player 1 and go to the other place (This type has probability \(1-p=3 / 4\) ).
+\item 2 knows his type, and 1 does not. They simultaneously choose the place Movie \((M)\) or Shopping \((S)\). These payoffs are shown in the matrices below.
+\end{itemize}
+
+\begin{align*}
+p=\frac{1}{4}
+\end{align*}
+\begin{tabular}{|c|cc|}
+\hline Meet & S & M \\
+\hline S & \((2,1)\) & \((0,0)\) \\
+M & \((0,0)\) & \((1,2)\) \\
+\hline
+\end{tabular}
+
+\begin{align*}
+1-p=\frac{3}{4}
+\end{align*}
+\begin{tabular}{|c|cc|}
+\hline Avoid & \(S\) & \(M\) \\
+\hline\(S\) & \((2,0)\) & \((0,2)\) \\
+\(M\) & \((0,1)\) & \((1,0)\) \\
+\hline
+\end{tabular}
+
+ \begin{flalign*}
+    N=\{1,2\}\\
+    A_{1}=\{S,M\}\\
+    A_{2}=\{S,M\}\\
+    \Theta_{1}=\{\text{Meet}\} \quad \Theta_{2}=\{\text{Meet, Avoild}\}\\
+    u_{1}: A_{1}\times A_{2}\times \Theta_{1} \times \Theta_{2} \rightarrow \mathbb{R}\\
+    u_{1}(S,S,\text{Meet,Meet})=2\\
+    u_{1}(S,S,\text{Meet,Avoid})=2\\
+\end{flalign*}
+
+ \begin{align*}
+    s_{1}&=S \qquad u_{1}(S,s_{2},\text{Meet})=2\left( \frac{1}{4} \right) + 0 \left( \frac{3}{4} \right) = \frac{1}{2}\\
+    s_{2}(Meet)&=S \qquad u_{1}(M,s_{2},\text{Meet})=0\left( \frac{1}{4} \right) + 1 \left( \frac{3}{4} \right) = \frac{3}{2} \\
+    s_{2}(Avoid)&=M\\
+\end{align*}
+
+Now
+
+ \begin{align*}
+    s_{1}&=M \qquad u_{1}(S,s_{2}^{'},\text{Meet})=0\left( \frac{1}{4} \right) + 2 \left( \frac{3}{4} \right) = \frac{3}{2}\\
+    s_{2}^{'}(Meet)&=M \qquad u_{1}(M,s_{2}^{'},\text{Meet})=1\left( \frac{1}{4} \right) + 0 \left( \frac{3}{4} \right) = \frac{1}{4} \\
+    s_{2}^{'}(Avoid)&=S\\  
+\end{align*}
+
+\(M \to (M,S) \to S \to (S,M) \to M\) 
+
+Therefore there is no Bayesian Nash Equilibrium in Pure strategies of this game. 
+
+\end{document}
