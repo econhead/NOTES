@@ -127,12 +127,12 @@ Now under assumptions \(A_1,A_2,A_3,A_4\);
     Var(\hat{\beta}_{\text{OLS}})&= E(\hat{\beta}_{\text{OLS}}-\beta)^2\\
     &= E\left( \left(\frac{\sum (X_{i}-\bar{X})\epsilon_{i}}{\sum(X_{i}-\bar{X})^2} \right)^2 \right)\\
     &=\frac{1}{\left( \sum (X_{i}-\bar{X})^2 \right)^2 }E\left( \left( \sum (X_{i} -\bar{X})\epsilon_{i} \right)^2  \right) \\
-    &=\frac{1}{\left( \sum (X_{i}-\bar{X})^2 \right)^2 } E\left( \sum_{i=1}^n (X_{i}-\bar{X})^2 +2\sum_{i<j}(X_{i}-\bar{X})(X_{j}- \bar{X} )\epsilon_{i}\epsilon_{j}  \right) \\
-    &= \frac{\sum (X_{i}-\bar{X})^2}{\left( \sum \left( X_{i}-\bar{X} \right)^2  \right)^2 }= \frac{\sigma^2}{\sum (X_{i}-\bar{X})^2}\\
+    &=\frac{1}{\left( \sum (X_{i}-\bar{X})^2 \right)^2 } E\left( \sum_{i=1}^n (X_{i}-\bar{X})^2\epsilon_{i}^2 +2\sum_{i<j}(X_{i}-\bar{X})(X_{j}- \bar{X} )\epsilon_{i}\epsilon_{j}  \right) \\
+    &= \frac{\sum (X_{i}-\bar{X})^2\sigma^2}{\left( \sum \left( X_{i}-\bar{X} \right)^2  \right)^2 }= \frac{\sigma^2}{\sum (X_{i}-\bar{X})^2}\\
 \end{align*}
 
 Now if we assume assumption \(A_5\) we can even find the distribution of \(\hat{\beta}_{\text{OLS}}\);
-
+The Distribution of 
  \begin{align*}
     \hat{\beta}_{\text{OLS}}&= \beta + \frac{\sum (X_{i}-\bar{X})\epsilon_{i}}{\sum (X_{i}- \bar{X} )^2 } \qquad \text{ is }  \ \mathcal{N}\left( \beta,\frac{\sigma^2}{\sum (X_{i}-\bar{X})^2}  \right) 
 \end{align*}
