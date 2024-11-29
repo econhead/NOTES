@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\author{Laxman Singh}
+\date{\today}
+\title{Linear Regression Contd.}
+
+\begin{document}
+   \section*{  \underline{ Linear Regression Contd. }  } 
+    \subsection*{  \underline{ Gradient descent approach }  }  
+
+    Training set of housing prices (Portland):
+
+\begin{tabular}{|rrr|} 
+& Size & Price \\
+\hline 0 & 2104 & 399900 \\
+1 & 1600 & 329900 \\
+2 & 2400 & 369000 \\
+3 & 1416 & 232000 \\
+4 & 3000 & 539900 \\
+\hline
+\end{tabular}
+
+Hypothesis: \(h_\theta(x)=\theta_0+\theta_1 x\)
+
+\(\theta_i\) 's: Parameters
+
+How to choose \(\theta_i\) 's? 
+
+Hypothesis: \(h_y(x)=\theta_0+\theta_1 x\)
+Parameters: \(\theta_0, \theta_1\)
+
+Cost function :
+
+\begin{align*}
+J\left(\theta_0, \theta_1\right)=\frac{1}{2 m} \sum_{i=1}^m\left(h_q\left(x^{(j)}\right)-y^{(p)}\right)^2
+\end{align*}
+
+
+Goal : \(\min _{\theta_1 \beta_1} J\left(\theta_0, \theta_1\right)\)
+
+Hypothesis: \(h_y(x)=\theta_1 x\)
+Parameters: \(\theta_1\)
+
+Cost function :
+\(J\left(\theta_0, \theta_1\right)=\frac{1}{2 m} \sum_{i=1}^m\left(h_v\left(x^{(i)}\right)-y^{(j)}\right)^2\)
+Goal : \(\min _{\theta_1} J\left(\theta_1\right)\)
+
+Have some function \(J\left(\theta_0, \theta_1\right)\)
+Want \(\min _{\substack{ \\\theta_1}} J\left(\theta_0, \theta_1\right)\)
+- Start with some \(\theta_0, \theta_1\)
+- Keep changing \(\theta_0, \theta_1\) to reduce \(J\left(\theta_0, \theta_1\right)\) until we hopefully end up at a minimum.
+
+Gradient Descent Algorithm
+repeat until convergence \{
+
+\begin{align*}
+\theta_j s=\theta_j-\frac{\partial}{I} J\left(\theta_0, \theta_1\right)
+\end{align*}
+
+(simultaneous update
+\(j=0\) and \(j=1\) )
+
+ \subsection*{  \underline{ Two Variable Model }  } 
+ Gradient Descent Algorithm
+repeat until convergence \{
+\(\theta_j:=\theta_j-\alpha \frac{\partial}{\partial \theta_j} J\left(\theta_0, \theta_1\right)\)
+(for \(\mathrm{j}=0\) and \(\mathrm{j}=1\) ) 1
+
+Linear Regression Model
+
+\begin{align*}
+\begin{gathered}
+h_0(x)=\theta_0+\theta_1 x \\
+J\left(\theta_0, \theta_1\right)=\frac{1}{2 m} \sum_{h=1}^m\left(h_0\left(x^{(i)}\right)-y^{(i)}\right)^2
+\end{gathered}
+\end{align*}
+
+Or 
+\(\theta_{0}^{old}\)  
+\end{document}

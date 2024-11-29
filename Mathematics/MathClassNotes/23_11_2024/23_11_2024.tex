@@ -1,0 +1,309 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx, tabularx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{}}
+\author{Laxman Singh}
+\date{\today}
+\title{Logic}
+
+\begin{document}
+    \section{Logic}
+     \subsection{Proposition}  
+     A proposition is a statement that is either true or false. For a particular proposition \(p\), the truth value of \(p\) is its truth (T) or falsity (F).
+     \subsection{Negation}   
+     The proposition \(\neg p\) (``not p'', called the negation of the proposition \(p\)) is true when the proposition \(p\) is false, and is false when \(p\) is true.\
+     \begin{align*}
+        \begin{tabular}{|c||c|}
+            \hline \(p\) & \(\neg p\) \\
+            \hline \hline T & F \\
+            \hline F & T \\
+            \hline
+            \end{tabular}
+    \end{align*}
+
+     \subsection{Conjunction (and), (\(\wedge \))}
+      The proposition \(p \wedge q\) (``\(p\) and \(q\)'', the conjunction of the propositions \(p\) and \(q\)) is true when both of the propositions \(p\) and \(q\) are true, and is false otherwise.
+      \begin{align*}
+    \begin{tabular}{|c||c||c|}
+        \hline \(p\) & \(q\) & \(p \wedge q\) \\
+        \hline T & T & T \\
+        \hline T & F & F \\
+        \hline F & T & F \\
+        \hline F & F & F \\
+        \hline
+        \end{tabular}
+   \end{align*}
+
+
+   \subsection{Disjunction (or), (\(\vee \))}  
+   The proposition \(p \vee q\) (``\(p\) or \(q\)'', the disjunction of the propositions \(p\) and \(q\)) is false when both of the propositions \(p\) and \(q\) are false, and is true otherwise.
+
+    \begin{align*}
+        \begin{tabular}{|c||c||c|}
+            \hline \(p\) & \(q\) & \(p \vee q\) \\
+            \hline T & T & T \\
+            \hline T & F & T \\
+            \hline F & T & T \\
+            \hline F & F & F \\
+            \hline
+            \end{tabular} 
+   \end{align*}
+   
+    \subsection{Implication, \((\Rightarrow)\)} 
+   The proposition ``\(p\) implies \(q\)'' is false when \(p\) is true and \(q\) is false, and is true otherwise.
+
+ \begin{align*}
+    \begin{tabular}{|c||c||c|}
+        \hline \(p\) & \(q\) & \(p \Rightarrow q\) \\
+        \hline T & T & T \\
+        \hline T & F & F \\
+        \hline F & T & T \\
+        \hline F & F & T \\
+        \hline
+        \end{tabular}  
+\end{align*}
+
+
+In the implication \(p \Rightarrow q, p\) is known as the antecedent and \(q\) is known as the consequent.
+
+\begin{tcolorbox}
+    Different ways of saying ``\(p\) implies \(q\)'':
+\begin{itemize}
+    \item  ``if \(p\), then \(q\)''
+    \item ``\(p\) only if \(q\)''
+    \item ``\(q\) whenever \(p\)''
+    \item ``\(q\), if \(p\)''
+    \item ``\(q\) is necessary for \(p\)''
+    \item ``\(p\)   is sufficient for \(q\)''
+\end{itemize}
+\end{tcolorbox}
+
+\vspace{10pt}
+ \subsection{If and only if, (\(\Leftrightarrow \))} 
+The proposition \(p \Leftrightarrow q\) (``\(p\) if ond only if \(q\)'') is true when the propositions \(p\) or \(q\) have the same truth value (both \(p\) and \(q\) are true, or both \(p\) and \(q\) are false), and false otherwise.
+\begin{itemize}
+    \item The reason that \(\Leftrightarrow \) is read as ``if and only if'' is that \(p \Leftrightarrow q\) means the same thing as the compound proposition \((p \Rightarrow q) \wedge(q \Rightarrow p)\).
+    \item It is also sometimes called the ``biconditional''. 
+\end{itemize}
+
+ \begin{align*}
+    \begin{tabular}{|c||c||c|}
+        \hline \(p\) & \(q\) & \(p \Leftrightarrow q\) \\
+        \hline T & T & T \\
+        \hline T & F & F \\
+        \hline F & T & F \\
+        \hline F & F & T \\
+        \hline
+        \end{tabular} 
+\end{align*}
+
+\begin{align*}
+    \begin{tabular}{|c||c||c||c||c|}
+       \hline \(p\)  & \(q\)   & \(p \Rightarrow q\) & \( q \Rightarrow p \)   & \( ( p \Rightarrow q ) \wedge (q \Rightarrow p )\) \\
+    \hline T & T & T & T & T \\
+    \hline T & F & F & T & F \\
+    \hline F & T & T & F & F \\
+    \hline F & F & T & T & T \\
+    \hline
+    \end{tabular}
+\end{align*}
+
+ \subsection{Logical equivalence}    
+Two propositions \(\phi \) and \(\psi \) are logically equivalent, written \(\phi \equiv \psi \), if they have exactly identical truth tables.
+
+    Example: \(((p \wedge q) \Rightarrow \neg q) \equiv \neg(p \wedge q)\)
+
+
+ \begin{align*}
+    \begin{tabular}{|c||c||c|c|}
+        \hline \(p\) & \(q\) & \((p \wedge q) \Rightarrow \neg q\) & \(\neg(p \wedge q)\) \\
+        \hline T & T & F & F \\
+        \hline T & F & T & T \\
+        \hline F & T & T & T \\
+        \hline F & F & T & T \\
+        \hline
+        \end{tabular}
+\end{align*}
+\vspace{10pt}
+
+\subsection{Converse, Contrapositive, Inverse}
+\begin{itemize}
+    \item The \textbf{Converse} of \(p \Rightarrow q\) is the proposition \(q \Rightarrow p\).
+    \item  The \textbf{Contrapositive} of \(p \Rightarrow q\) is the proposition \(\neg q \Rightarrow \neg p\).
+    \item The \textbf{Inverse} of \(p \Rightarrow q\) is the proposition \(\neg p \Rightarrow \neg q\).
+\end{itemize}
+ \begin{align*}
+    \begin{tabular}{|c||c||c|c|c|c|}
+        \hline \(p\) & \(q\) & \(p \Rightarrow q\) & \(q \Rightarrow p\) & \(\neg q \Rightarrow \neg p\) & \(\neg p \Rightarrow \neg q\) \\
+        \hline T & T & T & T & T & T \\
+        \hline T & F & F & T & F & T \\
+        \hline F & T & T & F & T & F \\
+        \hline F & F & T & T & T & T \\
+        \hline
+        \end{tabular}  
+\end{align*}
+
+\subsubsection*{Question 1:} what is the negation of \(p \Rightarrow q  \ \text{i.e.} \ \neg(p \Rightarrow q)\)?
+
+\begin{align*}
+    \begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline p & q & \neg p & \neg q & p \rightarrow q & \neg(p \Rightarrow q) & (a) & (b) & (c) & (d) \\
+    \hline T & T & F & F & T & F & T & F & T & F \\
+    \hline T & F & F & T & F & T & T & T & T & T \\
+    \hline F & T & T & F & T & F & T & T & F & F \\
+    \hline F & F & T & T & T & F & F & T & T & F \\
+    \hline
+    \end{array}
+    \end{align*}
+
+\subsubsection*{Question 2:} Prove the logical equivalence of the following; (De Morgan's laws)
+ \begin{align*}
+    \neg(p \vee q) \equiv \neg p \wedge \neg q\\
+    \neg(p \wedge q) \equiv \neg p \vee \neg q\\
+    ( p \Rightarrow q) \equiv (\neg p ) \vee q\\
+    \Rightarrow \neg (p \rightarrow q) \equiv p \wedge \neg q\\
+    \Rightarrow \neg \neg( p \Rightarrow q) \equiv 
+\end{align*}
+
+ \subsection{Quantifiers} 
+\begin{itemize}
+    \item Universal quantifier (``for all''), (\(\forall \)): 
+    
+    The proposition \(\forall x \in S, P(x)\) (``for all \(x\) in \(S\), \( P(x)\)'') is true when for every possible \(x \in S, P(x)\) is true.
+   
+    for example \(1\) is an odd number or \(2\) is an odd number or \(3\) is an odd no. 
+    \(\forall x \in \{1,2,3\}, x\) is an odd no.
+    \( \forall x \in S, P(x) \) where \(P(x)\) is that \(x\) is an odd number.  
+
+    \item Existential quantifier (``there exists''), (\(\exists \)): 
+    
+    The proposition \(\exists x \in S, P(x)\) (``there exists an \(x\) in \(S\) such that \(P(x)\))'' is true when for at least one possible \(x \in S\), we have \(P(x)\) is true.
+
+    for example \(1\)   is an odd number and \(2\) is an odd number and \(3\) is an odd number, \( \exists x \in \{1,2,3\}, x\) is an odd number or simply \(\exists x \in S, P(x)\). 
+
+    \item De Morgan's Law (quantified form):
+    \begin{align*}
+        & \neg(\forall x \in S, P(x)) \Leftrightarrow(\exists x \in S, \neg P(x)) \\
+        & \neg(\exists x \in S, P(x)) \Leftrightarrow(\forall x \in S, \neg P(x))
+    \end{align*}
+
+    \item Vacuous quantification: Consider the propositon ``All even prime numbers greater than 12 have a 3 as their last digit''. This proposition is vacuously true.
+    \item If the set \(S\) is nonempty then, \(\left( \forall x \in S, P(x) \right) \Rightarrow \left( \exists x \in S, P(x) \right) \)   
+\end{itemize}
+
+ \subsection{Order of Quantification}
+ 
+ The order of the quantification matters! One of the following propositions is true; the other is false. Classify them;
+ \begin{align*}
+    \text{Proposition 1:} \quad \exists y \in \mathbb{R}, \forall x \in \mathbb{R}, x < y\\
+    \text{Proposition 2:} \quad \forall x \in \mathbb{R}, \exists y \in \mathbb{R}, x < y
+\end{align*}
+
+   Clearly the proposition 2 is false and 1 is true because there does not exist a real number bigger than all the other real numbers but for all real numbers we can find a real number bigger than that.
+   
+   \pagebreak
+    \section{ \underline{Sets} } 
+    \begin{itemize}
+    \item Set: Any well-defined collection of objects is a set.
+
+    \item Element of a Set: If \(A\) is a set, then the objects in the collection \(A\) are called elements of \(A\). If \(x\) is an element of \(A\), it is denoted by \(x \in A\).
+
+    \item Subset: Let \(U\) be the universal set. We say set \(A\) is a subset of set \(B\), denoted by \(A \subset B\) when the following is true:
+    
+    \((\forall x \in U)(x \in A \Rightarrow x \in B)\). 
+    \end{itemize}
+
+     \subsection{Operartions on Sets} 
+     Suppose \(U\) is the universal set. Let \(A, B \subset U\).
+     \begin{itemize}
+        \item Complement of set \(A: A^{\prime}=\{x \in U \mid x \notin A\} \).
+        \item  Union \((A \cup B)\): It is the set of elements of \(U\) which are members of either \(A\) or \(B\) (or both). Formally, \( \{ x \in U \mid(x \in A) \vee(x \in B)\} \).
+        \item  Intersection \((A \cap B)\): It is the set of all members which \(A\) and \(B\) have in common.Formally, \( \{ x \in U \mid(x \in A) \wedge(x \in B)\} \).
+        \item Disjoint sets: Two sets \(A, B\) are disjoint if they have no elements in common, that is, if \(A \cap B=\emptyset \).
+     \end{itemize}
+
+      \subsection{Laws on set operations} 
+       Suppose \(U\) is the universal set, Let \(A, B, C \subset U\).
+
+       \begin{tabular}{|l||l|}
+        \hline Associative laws & \(A \cup(B \cup C)=(A \cup B) \cup C\) \\
+        & \(A \cap(B \cap C)=(A \cap B) \cap C\) \\
+        \hline Commutative laws & \(A \cup B = B \cup A\) \\
+        & \(A \cap B = B \cap A\) \\
+        \hline Distributive laws & \(A \cup \left( B \cap C \right) = \left( A \cup B  \right) \cap \left( A \cup B \right) \) \\
+        & \(A \cap \left( B \cup C \right) = \left( A \cap B \right) \cup \left( A \cap B \right) \) \\
+        \hline De Morgan's laws & \(\left( A \cup B \right)' = A' \cap B'\) \\
+        & \(\left( A \cap B  \right)' = A' \cup B'\) \\
+        \hline Copmlementation laws & \(A \cup A' = U\) \\
+        & \(A \cap A'= \phi \) \\
+        \hline Self-inverse law & \( \left( A' \right)' = A \) \\         
+        \hline 
+      \end{tabular}  
+    
+     \subsection{Arbitraty Unions and Intersections} 
+    We refer to the collection \(\left\{A_i \mid i \in I\right\}\) as an indexed family of sets and the set \(I\) as the index set.
+    \begin{itemize}
+        \item The union of an indexed family \(\left\{A_i \mid i \in I\right\}\) is defined as
+
+        \begin{align*}
+        \bigcup_{i \in I} A_i=\left\{a \mid(\exists i \in I)\left[a \in A_i\right]\right\}
+        \end{align*}
+
+        \item The intersection of an indexed family \(\left\{A_i \mid i \in I\right\}\) is defined as
+
+        \begin{align*}
+        \bigcap_{i \in I} A_i=\left\{a \mid(\forall i \in I)\left[a \in A_i\right]\right\}
+        \end{align*}
+    \end{itemize}
+Consider for example, if \(I=\{1,2\}\), then 
+
+\[\bigcup_{i \in I} A_i=A_1 \cup A_2 \quad \text{and} \quad \bigcap_{i \in I} A_i=A_1 \cap A_2 \]
+
+ \subsection{Relations} 
+ \begin{itemize}
+    \item Power Set : The Power set of \(A\) is the set of all subsets of \(A\), denoted by \(\mathcal{P}(A)\) and \(2^A\). Note that the cardinality of the power set is \(2^{|A|}\).
+    \item Cartesian product : Given two sets \(A\) and \(B\), the Cartesian product of \(A, B\) is defined to be the set:
+     \begin{align*}
+    A \times B=\{(x, y) \mid x \in A \wedge y \in B\}
+    \end{align*}
+      \item Relation: Relation between a set \(A\) and a set \(B\) is a subset of the Cartesian product \(A \times B\).
+    \item Relation on a set: A relation on the set \(S\) is formally defined as a subset of \(S \times S\) i.e \(\mathcal{R} \subseteq S \times S\)
+ \end{itemize}
+
+  \subsection{Properties of Relations} 
+  \begin{itemize}
+    \item  Reflexivity: \(\forall x \in S:(x, x) \in \mathcal{R}\)
+    \item Completeness : \(\forall x, y \in S: x \neq y \Rightarrow(x, y) \in \mathcal{R}\) or \((y, x) \in \mathcal{R}\)
+    \item Transitivity : \(\forall x, y, z \in S:((x, y) \in \mathcal{R}\) and \((y, z) \in \mathcal{R}) \Rightarrow(x, z) \in \mathcal{R}\)
+    \item Symmetry : \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \in \mathcal{R}\)
+    \item Anti-symmetry : \(\forall x, y \in S:((x, y) \in \mathcal{R}\) and \((y, x) \in \mathcal{R}) \Rightarrow x=y\)
+    \item Asymmetry : \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \notin \mathcal{R}\)
+    \item Negative transitivity : \(\forall x, y, z \in S:((x, y) \notin \mathcal{R}\) and \((y, z) \notin \mathcal{R}) \Rightarrow(x, z) \notin \mathcal{R}\)
+    \item Equivalence : Relation which is symmetric, reflexive and transitive.
+  \end{itemize}
+
+  \subsubsection*{Question:} Consider a binary relation \(\succeq\) on a set \(A\). Suppose \(\succeq\) is transitive. Define relations \(\succ\) and \(\sim\) on \(A\) by: for \(x, y \in A\),
+
+  \(x \succ y\) if and only if \(x \succeq y\) and not \(y \succeq x\)
+
+  \(x \sim y\) if and only if \(x \succeq y\) and \(y \succeq x\)
+
+Prove the following.
+(i) If \(x \succ y\) and \(y \succ z\) then \(x \succ z\)
+
+(ii) If \(x \sim y\) and \(y \sim z\) then \(x \sim z\)
+
+(iii) If \(x \succ y\) and \(y \succeq z\) then \(x \succ z\)
+\end{document}
