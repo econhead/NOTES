@@ -9,13 +9,13 @@
 \setlength{\headheight}{15.6pt}
 \pagestyle{fancyplain}
 \fancyhead[L]{Laxman Singh}
-\fancyhead[R]{\today}
+\fancyhead[R]{23/11/2024}
 \usepackage{float}
 \floatstyle{boxed}
 \restylefloat{figure}
 \graphicspath{{}}
 \author{Laxman Singh}
-\date{\today}
+\date{23/11/2024}
 \title{Logic}
 
 \begin{document}
@@ -253,28 +253,28 @@ Two propositions \(\phi \) and \(\psi \) are logically equivalent, written \(\ph
       \end{tabular}  
     
      \subsection{Arbitraty Unions and Intersections} 
-    We refer to the collection \(\left\{A_i \mid i \in I\right\}\) as an indexed family of sets and the set \(I\) as the index set.
+    We refer to the collection \(\left \{A_i \mid i \in I\right \} \) as an indexed family of sets and the set \(I\) as the index set.
     \begin{itemize}
-        \item The union of an indexed family \(\left\{A_i \mid i \in I\right\}\) is defined as
+        \item The union of an indexed family \(\left \{A_i \mid i \in I\right \} \) is defined as
 
         \begin{align*}
-        \bigcup_{i \in I} A_i=\left\{a \mid(\exists i \in I)\left[a \in A_i\right]\right\}
+        \bigcup_{i \in I} A_i=\left \{a \mid(\exists i \in I)\left[a \in A_i\right]\right \}
         \end{align*}
 
-        \item The intersection of an indexed family \(\left\{A_i \mid i \in I\right\}\) is defined as
+        \item The intersection of an indexed family \(\left \{A_i \mid i \in I\right \} \) is defined as
 
         \begin{align*}
-        \bigcap_{i \in I} A_i=\left\{a \mid(\forall i \in I)\left[a \in A_i\right]\right\}
+        \bigcap_{i \in I} A_i=\left \{a \mid(\forall i \in I)\left[a \in A_i\right]\right \}
         \end{align*}
     \end{itemize}
-Consider for example, if \(I=\{1,2\}\), then 
+Consider for example, if \(I=\{1,2\} \), then 
 
 \[\bigcup_{i \in I} A_i=A_1 \cup A_2 \quad \text{and} \quad \bigcap_{i \in I} A_i=A_1 \cap A_2 \]
 
  \subsection{Relations} 
  \begin{itemize}
-    \item Power Set : The Power set of \(A\) is the set of all subsets of \(A\), denoted by \(\mathcal{P}(A)\) and \(2^A\). Note that the cardinality of the power set is \(2^{|A|}\).
-    \item Cartesian product : Given two sets \(A\) and \(B\), the Cartesian product of \(A, B\) is defined to be the set:
+    \item Power Set: The Power set of \(A\) is the set of all subsets of \(A\), denoted by \(\mathcal{P}(A)\) and \(2^A\). Note that the cardinality of the power set is \(2^{|A|}\).
+    \item Cartesian product: Given two sets \(A\) and \(B\), the Cartesian product of \(A, B\) is defined to be the set:
      \begin{align*}
     A \times B=\{(x, y) \mid x \in A \wedge y \in B\}
     \end{align*}
@@ -285,16 +285,16 @@ Consider for example, if \(I=\{1,2\}\), then
   \subsection{Properties of Relations} 
   \begin{itemize}
     \item  Reflexivity: \(\forall x \in S:(x, x) \in \mathcal{R}\)
-    \item Completeness : \(\forall x, y \in S: x \neq y \Rightarrow(x, y) \in \mathcal{R}\) or \((y, x) \in \mathcal{R}\)
-    \item Transitivity : \(\forall x, y, z \in S:((x, y) \in \mathcal{R}\) and \((y, z) \in \mathcal{R}) \Rightarrow(x, z) \in \mathcal{R}\)
-    \item Symmetry : \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \in \mathcal{R}\)
-    \item Anti-symmetry : \(\forall x, y \in S:((x, y) \in \mathcal{R}\) and \((y, x) \in \mathcal{R}) \Rightarrow x=y\)
-    \item Asymmetry : \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \notin \mathcal{R}\)
-    \item Negative transitivity : \(\forall x, y, z \in S:((x, y) \notin \mathcal{R}\) and \((y, z) \notin \mathcal{R}) \Rightarrow(x, z) \notin \mathcal{R}\)
-    \item Equivalence : Relation which is symmetric, reflexive and transitive.
+    \item Completeness: \(\forall x, y \in S: x \neq y \Rightarrow(x, y) \in \mathcal{R}\) or \((y, x) \in \mathcal{R}\)
+    \item Transitivity: \(\forall x, y, z \in S:((x, y) \in \mathcal{R}\) and \((y, z) \in \mathcal{R}) \Rightarrow(x, z) \in \mathcal{R}\)
+    \item Symmetry: \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \in \mathcal{R}\)
+    \item Anti-symmetry: \(\forall x, y \in S:((x, y) \in \mathcal{R}\) and \((y, x) \in \mathcal{R}) \Rightarrow x=y\)
+    \item Asymmetry: \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \notin \mathcal{R}\)
+    \item Negative transitivity: \(\forall x, y, z \in S:((x, y) \notin \mathcal{R}\) and \((y, z) \notin \mathcal{R}) \Rightarrow(x, z) \notin \mathcal{R}\)
+    \item Equivalence: Relation which is symmetric, reflexive and transitive.
   \end{itemize}
 
-  \subsubsection*{Question:} Consider a binary relation \(\succeq\) on a set \(A\). Suppose \(\succeq\) is transitive. Define relations \(\succ\) and \(\sim\) on \(A\) by: for \(x, y \in A\),
+  \subsubsection*{Question:} Consider a binary relation \(\succeq \) on a set \(A\). Suppose \(\succeq \) is transitive. Define relations \(\succ \) and \(\sim \) on \(A\) by: for \(x, y \in A\),
 
   \(x \succ y\) if and only if \(x \succeq y\) and not \(y \succeq x\)
 
@@ -306,4 +306,6 @@ Prove the following.
 (ii) If \(x \sim y\) and \(y \sim z\) then \(x \sim z\)
 
 (iii) If \(x \succ y\) and \(y \succeq z\) then \(x \succ z\)
+
+
 \end{document}

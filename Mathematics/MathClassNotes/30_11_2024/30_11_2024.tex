@@ -1,0 +1,235 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{}}
+\author{Laxman Singh}
+\date{\today}
+\title{Functions}
+
+\begin{document}
+ \section{Properties of Relations} 
+   \begin{itemize}
+    \item  Reflexivity: \(\forall x \in S:(x, x) \in \mathcal{R}\)
+    \item Completeness: \(\forall x, y \in S: x \neq y \Rightarrow(x, y) \in \mathcal{R}\) or \((y, x) \in \mathcal{R}\)
+    \item Transitivity: \(\forall x, y, z \in S:((x, y) \in \mathcal{R}\) and \((y, z) \in \mathcal{R}) \Rightarrow(x, z) \in \mathcal{R}\)
+    \item Symmetry: \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \in \mathcal{R}\)
+    \item Anti-symmetry: \(\forall x, y \in S:((x, y) \in \mathcal{R}\) and \((y, x) \in \mathcal{R}) \Rightarrow x=y\)
+    \item Asymmetry: \(\forall x, y \in S:(x, y) \in \mathcal{R} \Rightarrow(y, x) \notin \mathcal{R}\)
+    \item Negative transitivity: \(\forall x, y, z \in S:((x, y) \notin \mathcal{R}\) and \((y, z) \notin \mathcal{R}) \Rightarrow(x, z) \notin \mathcal{R}\)
+    \item Equivalence: Relation which is symmetric, reflexive and transitive.
+   \end{itemize}
+
+  \subsection{The indifference Relation}
+   We know that the prefernce relation \(\succsim \) on \(A\) is Reflexive, Transitive and Complete.     
+   Define the indiffernce relation on \(A \) as follows;
+   \begin{equation*}
+    \sim \ = \{(a,b) \in A \times A \ | \ (a,b) \in \ \succsim \wedge \ (b,a) \in \ \succsim \}   
+   \end{equation*}    
+   Now we can check for the reflexivity, transitivity, completeness and symmetry of the indiffernce relation \(\sim \);
+   
+  \begin{itemize}
+    \item Reflexivity:
+    By the definiton of the indifference relation \(\sim \) on \(A\) we have,      
+     \begin{align*} 
+      & \sim \ \text{on} \ A = \{(a,a) \in A \times A \ | \ (a,a) \in \ \succsim \wedge \ (a,a) \in \ \succsim \} \\
+      & \implies (a,a) \in \ \sim   
+    \end{align*}
+    \item Construct an example by yourself to show that \(\sim \) is not complete.
+    \item Transitivity: We want to show,
+    \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+    that are 
+    transitive, reflexive and complete) (\(\sim \) relation derived in the above manner is transitive)  
+    
+   or, 
+     \begin{align*}
+        \left( \forall a,b,c \in A \right) \left( \left( a,b \right) \in \ \sim \wedge \left( b,c \right) \in \ \sim  \right) \implies \left( \left( a,c \right) \in \ \sim \right)  
+    \end{align*}
+    
+    \begin{tcolorbox}
+      \underline{Proof}; Consider any arbitrary A, and any arbitrary \(\succsim \) on \(A\) that is transitive, reflexive and complete.
+      
+      Now consider the indifference relation 
+      \begin{equation*}
+          \sim \ = \{\left( a,b \right) \in A \times A | \left( a,b \right) \in \ \succsim \wedge \left( b,a \right) \in \ \succsim \}
+      \end{equation*}
+      and any arbitrary \(a,b,c \in A \) such that  \(\left( a,b \right) \in \ \sim \) and \(\left( b,c \right) \in \ \sim  \) 
+      
+      Now since \(\left( a,b \right) \in \ \sim \) and \(\left( b,c \right) \in \ \sim \)   then by the definiton of the indiffernce relation,
+      \begin{align}
+          \left( a,b \right) \in \ \succsim \wedge \left( b,a \right) \in \ \succsim \\
+          \left( b,c \right) \in \ \succsim \wedge \left( c,b \right) \in \ \succsim
+      \end{align}    
+
+      Then from the transitivty of \(\succsim \) and from \((1),(2)\) we get,
+      \begin{align*}
+        & \left( a,c \right) \in \ \succsim \ \text{and} \ \left( c,a \right) \in \ \succsim \\
+        \text{so} \ & (a,a) \in \ \succsim \text{ or by the definiton of } \sim , \left( a,c \right) \in \ \sim
+      \end{align*}
+      Hence proved that the indifference relation \(\sim \)  is transitive. 
+    \end{tcolorbox}
+    \pagebreak
+
+    \item Symmetry: We want to show,
+    \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+    that are 
+    transitive, reflexive and complete) (\(\sim \) relation derived in the above manner is symmetric)  
+    \begin{tcolorbox}
+      \underline{Proof}; Consider any arbitrary A, and any arbitrary \(\succsim \) on \(A\) that is transitive, reflexive and complete.
+      
+      Now consider the indifference relation 
+      \begin{equation*}
+          \sim \ = \{\left( a,b \right) \in A \times A | \left( a,b \right) \in \ \succsim \wedge \left( b,a \right) \in \ \succsim \}
+      \end{equation*}
+
+      and the symmetric relation \(\mathcal{R}\) on \(A\) defined as follows,
+      \begin{equation*}
+          \left( \forall a,b \in A  \right)\left( \left( a,b \right) \in \mathcal{R} \implies \left( b,a \right) \in \mathcal{R} \right)  
+      \end{equation*}      
+      Now consider arbitrary \(a,b\) such that \(\left( a,b \right) \in \ \sim  \),
+      
+      Then by the definiton of the indifference relation we get,
+      \begin{equation*}
+          \left( a,b \right) \in \ \succsim \wedge \left( b,a \right) \in \ \succsim
+      \end{equation*}
+      which can be rewritten as
+      \begin{equation*}
+        \left( b,a \right) \in \ \succsim \wedge \left( a,b \right) \in \ \succsim
+    \end{equation*}
+    and therefore \((b,a) \in \ \sim \)   
+    \end{tcolorbox} 
+  \end{itemize}
+  So we have shown that if the prefernce relation \(\succsim \)  is reflexive, transitive and complete, then the indifference relation \(\sim \) derived from it is reflexive, transitive and symmetric.  
+  
+   \subsubsection*{Question} 
+   Suppose \(A = \{a,b,c\} \) and \(\mathcal{R} = \{(a,b),(b,a),(a,a)\} \).
+
+   Is \(\mathcal{R}\) a valid indifference relation?
+   
+    \subsubsection*{Answer} 
+   Note that \(\mathcal{R}\) is not reflexive, not complete and neither transitive and an indifference realtion is always reflexive, transitive and symmetric so therefore, \(\mathcal{R}\) is not a valid indifference realtion.
+   
+    \subsection{The strict prefernce relation} 
+
+    We know that the preference realtion \(\succsim \) on \(A\) is reflexive, transitive and complete. From this we can define the strict prefernce relation as follows;
+     \begin{align*}
+         \succ \ &= \{(a,b) \in A \times A | (a,b) \in \ \succsim \wedge \ (b,a) \notin \ \succsim \} \\
+        \text{So}, \quad & (a,b) \in \ \succsim \wedge \ \neg(b,a) \in \ \succsim
+    \end{align*}
+
+    Now we can check for the reflexivity, transitivity, completeness and symmetry of the strict prefernce relation \(\succ \) as follows;
+    
+    \begin{itemize}
+      \item Reflexivity: We want to show,
+      \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+      that are 
+      transitive, reflexive and complete) (\(\succ \) relation derived in the above manner is reflexive) 
+      
+      for the proof, try to negate the above proposition and you can see that the strict preference relation is not reflexive.
+      \item Completeness: try to find an example to show that the strict preference relation is not complete.
+      
+      Consider \(A = \{a,b,c\} \) and the prefernce relation \(\succsim \ = A \times A\).
+      
+      Now because of the given prefernce the relation the strict prefernce relation will be an empty set or \(\succ \ = \phi \) which is neither reflexive and nor complete.
+      \pagebreak
+
+      \item Transitivity: We want to show,
+      \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+      that are 
+      transitive, reflexive and complete) (\(\succ \) relation derived in the above manner is transitive)  
+      \begin{tcolorbox} 
+        \underline{Proof}; Consider any arbitrary \(A\) and an arbitraty \(\succsim \) satisfying reflexiveness, transitivity and completeness and also consider any aribitray \(a,b,c\) in \(A\) such that \((a,b) \in \ \succ \) and \((b,c) \in \ \succ \). 
+        
+        Now because \((a,b) \in \ \succ \) and \((b,c) \in \ \succ \) we get,
+        \begin{align}
+          \left( a,b \right) \in \ \succsim \wedge \ \left( b,a \right) \notin \ \succsim \\
+          \left( b,c \right) \in \ \succsim \wedge \ \left( c,b \right) \notin \ \succsim 
+        \end{align}
+        and because the preference relation \(\succsim \) is transitive and from \((3),(4)\) we get that \(\left( a,c \right) \in \ \succsim \) and now we want to show that \((c,a) \notin \ \succsim \)  
+
+        We will do so by the way of contradiction:-
+
+        Suppose \(\left( c,a \right) \in \ \succsim \), given that \((a,b) \in \ \succsim \) from, the previous assumption, we get that \((c,b) \in \ \succsim \) because the prefernce relation is transitive.    
+        
+        But this is a contradiction because we know that \(\left( c,b \right) \notin \ \succsim \) from \((4)\) and therfore, \(\left( c,a \right) \notin \ \succsim \)
+        
+        So we have \(\left( a,c \right) \in \ \succsim \wedge \ \left( c,a \right) \notin \ \succsim \), which clearly implies that the strict prefrence realtion is transitive.  
+      \end{tcolorbox} 
+    \end{itemize}
+    So we have shown that if the prefernce relation \(\succsim \)  is reflexive, transitive and complete, then the strict preference relation \(\succ \) derived from it is not reflexive, nor complete but transitive.
+
+     \subsubsection*{Examples} 
+
+     \(A =\{a,b,c\} \)
+     
+     \(\mathcal{R}=\{(a,a),(a,b),(b,b)\} \)  
+   
+     Note that \(\mathcal{R}\) is Anti-symmetric but not Asymmetric and it is also not negative transitive because \((a,c) \notin \mathcal{R}\) and \((c,b) \notin \mathcal{R}\) but \((a,b) \in \mathcal{R} \)       
+   
+   How to negate \(\neg\left( \left( \forall x  \right),\left( \forall y \right),\left( P(x) \implies Q(y)\right) \right)\)   
+    \begin{align*}
+       \neg\left( \left( \forall x  \right),\left( \forall y \right),\left( P(x) \implies Q(y)\right) \right) & \equiv  \left( \left( \exists x \right)\left( \exists y \right) \left( \neg ( P(x) \implies Q(y) ) \right) \right) \\
+       & \equiv \left( \left( \exists x \right)\left( \exists y \right) \left( P(x) \wedge \neg Q(y) \right) \right) 
+   \end{align*}
+
+    \subsubsection*{Propositon 1} 
+    \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+    that are 
+    transitive, reflexive and complete) (\(\succ \) relation derived from \(\succsim \) is asymmetric)  
+
+    \begin{tcolorbox}
+      \underline{Proof}; Consider any arbitrary \(a,b \in A \) and \((a,b) \in \ \succ \)
+      
+      Now because \((a,b) \in \ \succ \) we get
+       \begin{align*}
+        (a,b) \in \ \succsim \wedge \ (b,a) \notin \ \succsim  
+      \end{align*}
+      but this implies that \((b,a) \notin \ \succ \)  
+      
+      and therefore the strict prefernce relation \(\succ \) is assymetric. 
+    \end{tcolorbox}
+    
+    \subsubsection*{Propositon 2} 
+    \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+    that are 
+    transitive, reflexive and complete) (\(\succ \) relation derived from \(\succsim \) is anti-symmetric)   
+    
+    this is a corollary of the above proof because 
+
+    \(\left( \forall \ \mathcal{R} \ \text{on} \ A \right)(\mathcal{R} \ \ \text{is asymmetric} \ \implies \mathcal{R} \ \text{ is anti-symmetric } ) \)  
+\pagebreak 
+
+    \subsubsection*{Propositon 3} 
+    \(\left( \forall A  \right) (\forall \succsim  \text{on} \ A \)
+    that are 
+    transitive, reflexive and complete) (\(\succ \) relation derived from \(\succsim \) is Negative transitive)   
+
+   \begin{tcolorbox}
+    \underline{Proof.} Consider any arbitrary \(A\), and any weak preference relation \(\succsim \) on set \(A\) that is reflexive, complete and transitive. Now consider arbitrary \(a, b, c \in A\) such that (\(a, b) \notin \succ \) and \((b, c) \notin \succ \). We will try and show that \((a, c) \notin \succ \).
+
+    Suppose, by way of contradiction, \((a, c) \in \succ \).
+
+    Step 1. By completeness of \(\succsim \), we also have \((c, b) \in \succsim \). By transitivity of \(\succsim \). This implies that \((a, b) \in \succsim \) and we also have \((b, a) \in \succsim \) by completeness of \(\succsim \). So, we get (\(a, b\)) \(\in \sim \).
+
+    Step 2. In the similar fashion as above, by completeness of \(\succsim \), we also have \((b, a) \in \succsim \). By transitivity of \(\succsim \). This implies that \((b, c) \in \succsim \) and we also have \((c, b) \in \succsim \) by completeness of \(\succsim \). So, we get \((b, c) \in \sim \).
+
+    So, by step 1 and 2, we get that (\(a, c) \in \sim \) (by transitivity of \(\succsim \)). This is a contradiction.
+    
+    Therefore, \((a, c) \notin \succ \).
+
+    Alternative Proof (Direct Proof). Consider any arbitrary \(A\), and any weak preference relation \(\succsim \) on set \(A\) that is reflexive, complete and transitive. Now consider arbitrary \(a, b, c \in A\) such that \((a, b) \notin \succ \) and \((b, c) \notin \succ \). 
+    By completeness of \(\succsim(b, a) \in \succsim \) and \((c, b) \in \succsim \). By transitivity of \(\succsim(c, a) \in \succsim \). Therefore, \((a, c) \notin \succ \).
+  \end{tcolorbox}
+\end{document}
+      

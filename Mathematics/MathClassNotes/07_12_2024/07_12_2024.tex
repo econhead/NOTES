@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{}}
+\author{Laxman Singh}
+\date{\today}
+\title{Functions}
+
+\begin{document}
+    
+\section{\underline{Functions}} 
+     
+Let \(A\) and \(B\) be any non-empty sets. A function from \(A\) to \(B\) is a rule that associates with each member of \(A\) a unique member of \(B\).
+
+The notation is \(f: A \rightarrow B\), where input comes from the set \(A\) and output belongs to the set \(B\).
+
+If \(a \in A\), we denote the unique element of \(B\) that the rule associates to \(a\) by \(f(a)\)
+We refer to the element \(a\) of \(A\) as an argument of the function, and the corresponding element \(f(a)\) of \(B\) as the value of the function at that argument (or sometimes the image of the point a under \(f\)).
+
+Consider an example \(f(x)=x^2+x+1\). The value of the function \(f\) at argument 2 is \(f(2)\), which is further equal to 7.
+
+ \subsection{Domain and Codomain} 
+  If \(f: A \rightarrow B\), we refer the set \(A\) as the domain of \(f\) and the set \(B\) as the codomain.  
+
+   \subsection{Injective, or One-to-one} 
+   If a function \(f: A \rightarrow B\) is such that it never happens that different arguments lead to the same value, we say that \(f\) is injective.
+   \begin{itemize}
+       \item Mathematically, \(f: A \rightarrow B\) is injective iff \((\forall a, b \in A)[a \neq b \Rightarrow f(a) \neq f(b)]\)
+       
+       \item Alternatively, we may express this condition using contrapositive: \(f: A \rightarrow B\) is injective iff
+        \begin{align*}
+       (\forall a, b \in A)[f(a)=f(b) \Rightarrow a=b]
+       \end{align*}
+
+       \item The function \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=x^2\) is not injective but the function \(g: \mathbb{R}_{+} \rightarrow \mathbb{R}\) defined by \(g(x)=x^2\) is injective.
+       \end{itemize}
+\subsection{Surjective or onto} 
+ If every member of \(B\) is the value of the function at some argument, we say \(f\) is surjective.
+ \begin{itemize}
+   \item Mathematically, a function \(f: A \rightarrow B\) is surjective iff \((\forall b \in B)(\exists a \in A)[f(a)=b]\).
+   \item Note the order of the quantifiers in the above condition. For every \(b\) in \(B\) it must be possible to find an \(a\) in A such that \(f(a)=b\).
+   \item The function \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=x^2\) is not surjective but the function \(g: \mathbb{R} \rightarrow \mathbb{R}_{+}\)defined by \(g(x)=x^2\) is surjective.
+ \end{itemize}
+\end{document}
