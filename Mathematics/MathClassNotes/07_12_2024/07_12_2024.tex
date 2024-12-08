@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,fleqn]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -13,13 +13,29 @@
 \usepackage{float}
 \floatstyle{boxed}
 \restylefloat{figure}
-\graphicspath{{}}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/07_12_2024/Figures}}
 \author{Laxman Singh}
 \date{\today}
 \title{Functions}
 
 \begin{document}
-    
+
+ \section{Utility Representation of Preferences} 
+ \(u: A \to \mathbb{R}\)
+ 
+ \(a \succsim b\) if and only if \(u(a)\geq u(b)\)   
+
+ When preferences are represented by utility functions, the analysis becomes easy.
+ 
+ A natural question to ask then is under what conditions preferences have a utility representation?
+
+ If \(A\) is a finite set then there exists a utility function \(u\) that represents the preference iff the preference is reflexive, complete and transitive, stated oterwise,
+  \begin{flalign*}
+     \text{If A is a finite set then,}\\
+    \exists u: A \to \mathbb{R} \text{that represent the} \succsim \text{iff}\\
+    \succsim \text{is reflexive, complete and transitive.}
+ \end{flalign*}
+
 \section{\underline{Functions}} 
      
 Let \(A\) and \(B\) be any non-empty sets. A function from \(A\) to \(B\) is a rule that associates with each member of \(A\) a unique member of \(B\).
@@ -33,7 +49,24 @@ Consider an example \(f(x)=x^2+x+1\). The value of the function \(f\) at argumen
 
  \subsection{Domain and Codomain} 
   If \(f: A \rightarrow B\), we refer the set \(A\) as the domain of \(f\) and the set \(B\) as the codomain.  
+  \subsection{Range} 
+  We say that \(f(a)\) is the range of \(f\) iff
 
+  \(f(A)=\{y \in B | \exists x \in A, f(x) = y\} \)
+  
+  Note that \(f(a) \subset B \)
+
+  \begin{itemize}
+    \item  Pre-image: A pre-image of an element \(b \in B\) for a function \(f: A \rightarrow B\) is any element \(a\) of \(A\) for which \(f(a)=b\).
+    \item Range: Let \(f: A \rightarrow B\). If \(X \subset A\), the set \( \{ f(x) \mid x \in X\} \) is the range of \(f\) on \(X\), denoted by \(f(X)\).
+    \item Alternatively, we can define range of \(f\) on \(X\) as the set
+    
+    \begin{align*}
+    \{b \in B \mid(\exists x \in X)(f(x)=b)\}
+    \end{align*}
+    
+    \item We denote the set \(f(A)\) as the range of \(f\).
+  \end{itemize}
    \subsection{Injective, or One-to-one} 
    If a function \(f: A \rightarrow B\) is such that it never happens that different arguments lead to the same value, we say that \(f\) is injective.
    \begin{itemize}
@@ -44,8 +77,10 @@ Consider an example \(f(x)=x^2+x+1\). The value of the function \(f\) at argumen
        (\forall a, b \in A)[f(a)=f(b) \Rightarrow a=b]
        \end{align*}
 
-       \item The function \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=x^2\) is not injective but the function \(g: \mathbb{R}_{+} \rightarrow \mathbb{R}\) defined by \(g(x)=x^2\) is injective.
+       \item The function \(f_{1}: \mathbb{R} \rightarrow \mathbb{R}_{+}\) defined by \(f(x)=x^2\) and \(f_{2}:\mathbb{R} \to \mathbb{R}\) also defined by \(f(x)=x^2\) are not injective but the function \(g: \mathbb{R}_{+} \rightarrow \mathbb{R}\) defined by \(g(x)=x^2\) is injective.
        \end{itemize}
+
+       
 \subsection{Surjective or onto} 
  If every member of \(B\) is the value of the function at some argument, we say \(f\) is surjective.
  \begin{itemize}
@@ -53,4 +88,248 @@ Consider an example \(f(x)=x^2+x+1\). The value of the function \(f\) at argumen
    \item Note the order of the quantifiers in the above condition. For every \(b\) in \(B\) it must be possible to find an \(a\) in A such that \(f(a)=b\).
    \item The function \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=x^2\) is not surjective but the function \(g: \mathbb{R} \rightarrow \mathbb{R}_{+}\)defined by \(g(x)=x^2\) is surjective.
  \end{itemize}
+  \subsection{Inverses}
+  Invertible: Let \(f: A \rightarrow B\). We say \(f\) is invertible if there exists a function \(g: B \rightarrow A\) such that for all \(a \in A\) and all \(b \in B\)
+
+  \begin{align*}
+  f(a)=b \Longleftrightarrow g(b)=a
+  \end{align*}
+  
+  
+  We call such a function \(g\) an inverse of \(f\). 
+  \begin{itemize}
+    \item Example: Let \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=2 x+3\), there is an inverse function \(g: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(g(x)=\frac{x-3}{2}\)
+    \item Alternatively, \(g\) is an inverse of a function \(f: A \rightarrow B\) iff \(g: B \rightarrow A\) and
+    
+    \begin{align*}
+    g \circ f=I_A \text { and } f \circ g=I_B
+    \end{align*}
+    
+    where \(I_A, I_B\) are the identity functions on \(A, B\), respectively.
+    \item Let \(f: A \rightarrow B\). Then \(f\) is invertible iff it is a bijection. Moreover, if \(f\) is invertible, its inverse function is unique.
+    \item The unique inverse of a bijective function \(f\) is denoted by \(f^{-1}\).
+  \end{itemize}
+  
+   \section{Countability} 
+
+   Countability: The fundamental notion behind counting is that of pairing off.
+
+   If we count the elements of some (finite) collection \(A\) of objects, ``one, two, thre'', etc., we are explicitly defining a bijection between a subset of natural numbers and the elements of \(A\). We may picture the counting process as follows:
+
+\begin{align*}
+\begin{array}{ccccccc}
+a_1 & a_2 & a_3 & \cdots & \cdots & a_{n-1} & a_n \\
+\uparrow & \uparrow & \uparrow & & & \uparrow & \uparrow \\
+1 & 2 & 3 & \cdots & \cdots & n-1 & n
+\end{array}
+\end{align*}
+The above counting process determines the bijection between 
+
+the set \( \{ 1,2, \ldots, n\} \) and \(A\). Since the counting process stops when we get to the number \(n\), 
+
+we say that the set \(A\) has \(n\) elements, or that `` the number of elements of \(A\) is \(n\)'', 
+
+or ``the cardinality of \(A\) is \(n\)''. Notationally, \(|A|=n\).
+
+So \(A\) is finite if either 
+ \begin{enumerate}
+  \item \begin{align*}
+    \left( \exists n \in \mathbb{N} \right)\left(  \right) \left( \exists \text{a bijection} t: \{1,2,\ldots,n \} \to A \right)\\
+  \end{align*}
+  or
+  
+  \item A is empty.
+ \end{enumerate}
+
+There are two definitions of Countability;
+\begin{itemize}
+  \item Definition 1
+\end{itemize}
+
+ \subsection{Finite and Infinite Sets} 
+
+ \begin{itemize}
+  \item  Finite set: A non-empty set \(A\) is finite iff, for some natural number \(n\), there is a bijection from the set \( \{ 1,2, \ldots, n-1, n\} \) to \(A\). We also consider \(\emptyset \) as a finite set because it has 0 elements.
+  \item Infinite set: If a set is not a finite set then, we call it an infinite set.
+ \end{itemize}
+
+  \subsection{Countable Set} 
+  Countable set: An infinite set \(A\) is countable if there is a bijection \(f: \mathbb{N} \rightarrow A\). If there does not exist such a bijection, we say that the infinite set \(A\) is uncountable.
+
+  Examples of Countable set:
+  \begin{enumerate}
+   
+    \item The set of natural numbers \(\mathbb{N}\): The identity function on \(\mathbb{N}\) is a suitable bijection.
+    \item The set of even natural numbers, let's denote it by \(\mathcal{E}\). We can define \(f: \mathbb{N} \rightarrow \mathcal{E}\) defined by \(f(n)=2 n\) is a bijection. Now think of a bijection for the set of odd natural numbers to show that the set of odd natural numbers is countable.
+    \item The set \(\mathcal{R}=\{1 / n \mid n \in \mathbb{N}\} \) is countable, the corresponding bijection is defined as \(f: \mathbb{N} \rightarrow \mathcal{R}\) such that \(f(n)=1 / n\).
+    \item The set of all integers \(\mathbb{Z}\) is countable. To see this, define a function \(f: \mathbb{N} \rightarrow \mathbb{Z}\) by:
+    
+    \begin{align*}
+    f(n)= \begin{cases}n / 2, & \text { if } n \text { is even } \\ -(n-1) / 2, & \text { if } n \text { is odd }\end{cases}
+    \end{align*}
+    
+    \item The set \(\mathcal{P}\) of all prime numbers is also countable. We define a function \(f: \mathbb{N} \rightarrow \mathcal{P}\) by the following definition: let \(f(1)=2\), and for any \(n \geq 1\), let \(f(n+1)\) be the least prime number bigger than \(f(n)\). Convince yourself for two things: (a) that \(f\) is a function; and (b) that it is in fact a bijection.
+  \end{enumerate}
+
+  Few examples of Countable sets are \(\mathbb{N}, \mathbb{Z}, \mathbb{Q}\).
+  
+  Few examples of uncountable sets are \(\mathbb{R}, [0,1], \mathbb{Q}^{c}=\frac{\mathbb{R}}{\mathbb{Q}}\)  
+   \pagebreak
+
+   \section{Increasing Transformation of a Utility function} 
+
+   Theorem
+Let \(f: \mathbb{R} \rightarrow \mathbb{R}\) be an increasing function that is, \(\forall s, t \in \mathbb{R}\), \(s>t \Rightarrow f(s)>f(t)\). If \(u\) represents the preference relation \(\succsim \) on \(A\), then so does the function \(w\) defined by \(w(a)=f(u(a))\) for all \(a \in A\).
+
+Consider any pair of alternatives \(a, b \in A\). We have
+
+\begin{align*}
+\begin{aligned}
+& w(a) \geq w(b) \\
+\Leftrightarrow & f(u(a)) \geq f(u(b)) \\
+\Leftrightarrow & u(a) \geq u(b) \\
+\Leftrightarrow & a \succsim b
+\end{aligned}
+\end{align*}
+
+ \section{Representing preference realtion by a utility function} 
+
+ Theorem
+Every preference relation on a finite set can be represented by a utility function.
+\begin{itemize}
+  \item  Let \(A\) be a finite set and let \(\succsim \) be a preference relation on \(A\).
+  \item For \(a \in A\), define \(L_a=\{b \in A \mid a \succsim b\} \). We'll call this the Lower Contour Set of \(a\) as it consists of alternatives in \(A\) that are at most as good as alternative \(a\).
+  \item Define \(u: A \rightarrow \mathbb{R}\) as follows: for \(a \in A, u(a):=\left|L_a\right|\), which is the number of alternatives in \(A\) that are at most as good as a. We'll show that \(u\) represents \(\succsim \), that is, \(\forall a, a^{\prime} \in A, a \succsim a^{\prime} \Leftrightarrow u(a) \geq u\left(a^{\prime}\right)\)
+  \item  First we'll show that \(\forall a, a^{\prime} \in A, a \succsim a^{\prime} \Rightarrow u(a) \geq u\left(a^{\prime}\right)\)
+  \item Consider any pair of alternatives \(a, a^{\prime} \in A\) such that \(a \succsim a^{\prime}\). We'll now show that \(L_{a^{\prime}} \subset L_a\). If \(b \in L_{a^{\prime}}\), then we have \(a \succsim a^{\prime}\) and \(a^{\prime} \succsim b\). By transitivity of \(\succsim \), we get \(a \succsim b\), and therefore \(b \in L_a\). So, \(L_{a^{\prime}} \subset L_a\) and \(u(a) \geq u\left(a^{\prime}\right)\).
+  \item Now we'll show that \(\forall a, a^{\prime} \in A, u(a) \geq u\left(a^{\prime}\right) \Rightarrow a \succsim a^{\prime}\). Equivalently, we can show that \(\forall a, a^{\prime} \in A,\left(\neg a \succsim a^{\prime}\right) \Rightarrow u(a)<u\left(a^{\prime}\right)\)
+  \item Consider any pair of alternatives \(a, a^{\prime} \in A\) such that \(\neg a \succsim a^{\prime}\). By completeness of \(\succsim \), we have \(a^{\prime} \succsim a\). By the same argument as before, \(L_a \subset L_{a^{\prime}}\). By reflexivity, \(a^{\prime} \in L_{a^{\prime}}\). Since \(\neg a \succsim a^{\prime}, a^{\prime} \notin L_a\). Therefore, \(L_a \subsetneq L_{a^{\prime}}\) and we get \(u(a)<u\left(a^{\prime}\right)\).
+\end{itemize}
+
+ \subsection{Lexicographic Preferences} 
+
+Consider \(\mathbb{Z}_{+} \times \mathbb{Z}_{+}\) and the lexicographic preference relation,
+\(\left( x_{1},y_{1} \right) \succsim_{L} \left( x_{2},y_{2} \right)  \)   if either \(x_{1}>x_{2}\) or  \(\left( x_{1}=x_{2} \ \text{and} \ y_{1} \geq y_{2} \right) \) 
+
+and the strict lexicographic preference relation can be defined as follows;
+\(\left( x_{1},y_{1} \right) \succ_{L} \left( x_{2},y_{2} \right)  \) if either \(x_{1}>x_{2}\) or \(\left( x_{1}=x_{2} \ \text{and} \ y_{1}>y_{2} \right) \)  
+
+and similiarly the indifference relation can be defined as \(\left( x_{1},y_{1} \right) \sim_{L} \left( x_{2},y_{2} \right)  \) if \(x_{1}=x_{2} \ \text{and} y_{1}=y_{2}\)    
+
+Is there a utility representation of lexicographic preferences over \(\mathbb{Z}_{+} \times \mathbb{Z}_{+}\)?   
+
+we should try to find a function \(f: \mathbb{Z}_{+} \to [0,1) \)  
+
+say \(f=\frac{y}{y+1}\) and then we can use the utility function \(u(x,y)=x+\frac{y}{y+1}\) to represent lexicographic preferences.   
+
+Is there a utility representation of lexicographic preferences over \(\mathbb{R}_{+} \times \mathbb{R}_{+}\)? 
+
+NO, There does not exsist a utility fuction over this domain.
+
+Below is a proof provided for the domain \([0,1] \times [0,1]\) which is also uncountable and of the same cardinality as \(\mathbb{R}_{+ \times \mathbb{R}_{+}}\)   
+
+Theorem
+  The Lexicographic preference relation \(\succsim \) on \([0,1] \times[0,1]\) defined as \(\left(x_1, y_1\right) \succsim\left(x_2, y_2\right)\) if and only if either (i) \(x_1>x_2\) or (ii) \(x_1=x_2\) and \(y_1 \geq y_2\) is not represented by any utility function.
+\begin{itemize}
+  \item Suppose by contradiction that there existed a utility function \(u\) representing these preferences.
+  \item For each \(x \in[0,1]\), we have \((x, 1) \succ(x, 0)\), and therefore, \(u(x, 1)>u(x, 0)\). We can therefore assign to \(x\) a non-degenerate interval of values satisfying the above inequality \(I(x)=[u(x, 0), u(x, 1)]\).
+  \item  For any \(1 \geq x^{\prime}>x \geq 0\), all commodity bundles generating utilities in the interval \(I\left(x^{\prime}\right)\) are strictly preferred to those in the disjoint interval \(I(x)\) and should therefore be assigned a greater utility level.
+  \item Then from each of the interval \(I(x)\) we can pick a distinct rational number \(r_x \in I(x)\) which is increasing in \(x\). Since \(x \in[0,1]\), there are uncountably many such intervals, but set of rational numbers are countable. This results in a contradiction.
+\end{itemize}
+
+Note that lexicographic preferences on \([0,1] \times [0,1]\)  are reflexive, transitive and complete.
+
+let us show that lexicographic preferences are transitive;
+
+We want to show that, if the following holds,
+ \begin{align*}
+    (x_{1},y_{1}) \succsim_{L} (x_{2},y_{2}) \\
+    (x_{2},y_{2}) \succsim_{L} (x_{3},y_{3})\\
+\end{align*}
+then,
+
+\((x_{1},y_{1}) \succsim_{L} (x_{3},y_{3})\)  
+
+ \section{Weak axiom of revealed preference (WARP)} 
+
+ Choice Structure: Let \(X\) be the consumption set. A choice structure \((\mathcal{B}, C(\cdot)\)) consists of two ingredients:
+(a) \(\mathcal{B}\): It is a family (a set) of non-empty subsets of \(X\); that is, every element of \(\mathcal{B}\) is a set \(B \subset X\).
+(b) \(C(\cdot)\): It is a choice rule that assigns a nonempty set of chosen elements \(C(B) \subset B\) for every budget set \(B \in B\)
+
+ WARP- The choice structure \((\mathcal{B}, C(\cdot))\) satisfies the weak axiom of revealed preference (WARP) if the following property holds:
+
+If for some \(B \in \mathcal{B}\) with \(x, y \in B\) we have \(x \in C(B)\), then for any \(B^{\prime} \in \mathcal{B}\) with \(x, y \in B^{\prime}\) and \(y \in C\left(B^{\prime}\right)\), we must also have \(x \in C\left(B^{\prime}\right)\).
+
+Revealed Preference: Given a choice structure \(\left( \mathcal{B},C(\cdot) \right) \) the revealed preference relation \(\succsim^*\) is defined by   
+
+\begin{align*}
+x \succsim^* y \Leftrightarrow \exists B \in \mathcal{B} \text { such that } x, y \in B \text { and } x \in C(B)
+\end{align*}
+
+\begin{itemize}
+  \item We read \(x \succsim^* y\) as ``\(x\) is revealed at least as good as \(y\)''
+  \item With this terminology we can restate the weak axiom as follows:``if \(x\) is revealed at least as good as \(y\), then \(y\) cannot be revealed preferred to \(x\)''
+\end{itemize}
+
+If for some \(B \in \mathcal{B}\) with \(x,y \in B\) we have \(x \in C(B)\) then for any \( B^\prime \in \mathcal{B}\) with \(x,y \in B^\prime \) and \(y \in C(B^\prime)\), we must also have that \(x \in C(B^\prime)\)             
+
+\(\left( \forall B, B^\prime \in \mathcal{B} \right)\left( \forall x,y \in B \cap B^\prime  \right)\left( \left( x \in C(B) \wedge y \in C(B^\prime) \right)  \right) \implies x \in C(B^\prime) \)   
+
+revealed strict preference relation;
+
+\(x \succ^{**} y  \implies \exists B \in \mathcal{B} \)  
+
+ \subsubsection*{Example 1} 
+ \begin{align*}
+    A= \{x,y,z\} \\
+    C(\{x,y\})=\{x\} \\
+    C(\{y,z\})=\{y\} \\
+    C(\{x,z\})=\{z\} \\ 
+\end{align*}
+Yes the WARP is satisfied of the above.
+
+now, \(\succsim^* =\{(x,x),(x,y),(y,y),(y,z),(z,z),(z,x)\} \)  and
+
+\(\succ^{**} = \{(x,y),(y,z),(x,z)\} \)  
+
+ \subsubsection*{Example 2} 
+
+ \begin{align*}
+  A= \{a,b,c\} \\
+  C(\{a,b\})=\{a,b\} \\
+  C(\{b,c\})=\{b\} \\
+  C(\{a,c\})=\{a\} \\ 
+  C(\{a,b,c\})=\{a\}
+\end{align*}
+
+The WARP is not satisfied here because first we are saying that \(b \succsim^* a\) or \(u(a)=u(b)\)  but at last we are saying that \(a \succ^{**} b\) or \(u(a) > u(b)\).
+
+\section*{ \underline{Precise Definition of limit} } 
+   Let \(f\) be a function defined on some open interval that contains \(a\), except possibly at a itself. Then we say that limit of \(f(x)\) as \(x\) approaches \(a \)  is \(L\), and we write 
+    \begin{align*}
+        \lim_{x \to a} f(x) = L 
+   \end{align*}    
+and the precise definiton would be, 
+ \begin{align*}
+    \left( \forall \epsilon > 0 \right) \left( \exists \delta > 0 \right)\left( \forall x \right) \left( 0 < |x-a|< \delta \implies |f(x)-L|< \epsilon \right)   
+\end{align*}
+The negation of the above definiton would be 
+ \begin{align*}
+    \left( \exists \epsilon > 0 \right) \left( \forall \delta > 0 \right)\left( \exists x \right) \left( 0< |x-a| < \delta \wedge |f(x)-L| \geq \epsilon \right)  
+\end{align*}
+The above statement tells us that if it is true then we have that,
+ \begin{align*}
+    \lim_{x \to a} f(x) \neq L
+\end{align*}
+and we say that limit of \(f(x)\) as \(x\) approaches \(a \)  is  not equal to \(L\).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{1.png}
+    \caption{How to check for existence of limit graphically}
+\end{figure}
+ \subsubsection*{Example} 
+ \begin{equation*}
+     \lim_{x \to 0^+} \frac{1}{x} \quad \text{DNE}
+ \end{equation*}    
 \end{document}
