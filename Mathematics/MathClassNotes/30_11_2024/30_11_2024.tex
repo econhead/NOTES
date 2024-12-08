@@ -231,5 +231,42 @@
     Alternative Proof (Direct Proof). Consider any arbitrary \(A\), and any weak preference relation \(\succsim \) on set \(A\) that is reflexive, complete and transitive. Now consider arbitrary \(a, b, c \in A\) such that \((a, b) \notin \succ \) and \((b, c) \notin \succ \). 
     By completeness of \(\succsim(b, a) \in \succsim \) and \((c, b) \in \succsim \). By transitivity of \(\succsim(c, a) \in \succsim \). Therefore, \((a, c) \notin \succ \).
   \end{tcolorbox}
+
+   \subsubsection*{Question} 
+  Consider a binary relation \(\succsim\) on a set \(A\). Suppose \(\succsim\) is transitive. Define relations \(\succ\) and \(\sim\) on \(A\) by: for \(x, y \in A\),
+
+  \(x \succ y\) if and only if \(x \succsim y\) and not \(y \succsim x\)
+
+  \(x \sim y\) if and only if \(x \succsim y\) and \(y \succsim x\)
+
+  Prove the following.
+(i) If \(x \succ y\) and \(y \succ z\) then \(x \succ z\)
+
+(ii) If \(x \sim y\) and \(y \sim z\) then \(x \sim z\)
+
+(iii) If \(x \succ y\) and \(y \succsim z\) then \(x \succ z\)
+
+  \begin{tcolorbox}
+    Proof. Let \(\succsim \)  be transitive, then we want to prove that 
+    
+    \(\left( x \succ y \wedge y \succsim z \right) \implies x \succ z \)
+    
+    Consider any arbitrary \(x,y,z \in A\) such that;
+    
+    \(x \succ y \wedge y \succsim z \) holds 
+    
+    Suppose by the way of contradiction \(x\succ z \) does not hold
+
+    then by definition of strict preference, 
+     \begin{align*}
+        &\neg(x \succsim z \wedge \neg(z \succsim x))\\
+        \implies &\neg(x \succsim z) \vee z \succsim x\\
+     \end{align*}
+     But then by the transitivity of \(\succsim \)  
+      \begin{align*}
+         z \succsim x \wedge y \succsim z \implies y \succsim x
+     \end{align*}   
+     But this contradicts the fact that \(x \succ y \) holds. Hence proved!
+     \end{tcolorbox}
 \end{document}
       

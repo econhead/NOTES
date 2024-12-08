@@ -88,6 +88,20 @@ Consider an example \(f(x)=x^2+x+1\). The value of the function \(f\) at argumen
    \item Note the order of the quantifiers in the above condition. For every \(b\) in \(B\) it must be possible to find an \(a\) in A such that \(f(a)=b\).
    \item The function \(f: \mathbb{R} \rightarrow \mathbb{R}\) defined by \(f(x)=x^2\) is not surjective but the function \(g: \mathbb{R} \rightarrow \mathbb{R}_{+}\)defined by \(g(x)=x^2\) is surjective.
  \end{itemize}
+
+ 
+   \begin{align*}
+    \begin{array}{|c|c|c|c|}
+      \hline \text{Domain} & \text{CoDomain} & \text{Injective} & \text{Surjective } \\
+      \hline  \mathbb{R} & \mathbb{R} & \text{No} & \text{No} \\
+      \hline \mathbb{R} & \mathbb{R}_{+} & \text{No}& \text{Yes} \\
+      \hline \mathbb{R}_{+} & \mathbb{R} & \text{Yes} & \text{No} \\
+      \hline \mathbb{R}_{+} &\mathbb{R}_{+} & \text{Yes} & \text{Yes}\\
+      \hline
+    \end{array}  
+  \end{align*}
+
+
   \subsection{Inverses}
   Invertible: Let \(f: A \rightarrow B\). We say \(f\) is invertible if there exists a function \(g: B \rightarrow A\) such that for all \(a \in A\) and all \(b \in B\)
 
@@ -133,18 +147,37 @@ or ``the cardinality of \(A\) is \(n\)''. Notationally, \(|A|=n\).
 
 So \(A\) is finite if either 
  \begin{enumerate}
-  \item \begin{align*}
-    \left( \exists n \in \mathbb{N} \right)\left(  \right) \left( \exists \text{a bijection} t: \{1,2,\ldots,n \} \to A \right)\\
-  \end{align*}
-  or
+  \item \(\left( \exists n \in \mathbb{N} \right) \left( \exists \ \text{a bijection} \ t: \{1,2,\ldots,n \} \to A \right)\)  
   
+  or
   \item A is empty.
  \end{enumerate}
 
 There are two definitions of Countability;
 \begin{itemize}
-  \item Definition 1
+  \item Definition 1;
+  A is Countable if either 
+  \begin{enumerate}
+    \item A is finite, or
+    \item There exists a bijection \(f: \mathbb{N} \to A\) 
+     \begin{figure}[ht]
+      \centering
+      \includegraphics[scale=0.4]{2.png}
+      
+      \label{Label}
+  \end{figure} 
+  \end{enumerate}
+  \item Definition 2;
+  A is countable is there exists a bijection \(f: \mathbb{N} \to A\).  
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{3.png}
+    
+    \label{Label}
+\end{figure} 
 \end{itemize}
+
+\pagebreak
 
  \subsection{Finite and Infinite Sets} 
 
@@ -174,7 +207,6 @@ There are two definitions of Countability;
   Few examples of Countable sets are \(\mathbb{N}, \mathbb{Z}, \mathbb{Q}\).
   
   Few examples of uncountable sets are \(\mathbb{R}, [0,1], \mathbb{Q}^{c}=\frac{\mathbb{R}}{\mathbb{Q}}\)  
-   \pagebreak
 
    \section{Increasing Transformation of a Utility function} 
 
@@ -242,42 +274,47 @@ Note that lexicographic preferences on \([0,1] \times [0,1]\)  are reflexive, tr
 let us show that lexicographic preferences are transitive;
 
 We want to show that, if the following holds,
- \begin{align*}
-    (x_{1},y_{1}) \succsim_{L} (x_{2},y_{2}) \\
-    (x_{2},y_{2}) \succsim_{L} (x_{3},y_{3})\\
-\end{align*}
-then,
-
-\((x_{1},y_{1}) \succsim_{L} (x_{3},y_{3})\)  
+\begin{equation*}
+    \begin{split}
+      (x_{1},y_{1}) \succsim_{L} (x_{2},y_{2}) \\
+      (x_{2},y_{2}) \succsim_{L} (x_{3},y_{3})\\
+    \end{split}
+\end{equation*}    
+then,\[(x_{1},y_{1}) \succsim_{L} (x_{3},y_{3})\]  
 
  \section{Weak axiom of revealed preference (WARP)} 
 
- Choice Structure: Let \(X\) be the consumption set. A choice structure \((\mathcal{B}, C(\cdot)\)) consists of two ingredients:
-(a) \(\mathcal{B}\): It is a family (a set) of non-empty subsets of \(X\); that is, every element of \(\mathcal{B}\) is a set \(B \subset X\).
-(b) \(C(\cdot)\): It is a choice rule that assigns a nonempty set of chosen elements \(C(B) \subset B\) for every budget set \(B \in B\)
+ \underline{Choice Structure:} Let \(X\) be the consumption set. A choice structure \((\mathcal{B}, C(\cdot)\)) consists of two ingredients:
 
- WARP- The choice structure \((\mathcal{B}, C(\cdot))\) satisfies the weak axiom of revealed preference (WARP) if the following property holds:
+ (a) \(\mathcal{B}\): It is a family (a set) of non-empty subsets of \(X\); that is, every element of \(\mathcal{B}\) is a set \(B \subset X\).
+
+ (b) \(C(\cdot)\): It is a choice rule that assigns a nonempty set of chosen elements \(C(B) \subset B\) for every budget set \(B \in \mathcal{B}\)
+
+\underline{WARP:} The choice structure \((\mathcal{B}, C(\cdot))\) satisfies the weak axiom of revealed preference (WARP) if the following property holds:
 
 If for some \(B \in \mathcal{B}\) with \(x, y \in B\) we have \(x \in C(B)\), then for any \(B^{\prime} \in \mathcal{B}\) with \(x, y \in B^{\prime}\) and \(y \in C\left(B^{\prime}\right)\), we must also have \(x \in C\left(B^{\prime}\right)\).
 
-Revealed Preference: Given a choice structure \(\left( \mathcal{B},C(\cdot) \right) \) the revealed preference relation \(\succsim^*\) is defined by   
+\(\forall x,y \in A, x \succsim^* y \implies \neg \left( y \succ^{**} x \right) \)  
 
-\begin{align*}
-x \succsim^* y \Leftrightarrow \exists B \in \mathcal{B} \text { such that } x, y \in B \text { and } x \in C(B)
-\end{align*}
+\underline{Revealed Preference:} Given a choice structure \(\left( \mathcal{B},C(\cdot) \right) \) the revealed preference relation \(\succsim^*\) is defined by   
+\begin{tcolorbox}
+  \begin{align*}
+    x \succsim^* y \Leftrightarrow \exists B \in \mathcal{B} \text { such that } x, y \in B \text { and } x \in C(B)
+    \end{align*}
+\end{tcolorbox}
 
 \begin{itemize}
   \item We read \(x \succsim^* y\) as ``\(x\) is revealed at least as good as \(y\)''
-  \item With this terminology we can restate the weak axiom as follows:``if \(x\) is revealed at least as good as \(y\), then \(y\) cannot be revealed preferred to \(x\)''
-\end{itemize}
+  \item With this terminology we can restate the weak axiom as follows: ``if \(x\) is revealed at least as good as \(y\), then \(y\) cannot be revealed preferred to \(x\)''.
+\end{itemize}           
 
-If for some \(B \in \mathcal{B}\) with \(x,y \in B\) we have \(x \in C(B)\) then for any \( B^\prime \in \mathcal{B}\) with \(x,y \in B^\prime \) and \(y \in C(B^\prime)\), we must also have that \(x \in C(B^\prime)\)             
+Revealed at least as good as relation;
 
-\(\left( \forall B, B^\prime \in \mathcal{B} \right)\left( \forall x,y \in B \cap B^\prime  \right)\left( \left( x \in C(B) \wedge y \in C(B^\prime) \right)  \right) \implies x \in C(B^\prime) \)   
+\(\left( \forall B, B^\prime \in \mathcal{B} \right) \left( \forall x,y \in B \cap B^\prime  \right)\left( \left(  x \in C(B) \wedge y \in C(B^\prime) \right)   \implies x \in C(B^\prime) \right)\)   
 
-revealed strict preference relation;
+revealed strictly preferred to relation;
 
-\(x \succ^{**} y  \implies \exists B \in \mathcal{B} \)  
+\(x \succ^{**} y  \Leftrightarrow \exists B \in \mathcal{B} \) such that \(x,y \in B\) and \(x\in C(B)\) but \(y \notin C(B)\)       
 
  \subsubsection*{Example 1} 
  \begin{align*}
