@@ -341,32 +341,4 @@ now, \(\succsim^* =\{(x,x),(x,y),(y,y),(y,z),(z,z),(z,x)\} \)  and
 
 The WARP is not satisfied here because first we are saying that \(b \succsim^* a\) or \(u(a)=u(b)\)  but at last we are saying that \(a \succ^{**} b\) or \(u(a) > u(b)\).
 
-\section*{ \underline{Precise Definition of limit} } 
-   Let \(f\) be a function defined on some open interval that contains \(a\), except possibly at a itself. Then we say that limit of \(f(x)\) as \(x\) approaches \(a \)  is \(L\), and we write 
-    \begin{align*}
-        \lim_{x \to a} f(x) = L 
-   \end{align*}    
-and the precise definiton would be, 
- \begin{align*}
-    \left( \forall \epsilon > 0 \right) \left( \exists \delta > 0 \right)\left( \forall x \right) \left( 0 < |x-a|< \delta \implies |f(x)-L|< \epsilon \right)   
-\end{align*}
-The negation of the above definiton would be 
- \begin{align*}
-    \left( \exists \epsilon > 0 \right) \left( \forall \delta > 0 \right)\left( \exists x \right) \left( 0< |x-a| < \delta \wedge |f(x)-L| \geq \epsilon \right)  
-\end{align*}
-The above statement tells us that if it is true then we have that,
- \begin{align*}
-    \lim_{x \to a} f(x) \neq L
-\end{align*}
-and we say that limit of \(f(x)\) as \(x\) approaches \(a \)  is  not equal to \(L\).
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{1.png}
-    \caption{How to check for existence of limit graphically}
-\end{figure}
- \subsubsection*{Example} 
- \begin{equation*}
-     \lim_{x \to 0^+} \frac{1}{x} \quad \text{DNE}
- \end{equation*}    
 \end{document}
