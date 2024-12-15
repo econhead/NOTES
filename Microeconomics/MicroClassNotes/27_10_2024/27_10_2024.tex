@@ -1,10 +1,10 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,fleqn]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{parskip}
 \usepackage{amsmath, amssymb, graphicx}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{fancyhdr}
 \setlength{\headheight}{15.6pt}
 \pagestyle{fancyplain}
@@ -19,76 +19,125 @@
 \title{Public Goods}
 
 \begin{document}
-    \section*{\underline{Public Goods}}
-\subsection*{Dolbear Triangle;}
-
-      \begin{align*}
-         &u_{1}(x_{1}, g)\\
-         &u_{2}(x_{2},g)\\
-         &\mathcal{F}=\{(x_{1},x_{2},g) \\
-         &=\{(x_{1},x_{2},g)\in \mathbb{R}^3_{+} | x_{1}+x_{2}+g=10\} \\
-         &\omega_{1}=\omega_{2}=5\\
-     \end{align*}
-\subsection*{Question 1}
+\section{\underline{Public Goods}}
+\subsection{\underline{Dolbear's Triangle}}
+ \begin{align*}
+  &u_{1}(x_{1}, g)\\
+  &u_{2}(x_{2},g)\\
+  &\mathcal{F}=\{(x_{1},x_{2},g) \in \mathbb{R}^3_{+} \mid \left( 10-(x_{1}+x_{2}) \right) = g\}  \\
+  & \ \ =\{(x_{1},x_{2},g)\in \mathbb{R}^3_{+} \mid x_{1}+x_{2}+g=10\} \\
+  &\omega_{1}=\omega_{2}=5\
+ \end{align*} 
+\subsubsection{Question}
       \begin{align*}
          u_{1}(x_{1},g)&=8x_{1}+5g\\
          u_{2}(x_{2},g)&=8x_{2}+5g\\
-         \mathcal{F}&=\{(x_{1},x_{2},g)\in \mathbb{R}^3_{+} | 10-(x_{1}+x_{2})=g \} \\
+         \mathcal{F}&=\{(x_{1},x_{2},g)\in \mathbb{R}^3_{+} \mid 10-(x_{1}+x_{2})=g \} \\
          u_{2}^{ADJ}(x_{1},g) &= u_{2}(10-x_{1}-g,g)\\
          &= 80-8x_{1}-3g\\
-         PE &= \{(x_{1},x_{2},g) \in \mathcal{F} | x_{1}=0 \vee x_{2}=0\}
+         PE &= \{(x_{1},x_{2},g) \in \mathcal{F} \mid x_{1}=0 \vee x_{2}=0\}
      \end{align*}
-      \begin{align*}
-            \max_{(x_{1},x_{2},g)\in \mathbb{R}^{3}_{+}} & \alpha(8x_{1}+5g) + \beta(8x_{2}+5g) \quad   \\
-            s.t. & \quad x_{1}+x_{2}+g=10
-     \end{align*}
+ Now we can solve the following problem
+ \begin{tcolorbox}
+ \begin{align*}
+        \max_{(x_{1},x_{2},g)\in \mathbb{R}^{3}_{+}} & \alpha(8x_{1}+5g) + \beta(8x_{2}+5g) \quad   \\
+        s.t. & \quad x_{1}+x_{2}+g=10
+ \end{align*}
+ \end{tcolorbox}
+ The above problem is equivalent to solving
       \begin{align*}
             \max_{(x_{1},x_{2},g)\in \mathbb{R}^{3}_{+}} & \quad 8 \alpha x_{1} + 8 \beta x_{2} + 5(\alpha+\beta)g \quad  \\
             s.t. & \quad x_{1}+x_{2}+g=10 \quad 
      \end{align*}
-      Note that if \(\alpha>\beta, x_{2}=0\) and if \(\alpha<\beta, x_{1}=0\) and if \(\alpha=\beta, x_{1}=x_{2}=0, g=10\) 
-      
-      NOw if \( \alpha > \beta \) then \(8\alpha > 5(\alpha+\beta)\)
-\pagebreak 
+ Note that
+      \begin{itemize}
+        \item If \(\alpha>\beta \) then \( x_{2}=0\)
+        \item if \(\alpha<\beta \) then \( x_{1}=0\)
+        \item if \(\alpha=\beta \) then \( x_{1}=x_{2}=0, g=10\) 
+      \end{itemize}
+\pagebreak
+ Now
+ \begin{itemize}
+    \item if \( \alpha > \beta \) and \(8\alpha > 5(\alpha+\beta)\) then,\(x_{1}=10, x_{2}=0, g=0 \)
+    \item if \(\alpha > \beta \) and \( 8\alpha < 5(\alpha+\beta)\) then, \(x_{1}=0, x_{2}=0, g=10 \) 
+    \item if \(\alpha > \beta \) and \( 8\alpha = 5(\alpha+\beta)\) then, \( x_{2}=0, x_{1}+ g=10 \)    
+ \end{itemize} 
+Similiarly;
+\begin{itemize}
+    \item if \( \alpha < \beta \) and \(8\beta > 5(\alpha+\beta)\) then,\(x_{1}=0, x_{2}=10, g=0 \)
+    \item if \(\alpha < \beta \) and \( 8\beta < 5(\alpha+\beta)\) then, \(x_{1}=0, x_{2}=0, g=10 \) 
+    \item if \(\alpha < \beta \) and \( 8\beta = 5(\alpha+\beta)\) then, \( x_{1}=0, x_{2}+ g=10 \)    
+ \end{itemize} 
 
-\subsection*{\underline{Lindahl equilibrium}}
-\(\left( p_{1}^*,p_{2}^* \right) \)
-\subsubsection*{Question 1} 
+\subsection{\underline{Lindahl equilibrium}}
+We have to find the equilibrium price ratio \(\left( p_{1}^*,p_{2}^* \right) \);
+\subsubsection{Question} 
 Find the competitive equilibrium in the following economy;
  \begin{align*}
     u_{1}(x_{1},g)&= 8x_{1} + 5g \qquad \omega_{1}=4 \\
     u_{2}(x_{2},g)&= 8x_{2} + 5g \qquad \omega_{2}=6 \\
     g&=f(x_{0})= x_{0}\\
-    \mathcal{F}&= \{(x_{1},x_{2},g) \in \mathbb{R}^3_{+} | x_{1}+x_{2}+g=10\}\\
+    \mathcal{F}&= \{(x_{1},x_{2},g) \in \mathbb{R}^3_{+} | x_{1}+x_{2}+g=10\} \\
     \left( p_{1}^*,p_{2}^* \right) = \left( \frac{2}{5},\frac{3}{5} \right) \\
 \end{align*}
 How to check if it is correct?
+
+To solve for the equilibrium price ratio, we can solve the following two problems;
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x_{1},g)\in \mathbb{R}^{2}_{+}} & \quad 8x_{1} + 5g \\
+        s.t. &  \quad x_{1} + \frac{2}{5}g=4
+  \end{align*}   
+\end{tcolorbox}
+Solution to the above problem is \(\left( x_{1},x_{2},g \right) = \left( 0,0,10 \right) \) since \(\frac{8}{5}<\frac{5}{2}\).   
+
+Similiarly
+
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x_{2},g)\in \mathbb{R}^{2}_{+}} & \quad 8x_{2} + 5g \\
+        s.t. &  \quad x_{2} + \frac{3}{5}g=6
+  \end{align*}   
+\end{tcolorbox}
+Solution to the above problem is \(\left( x_{1},x_{2},g \right) = \left( 0,0,10 \right) \) since \(\frac{8}{5}<\frac{5}{3}\).   
+
+ \subsubsection{First Welfare Theorem for Lindahl Equilibrium;} 
  \begin{align*}
-       \max_{(x_{1},g)\in \mathbb{R}^{2}_{+}} & \quad 8x_{1} \\
-       s.t. &  \quad 
+    &u_{1}(x_{1},g) \\
+    &u_{2}(x_{2},g) \\
+    &g=f(x_{0}) \\
+    &(\omega_{1},\omega_{2}) \\
+    &(\theta_{1},\theta_{2})\\
+    &\mathcal{F}= \{(x_{1},x_{2},g) \in \mathbb{R}^3_{+} | f(\omega_{1}+ \omega_{2} -x_{1}-x_{2})=g\} \\
+    &u_{1}, u_{2} \ \text{are increasing by assumption}
 \end{align*}
 
-First Welfare Theorem for Lindahl Equilibrium;
- \begin{align*}
-    u_{1}(x_{1},g) & \quad g=f(x_{0}) \quad (\omega_{1},\omega_{2})\\
-    u_{2}(x_{2},g) & (\theta_{1},\theta_{2})\\
-    \mathcal{F}= \{9x_{1},x_{2},g) \in \mathbb{R}^3_{+} | f(\omega_{1}+ \omega_{2} -x_{1}-x_{2})=g\}\\
-    u_{1}, u_{2} \text{are increasing}
-\end{align*}
-\underline{Proof} Suppose \(\left( (p_{1}^*,p_{2}^*),(x_{1}^*,x_{2}^*,g^*) \right)\)  is the Lindahl equilibrium, and suppose \(\left( x_{1}^*,x_{2}^*,g^* \right)\) is not Pareto efficient.
+\begin{tcolorbox}
+ \underline{Proof} Suppose \(\left( (p_{1}^*,p_{2}^*),(x_{1}^*,x_{2}^*,g^*) \right)\)  is the Lindahl equilibrium, and suppose \(\left( x_{1}^*,x_{2}^*,g^* \right)\) is not Pareto efficient.
+ 
+ So there must exist \((x_{1}',x_{2}',g') \in \mathcal{F}\) such that,
 
-So there must exist \((x_{1}',x_{2}',g') \in \mathcal{F}\) such that,
+ \begin{enumerate}
+    \item \(u_{1}(x_{1}',g') \geq u_{1}(x_{1}^*,g^*) \ \text{and} \ u_{2}(x_{2}',g') \geq u_{2}(x_{2}^*,g^*)\)
+    \item \(u_{1}(x_{1}',g') > u_{1}(x_{1}^*,g^*) \ \text{or} \ u_{2}(x_{2}',g') > u_{2}(x_{2}^*,g^*)\)
+ \end{enumerate}
+ 
+ By 1, \(x_{1}'+p_{1}^*g' \geq \omega_{1} + \theta_{1}\pi^*(p_{1}^*+p_{2}^*)\) and \(x_{2}'+ p_{2}^*g' \geq \omega_{2} + \theta_{2}\pi^*(p_{1}^*+p_{2}^*)\) 
 
-\begin{enumerate}
-    \item \(u_{1}(x_{1}',g') \geq u_{1}(x_{1}^*,g^*) \text{and} u_{2}(x_{2}',g') \geq u_{2}(x_{2}^*,g^*)\)
-    \item \(u_{1}(x_{1}',g') > u_{1}(x_{1}^*,g^*) \text{and} u_{2}(x_{2}',g') > u_{2}(x_{2}^*,g^*)\)
-\end{enumerate}
-By 1, \(x_{1}'+p_{1}^*g' \geq \omega_{1} + \theta_{1}\pi^*(p_{1}^*+p_{2}^*)\) and \(x_{2}'+ p_{2}^*g' \geq \omega_{2} + \theta_{2}\pi^*(p_{1}^*+p_{2}^*)\) 
+or
 
-By 2, \(x_{1}'+p_{1}^*g' > \omega_{1} + \theta_{1}\pi^*(p_{1}^*+p_{2}^*)\) and \(x_{2}' +p_{2}^*g' > \omega_{2} + \theta_{2}\pi^*(p_{1}^*+p_{2}^*)\) 
-\pagebreak
+ By 2, \(x_{1}'+p_{1}^*g' > \omega_{1} + \theta_{1}\pi^*(p_{1}^*+p_{2}^*)\) and \(x_{2}' +p_{2}^*g' > \omega_{2} + \theta_{2}\pi^*(p_{1}^*+p_{2}^*)\) 
 
-\subsubsection*{Question 2}
+ So, adding the above two conditions which we got form 2, we get
+
+ \(x_{1}' + x_{2}' + (p_{1}^* + p_{2}^*) g' > \omega_{1} + \omega_{2} + \pi^*(p_{1}^* + p_{2}^*)\)  
+
+ \(\implies \pi^* (p_{1}^* + p_{2}^*) < (p_{1}^* + p_{2}^*)g' - (\omega_{1} +\omega_{2} - x_{1}' -x_{2}')\)  
+
+ But this is a contradiction, hence it must be the case that \((x_{1}^*, x_{2}^*,g^*)\) is infact Pareto efficient.  
+\end{tcolorbox}
+
+\subsubsection{Question 2}
 Find the Lindahl Equilibrium;
   \begin{align*}
      u_{1}(x_{1},g)&= x_{1}+2\sqrt{g} \qquad \omega_{1}=2\\
@@ -97,16 +146,87 @@ Find the Lindahl Equilibrium;
      g&=f(x_{0})=x_{0}
 \end{align*}
 First we solve the firm's profit maximization problem;
-     \begin{align*}
-           \max_{(g,x_{0})} & \quad (p_{1}+p_{2})g-x_{0} \\
-           &s.t. \ g \leq x_{0}
-    \end{align*}
-     \begin{align*}
-           \max_{(g)} & (p_{1}+p_{2}+p_{3})g-g \quad  \\
-           g* \in \begin{cases} \phi & \text{if} \ p_{1}+p_{2}+p_{3} > 1\\
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(g,x_{0})} & \quad (p_{1}+p_{2}+p_{3})g-x_{0} \\
+        &s.t. \ g \leq x_{0}
+ \end{align*}
+\end{tcolorbox}
+Which is equivalent to solving,
+     \begin{equation*}
+           \max_{(g)} (p_{1}+p_{2}+p_{3})g-g
+    \end{equation*}
+ So the solution to the above problem is,
+    \begin{equation*}
+        g* \in \begin{cases} \phi & \text{if} \ p_{1}+p_{2}+p_{3} > 1\\
             \{0\} & \text{if} \ p_{1}+p_{2}+p_{3} <1\\
             \mathbb{R}_{+} & \text{if} \ p_{1}+p_{2}+p_{3}=1
         \end{cases}
+    \end{equation*}    
+
+Now we can solve the utility maximization probelms of the agents;
+\begin{tcolorbox}
+     \begin{align*}
+           \max_{(x_{1},g)\in \mathbb{R}^{2}_{+}} & \quad x_{1} + 2\sqrt{g} \\
+           s.t. & \quad x_{1} + p_{1}^* g =2
     \end{align*}
+\end{tcolorbox}
+Which is equivalent to solving;
+\begin{align*}
+       \max_{0 \leq g_{1} \leq \frac{2}{p_{1}^*}} & \quad 2-p_{1}^*g_{1} + 2\sqrt{g_{1}} \\
+\end{align*}
+Differentiatig w.r.t \(g_{1}\)  we get \(-p_{1}^* + \frac{1}{\sqrt{g_{1}}}\)  
+
+So the solution to the above problem is,
+\begin{equation*}
+    g_{1} = \begin{cases} {\left( \frac{1}{p_{1}^*} \right)}^{2} & \ \text{if} \ p_{1}^* > \frac{1}{2}\\
+        \frac{2}{p_{1}^*} & \ \text{if} \ p_{1}^* \leq \frac{1}{2} 
+    \end{cases}
+\end{equation*}     
+\begin{tcolorbox}
+    \begin{align*}
+          \max_{(x_{2},g)\in \mathbb{R}^{2}_{+}} & \quad x_{2} + 4\sqrt{g} \\
+          s.t. & \quad x_{2} + p_{2}^* g =1
+   \end{align*}
+\end{tcolorbox}
+Which is equivalent to solving;
+\begin{align*}
+       \max_{0 \leq g_{2} \leq \frac{1}{p_{2}^*}} & \quad 1-p_{2}^*g_{2} + 4\sqrt{g_{2}} \\
+\end{align*}
+Differentiatig w.r.t \(g_{2}\)  we get \(-p_{2}^* + \frac{2}{\sqrt{g_{2}}}\)  
+
+So the solution to the above problem is,
+\begin{equation*}
+    g_{2} = \begin{cases} {\left( \frac{2}{p_{2}^*} \right)}^{2} & \ \text{if} \ p_{2}^* > 4\\
+        \frac{1}{p_{2}^*} & \ \text{if} \ p_{2}^* \leq 4
+    \end{cases}
+\end{equation*}    
+\begin{tcolorbox}
+    \begin{align*}
+          \max_{(x_{3},g)\in \mathbb{R}^{2}_{+}} & \quad x_{3} + 4\sqrt{g} \\
+          s.t. & \quad x_{3} + p_{3}^* g =1
+   \end{align*}
+\end{tcolorbox}
+Which is equivalent to solving;
+\begin{align*}
+       \max_{0 \leq g_{3} \leq \frac{1}{p_{3}^*}} & \quad 1-p_{3}^*g_{3} + 4\sqrt{g_{3}} \\
+\end{align*}
+Differentiatig w.r.t \(g_{3}\)  we get \(-p_{3}^* + \frac{2}{\sqrt{g_{3}}}\)  
+
+So the solution to the above problem is,
+\begin{equation*}
+    g_{3} = \begin{cases} {\left( \frac{2}{p_{3}^*} \right)}^{2} & \ \text{if} \ p_{3}^* > 4\\
+        \frac{1}{p_{3}^*} & \ \text{if} \ p_{3}^* \leq 4
+    \end{cases}
+\end{equation*} 
+Now we can equate the quantity demanded and quantity supplied of the public good equal to solve for the equilibrium price ratio;
+
+We know that for supply of the public good to be positive we need \(p_{1}^* + p_{2}^* +p_{3}^* =1 \) or simply because of the preferences and endowments of agent 2 and 3 \(p_{1}^* + 2p_{2}^*=1 \ldots (i)\).
+
+So if \(g_{1}^*=\frac{2}{p_{1}^*}\) and \(g_{2}=g_{3}=\frac{1}{p_{2}^*}=\frac{1}{p_{3}^*}\) then equating \(g_{1}=g_{2}=g_{3}\) we get \(\frac{2}{p_{1}^*}=\frac{1}{p_{2}^*}=\frac{1}{p_{3}^*}\) or \(p_{1}^*=2p_{2}^* \ldots (ii)\)
+
+now using (i) and (ii) we get \(p_{2}^*=\frac{1}{4}\) and therfore \( p_{1}^*=\frac{1}{2}\) and since \(p_{2}^*=p_{3}^*\) we also get \(p_{3}^*=\frac{1}{4}\).
+
+substituing for \(p_{1}^*, p_{2}^*, p_{3}^* \) in \(g_{1},g_{2},g_{3}\) we get that \(g_{1}^*=g_{2}^*=g_{3}^*=4\)      
 
 \end{document}

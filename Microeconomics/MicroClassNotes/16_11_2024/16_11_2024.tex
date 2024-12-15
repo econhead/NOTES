@@ -19,57 +19,62 @@
 \title{Bayesian Games Continued}
 
 \begin{document}
- \section*{\underline{Bayesian Games (Contd.)}}
-   \subsection*{  \underline{ First Price Auction } } 
+ \section{\underline{Bayesian Games (Contd.)}}
+   \subsection{\underline{First Price Auction}} 
 
- Two bidders are trying to purchase the same item in a sealed bid auction. The bidders simultaneously submit bids \(b_1\) and \(b_2\) and the auction is sold to the highest bidder at his bid price (this is called a "first price" avetion). If there is a tie, there is a coin flip to determine the winner. Suppose the players utilities are:
- 
+ Two bidders are trying to purchase the same item in a sealed bid auction. The bidders simultaneously submit bids \(b_1\) and \(b_2\) and the auction is sold to the highest bidder at his bid price (this is called a ``first price'' auction). If there is a tie, there is a coin flip to determine the winner. Suppose the players utilities are:
  \begin{align*}
- u_i\left(b_i, b_{-i}, v_i, v_{-i}\right)= \begin{cases}v_i-b_i & \text { if } b_j>b_{-i} \\ \frac{1}{2}\left(v_i-b_j\right) & \text { if } b_j=b_{-i} \\ 0 & \text { if } b_i<b_{-i}\end{cases}
+ u_i\left(b_i, b_{-i}, v_i, v_{-i}\right)= \begin{cases}v_i-b_i & \text { if } b_i>b_{-i} \\ \frac{1}{2}\left(v_i-b_i\right) & \text { if } b_i=b_{-i} \\ 0 & \text { if } b_i<b_{-i}\end{cases}
  \end{align*}
+ The key informational feature is the each player knows his own value for the item (i.e. bidder \(i\) knows \(v_i\) ), but does not know the valuation of his rival. Instead, we assume that each bidder had a prior belief that his rival's valuation \(v_j\) is a draw from a distribution \(F_j\) on \(\mathbb{R}_{++}\), and that these prior beliefs are common knowiedge.
  
- 
- The key informational feature is the each player knows his own value for the item (i.e. bidder \(i\) knows \(v_i\) ), but does not know the valuation of his rival. Instead, we assume that each bidder had a prior belief that his rival's valuation \(v_j\) is a draw from a distribution \(F_j\) on \(\mathrm{R}_1\), and that these prior beliefs are common knowiedge.
- 
-  \subsubsection*{ Example 1(First Price Auctions, } 
-  - Set of players is \(N=\{1,2\}\)
+ \subsubsection{Example 1(First Price Auctions)} 
+\begin{itemize}
+    \item Set of players is \(N=\{1,2\}\)
   
-  - Action Sets; \(A_{1}=A_{2}=\mathbb{R}_{+}\)
-  
-  - Type Sets; \(\Theta_{1}=\Theta_{2}=[0,1]\)
-  
-  - Utility functions; \(u_{1}:A_{1} \times A_{2} \times \Theta_{1} \times \Theta_{2} \to \mathbb{R}\) 
-  
-   \begin{align*}
-      u_{1}(b_{1},b_{2},v_{1},v_{2})=
-      \begin{cases}
-        v_{1}-b_{1} & \text{if} \ b_{1}>b_{2} \\
-        \frac{1}{2}(v_{1}-b_{1}) & \text{if} \ b_{1}=b_{2}\\
-        0 & \text{if} \ b_{1}<b_{2}\\
-      \end{cases}
-  \end{align*}
+    \item Action Sets; \(A_{1}=A_{2}=\mathbb{R}_{+}\)
+    
+    \item Type Sets; \(\Theta_{1}=\Theta_{2}=[0,1]\)
+    
+    \item Utility functions; \(u_{1}:A_{1} \times A_{2} \times \Theta_{1} \times \Theta_{2} \to \mathbb{R}\) 
+    \begin{align*}
+        u_{1}(b_{1},b_{2},v_{1},v_{2})=
+        \begin{cases}
+          v_{1}-b_{1} & \text{if} \ b_{1}>b_{2} \\
+          \frac{1}{2}(v_{1}-b_{1}) & \text{if} \ b_{1}=b_{2}\\
+          0 & \text{if} \ b_{1}<b_{2}\\
+        \end{cases}
+    \end{align*}
+    \(u_{2}:A_{1} \times A_{2} \times \Theta_{1} \times \Theta_{2} \to \mathbb{R}\) 
+    \begin{align*}
+        u_{2}(b_{1},b_{2},v_{1},v_{2})=
+        \begin{cases}
+          v_{2}-b_{2} & \text{if} \ b_{2}>b_{1} \\
+          \frac{1}{2}(v_{2}-b_{2}) & \text{if} \ b_{2}=b_{1}\\
+          0 & \text{if} \ b_{2}<b_{1}\\
+        \end{cases}
+    \end{align*}
+    \item  \(v_{1}\) and \(v_{2}\) are \(i.i.d \ \text{Unif}(0,1)\) and 1's belief about 2's type \(v_{2}\) is that \(v_{2} \sim \text{Unif}(0,1)\) and 2's belief is that \(v_{1} \sim \text{Unif}(0,1)\).
+\end{itemize}
 
-Similiarly for 2 
-
-- \(v_{1}\) and \(v_{2}\) are \(i.i.d \text{Unif}(0,1)\) and 1's belief about 2's type \(v_{2}\) is that \(v_{2} \sim \text{Unif}(0,1)\) and 2's belief is that \(v_{1} \sim \text{Unif}(0,1)\).
-
-Suppose now that player 2's strategy is \(b_{2}: \Theta_{2} \to A_{2}\), 
-\begin{equation*}
+Suppose now that player 2's strategy is \(\), 
+\begin{align*}
+    b_{2}: \Theta_{2} \to A_{2}\\
     b_{2}(v_{2})=\frac{v_{2}}{2}
-\end{equation*} 
+\end{align*} 
 
-What is the expected payoff of player 1? and them maximize the expected payoff w.r.t \(b_{1} \geq 0\).
+What is the expected payoff of player 1? and then maximize the expected payoff w.r.t \(b_{1} \geq 0\).
 \begin{align*}
     U_{1}(b_{1},b_{2}(v_{2}),v_{1})&= \left( v_{1}-b_{1} \right)\Pr(v_{2}<2b_{1}) + \frac{1}{2}(v_{1}-b_{1})\Pr(v_{2}=2b_{1}) + 0\Pr(v_{2}>2b_{1})\\
     &=\begin{cases}
-        v_{1}-b_{1} & \text{ if} b_{1}>\frac{1}{2}\\
-        2b_{1}\left( v_{1}-b_{1} \right) & \text{if} b_{1} \leq \frac{1}{2} 
+        v_{1}-b_{1} & \text{ if} \ b_{1}>\frac{1}{2}\\
+        2b_{1}\left( v_{1}-b_{1} \right) & \text{if} \ b_{1} \leq \frac{1}{2} 
     \end{cases}
 \end{align*}  
 
 Now we can Solve;  
 \begin{align*}
-    \max_{b_{1} \geq 0} \ U_{1}(b_{1},b_{2}(\cdot),v_{1})
+    \max_{b_{1} \geq 0} \ U_{1}(b_{1},b_{2}(v_{2}),v_{1})
 \end{align*}
 Or,
 \begin{align*}
@@ -91,25 +96,25 @@ Now if we think from the seller's perspective and solve for bayesian nash equili
 Note that the revenue of the seller is \(\max(b_{1},b_{2})\) or 
 \begin{equation*}
     \begin{split}
-        \max(\frac{v_{1}}{2},\frac{v_{2}}{2})\\
-        \frac{1}{2}\max(v_{1},v_{2})
+        &\max(\frac{v_{1}}{2},\frac{v_{2}}{2})\\
+        &=\frac{1}{2}\max(v_{1},v_{2})
     \end{split}
 \end{equation*}    
  
 now since \(v_{1},v_{2} \overset{iid}{\sim} \text{Unif}(0,1)\);
 
-\(\mathbb{E}\left( \frac{\max(v_{1},v_{2})}{2} \right) = \frac{1}{3} \).  
+\[\mathbb{E}\left( \frac{\max(v_{1},v_{2})}{2} \right) = \frac{1}{3} \].  
 
-  \subsection*{  \underline{ Second Price Auction }  } 
+  \subsection{\underline{Second Price Auction}} 
 
-Two bidders are trying to purchase the same item in a sealed bid auction. The bidders simultaneously submit bids \(b_1\) and \(b_2\) and the auction is sold to the highest bidder at the other bidder's bid price (this is called a "second price" auction). If there is a tie, there is a coin flip to determine the winner. Suppole the players utilities are:
+Two bidders are trying to purchase the same item in a sealed bid auction. The bidders simultaneously submit bids \(b_1\) and \(b_2\) and the auction is sold to the highest bidder at the other bidder's bid price (this is called a ``second price'' auction). If there is a tie, there is a coin flip to determine the winner. Suppole the players utilities are:
 
 \begin{align*}
 u_i\left(b_i, b_{-i}, v_i, v_{-i}\right)= \begin{cases}v_i-b_{-i} & \text { if } b_i>b_{-i} \\ \frac{1}{2}\left(v_i-b_i\right) & \text { if } b_i=b_{-i} \\ 0 & \text { if } b_i<b_{-i}\end{cases}
 \end{align*}
 
 
-The key informational feature is the each player knows his own value for the item (i.e. bidder \(i\) knows \(v_i\) ), but does not know the valuation of his rival. Instead, we assume that each bidder had a prior belief that his rival's valuation \(v\) is a draw from a distribution \(F_j\) on \(\mathbb{R}_{+}\), and that these prior beliefs are common knowledge.
+The key informational feature is the each player knows his own value for the item (i.e. bidder \(i\) knows \(v_i\) ), but does not know the valuation of his rival. Instead, we assume that each bidder had a prior belief that his rival's valuation \(v_{j}\) is a draw from a distribution \(F_j\) on \(\mathbb{R}_{+}\), and that these prior beliefs are common knowledge.
 
  \subsubsection*{  \underline{ Example 2 (Second price auction(Private value)) } } 
 
@@ -121,21 +126,22 @@ Notice that It is a weakly dominant strategy of player to bid his own valuation.
     \begin{array}{c|c|c|c} 
     & b_{1}^{'} \ < & \ v_{1} \ < &\ b_{1}^{''}  \\
     \hline \Pr\left(b_2 \leq b_1^{\prime}\right) & v_1-b_2 & v_1-b_2 & v_1-b_2 \\
-    \hline \Pr\left.r_1^{\prime}<b_2 \leq v_1^{\prime}\right) & 0 & v_1-b_2 & v_1-b_2 \\
-    \hline \Pr\left(v_1<b_2<b_1^{\prime \prime}\right) & 0 & 0 & v_1-b_2 \\
+    \hline \Pr\left(b_1^{\prime}<b_2 \leq v_1^{\prime}\right) & 0 & v_1-b_2 & v_1-b_2 \\
+    \hline \Pr\left(v_1<b_2\leq b_1^{\prime \prime}\right) & 0 & 0 & v_1-b_2 \\
     \hline \Pr\left(b_2>b_1^{\prime \prime}\right) & 0 & 0 & 0
     \end{array}
     \end{align*}
+So \(b_{1}(v_{1})=v_{1}\) and \(b_{2}(v_{2})=v_{2}\) is a Bayesian Nash Equilibrium    
+ \section{\underline{Market for Lemons}} 
+Suppose there is a market for used cars and lemons are low quality used cars,
 
- \section*{  \underline{ Market for Lemons } } 
+so there are two types of used cars, 
 
- Suppose there is a market for used cars and lemons are low quality used cars,
+\begin{itemize}
+    \item Type 1; Good quality (Peaches)
 
- so there are two types of used cars, 
-
- - Type 1; Good quality (Peaches)
-
- -Type 2; Lemons
+    \item Type 2; Lemons
+\end{itemize}
 
  \begin{align*}
     \begin{array}{|l|l|l|}

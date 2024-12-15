@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,fleqn]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,9 +16,10 @@
 \author{Laxman Singh}
 \date{\today}
 \title{Hypothesis Testing}
-
+\graphicspath{{/Users/econhead/NOTES/Probability/ProbClassNotes/27_10_2024/Figures}}
 \begin{document}
- \section*{\underline{Hypothesis Testing}}
+\section{\underline{Hypothesis Testing}}
+  \subsection{Example 1}  
 We have two hypotheses, a default (null) (\(H_{0}\)) hypothesis and some challenging (alternative) (\(H_{1}\) or \(H_{A}\)) hypothesis.
 Say we have an experiment of tossing a coin 100 times and two hypotheses that the coin is fair \(H_{0}\)  and the coin is not fair \(H_{A}\).  
 \begin{align*}
@@ -39,7 +40,8 @@ Now under the null Hypothesis, \(X \sim \text{Bin}(100,\frac{1}{2}) \), and \(X 
     \Pr (|X-50| > 10) &= 0.05
 \end{align*}  
 So in this case we accept \(H_{0}\) for \(40,41,\ldots,50,\ldots,60\) and for the other values we reject the null \(H_{0}\).  
-\pagebreak
+
+ \subsection{Example 2} 
 
 Suppose you draw a sample of size \(1\) and we have the following two hypotheses,
 \begin{align*}
@@ -48,24 +50,53 @@ Suppose you draw a sample of size \(1\) and we have the following two hypotheses
 \end{align*} 
 We need to find a sensible test for the \(\alpha = 0.1\) level of significance, and also find the type 2 error probability; 
 
-\(T : [0,1] \to \{H_{0},H_{1}\} \)  will be the sensible test we are looking for, 
+\(T : [0,1] \to \{H_{0},H_{1}\} \)  will be the sensible test we are looking for;
+ \begin{align*}
+    X\leq t \qquad \implies \ \text{Accept} \ H_{0} \\
+    X> t \qquad \implies \ \text{Accept} \ H_{1}
+\end{align*}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.8]{1.png}
+\end{figure}
 
+Since \(\alpha=0.1\) we know that \(\Pr\left( \text{Type 1 Error} \right) \ = 0.1 \) now we can solve for \(t\);
+ \begin{align*}
+    &\int_{t}^{1} 1 \mathrm{d}x = 0.1 \\
+    \implies &t = 0.9
+\end{align*}
+And now we can solve for \(\Pr\left( \text{Type 2 Error} \right) \);
+ \begin{align*}
+    \Pr\left( \text{Type 2 Error} \right) \ &= \Pr_{H_{1}}(X \leq 0.9) \\
+    &= \int_{0}^{0.9} 2x \mathrm{d}x = 0.81 
+\end{align*}  
+\pagebreak
+ \subsection{Example 3} 
 Suppose \(X\) is one observation,
 \begin{align*}
     H_{0} &: X \sim \text{Unif}(0,1)\\
     H_{1} &: f_{X}(x)=\begin{cases} 4x \ \text{for} \ x \in [0,\frac{1}{2}]\\
-        4-4x  \ \text{for} \ x \in (\frac{1}{2},1] % chktex 9\\
-    \end{cases}
+        4-4x  \ \text{for} \ x \in (\frac{1}{2},1] 
+    \end{cases}\\
     \alpha = 0.1    
 \end{align*} 
 Find a sensible test for the \(\alpha \) level of significance.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.8]{2.png}
+\end{figure}
+
 \( \implies \) Reject if \(0.45<X<0.55\), Accept \(H_{0}\) otherwise.  
 
 And the probability of type 2 error would be,
-
+ \begin{align*}
+    &\int_{0}^{0.45} 4x \mathrm{d}x + \int_{0.55}^{1} 4-4x \mathrm{d}x \\
+    &= 2 \int_{0}^{0.45} 4x \mathrm{d}x = {\left[ 4x^2 \right]}_{0}^{0.45}\\
+    &=4{(0.45)}^2 = {(0.9)}^2 = 0.81
+\end{align*}
 \pagebreak
-
+ \subsection{Example 4} 
 Suppose \(X_{1},X_{2},\ldots,X_{n} \ iid \ \mathcal{N}(\theta,1), \quad n = 25 \).  
 \begin{align*}
     H_{0} &: \theta =0\\
@@ -79,4 +110,15 @@ Note that,
     \quad \text{Under} \ H_{1}\\ 
 \end{align*}
 A sensible test in this example would be \(T : (-\infty, \infty) \to \{H_{0},H_{1}\} \)  
+ \begin{align*}
+    &\text{Accept} \ H_{0} \ \text{if} \ \ \overline{X}_{25} \leq 0.329 \\
+    &\text{Reject otherwise} 
+\end{align*}
+Because,
+ \begin{align*}
+    \Pr_{H_{0}}\left( \overline{X}_{25} >t  \right) = 0.05 \\
+    \Pr_{H_{0}}\left(  5\overline{X}_{25} >5t  \right) = 0.05 \\
+    5t=1.645\\
+    t= \frac{1.645}{5}= 0.329 
+\end{align*}
 \end{document} 
