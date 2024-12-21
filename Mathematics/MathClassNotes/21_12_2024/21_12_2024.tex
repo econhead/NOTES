@@ -1,0 +1,260 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/21_12_2024/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Real Analysis}
+
+\begin{document}
+\section{Subsequences of a Sequence}
+ Subsequence of a sequence: 
+ \begin{itemize}
+    \item Given a sequence \(\left(x_n\right)\), a subsequence \(\left(y_m\right)\) is formed by choosing an infinite collection of the entries of the original sequence in the order that these elements appear in the original sequence.
+ \end{itemize}
+For example let us consider a sequence \(x\) such that \(x : \mathbb{N} \to \mathbb{R}\),
+
+now consider the subsequences of the above sequence \(x_{1},x_{2},\ldots, x_{n}\), so a subsequence is a composite function \(x \circ m : \mathbb{N} \to \mathbb{R}\) where \(m: \mathbb{N} \to \mathbb{N}\)  which is increasing and one to one, so \(m_{1}=1, m_{2}=2,\ldots, m_{n}=n\).          
+
+the subsequnce can be denoted as \(x(m(n))\) or \(x_{m_{n}}\).  
+ 
+ Proposition 5:
+ \begin{itemize}
+    \item if \(\left( x_{n} \right) \) is a convergent sequence with limit \(l_{x}\), then every subsequence \(\left( x_{n_{k}} \right) \) of \(\left( x_{n} \right) \) converges to \(l_{x}\).          
+ \end{itemize}
+ 
+\underline{Proof}: Suppose \(x_{n} \to l_{x}\), then we want to prove that \(x_{n_{k}} \to l_{x}\).
+
+Notice that \(n_{k} \geq k  \) because \(n_{k}\) is strictly increasing sequence such that \(n_{1}<n_{2}<n_{3}<\ldots \), we are basically saying that the nth term of a subsequence must have a subscript greater than or equal to \(n\).
+
+Now consider \(\epsilon>0\) and we drop some \(N\) terms of the original sequence then whatever is left from the original sequnce lies in the interal \((l_{x}-\epsilon, l_{x}+\epsilon) \) now instead of dropping those \(N \) terms from the original sequence we drop them from the subsequence then also the remaining terms will lie in \((l_{x}-\epsilon, l_{x}+\epsilon) \).
+
+Proposition 6:
+\begin{itemize}
+    \item Let \(\left(x_n\right)\) be a sequence in \(\mathbb{R}\). We define
+    \begin{align*}
+    \limsup x_n=\lim _{N \rightarrow \infty} \sup \left\{ x_n: n>N \right\}
+    \end{align*}
+     and
+    \begin{align*}
+    \liminf x_n=\lim _{N \rightarrow \infty} \inf \left\{x_n: n>N\right\}
+    \end{align*}
+    Then, \(\lim x_n\) exists if and only if \(\lim \sup x_n=\lim \inf x_n\).
+\end{itemize}
+
+Suppose \(y_{m}= \sup_{n>M} x_{n}\) and consider \(x_{n}={(-1)}^n\) then notice that
+ \begin{align*}
+    y_{1}=1\\
+    y_{2}=1\\
+    y_{M}=1
+\end{align*}
+
+and suppose \(z_{M}= \inf_{n>M} x_{n}\) then notice that,
+ \begin{align*}
+    z_{M}=-1
+\end{align*}  
+
+or if we consider the sequence \(x_{n}= -1, \frac{1}{2}, \frac{-1}{3}, \frac{1}{4}, \frac{-1}{5},\ldots \)then,
+
+ \begin{align*}
+    y_{1}=\frac{1}{2}\\
+    y_{2}=\frac{1}{4}\\
+    y_{3}=\frac{1}{4}\\
+    y_{M}= \begin{cases} \frac{1}{m+2} & \text{if} \ \text{m is even}\\
+        \frac{1}{m+1} & \text{if} \ \text{m is odd}
+    \end{cases}
+\end{align*}
+
+Proposition 7:
+\begin{itemize}
+    \item  Every convergent real sequence is bounded.
+\end{itemize}
+Proof:
+\begin{itemize}
+    \item   Take any \(\left(x_n\right)\) with \(x_n \rightarrow x\) for some real number \(x\).
+    \item Then there must exist a natural number \(M\) such that \(\left|x_m-x\right|<1\), and hence \(\left|x_m\right|<|x|+1\), for all \(m \geq M\).
+    \item But then \(\left|x_m\right| \leq \max \left\{|x|+1,\left|x_1\right|, \ldots,\left|x_M\right|\right\}\) for all \(m \in \mathbb{N}\).
+    \item Hence, \(\left(x_n\right)\) is bounded.
+\end{itemize}
+
+Note that if we have a sequence \(x_{n}\) such that \(x_{n} \to 0 \) and we have another bounded sequence \(y_{n}\) then, \(x_{n} \times y_{n} \) will also be a convergent infact, \(x_{n} \times y_{n} \to 0 \) as well.
+
+Monotonic sequence :
+\begin{itemize}
+    \item A real sequence \(\left(x_n\right)\) is said to be increasing if \(x_n \leq x_{n+1}\) for each \(n \in \mathbb{N}\)
+    \item A real sequence \(\left(x_n\right)\) is said to be strictly increasing if \(x_n<x_{n+1}\) for each \(n \in \mathbb{N}\).
+    \item It is said to be (strictly) decreasing if \(\left(-x_n\right)\) is (strictly) increasing.
+\end{itemize}
+\begin{tcolorbox}
+        A real sequence which is either increasing or decreasing is referred to as a monotonic sequence    
+\end{tcolorbox}
+
+Proposition 8 :
+\begin{itemize}
+    \item Every increasing (decreasing) real sequence that is bounded from above (below) converges.
+\end{itemize}
+
+Proof:
+\begin{itemize}
+    \item Let \(\left(x_n\right)\) be an increasing sequence which is bounded from above, and let \(S=\left\{x_1, x_2, \ldots\right\}\).
+    \item Let \(x=\sup S\). We claim that \(x_n \rightarrow x\).
+    \item To show this, pick an arbitrary \(\epsilon>0\).
+    \item Since \(x\) is the least upper boundnof \(S, x-\epsilon\) cannot be an upper bound of \(S\), so \(x_M>x-\epsilon\) for some \(M \in \mathbb{N}\).
+    \item Since \(\left(x_n\right)\) is increasing, we must then have \(x \geq x_m \geq x_M>x-\epsilon\), so \(\left|x_m-x\right|<\epsilon\), for all \(m \geq M\).
+    \item Hence \(x_n \rightarrow x\).
+    \item The proof of the second claim is analogous.
+\end{itemize}
+
+Proposition 9:
+\begin{itemize}
+    \item Every real sequence has a monotonic subsequence.
+\end{itemize}
+
+Proof:
+\begin{itemize}
+    \item Take any \(\left(x_n\right)\) and define \(S_m=\left\{x_m, x_{m+1}, \ldots\right\}\) for each \(m \in \mathbb{N}\).
+    \item If there is no maximum element in \(S_1\), then it is easy to see that \(\left(x_n\right)\) has a monotonic subsequence.
+    
+    \item (Let \(x_{n_1}=x_1\), let \(x_{n_2}\) be the first term in the sequence 
+    
+    \(\left(x_2, x_3, \ldots\right)\) greater than \(x_1\), let \(x_{n_3}\) 
+    be the first term in the sequence \(\left(x_{n_2+1}, x_{n_2+2}, \ldots\right)\) 
+    greater than \(x_{n_2}\), and so on.)
+    \item By the same logic, if, for any \(m \in \mathbb{N}\), there is no maximum element in \(S_m\), then we are done.
+    \item Assume then \(\max S_m\) exists for each \(m \in \mathbb{N}\).
+    \item Now define the subsequence (\(x_{n_k}\)) recursively as follows
+    \begin{align*}
+    x_{n_1}=\max S_1, x_{n_2}=\max S_{n_1+1}, x_{n_3}=\max S_{n_2+1}, \ldots
+    \end{align*}
+    \item Clearly, \(\left(x_{n_k}\right)\) is decreasing.
+\end{itemize}
+
+\begin{tcolorbox}
+    To prove: Every sequence has a monotonic subsequence.
+
+    Consider a real sequence \(x_{n}\) and the set \(S_{m}=\{x_{m},x_{m+1},\ldots \} \) basically we are dropping \(m-1\) terms from the sequence and the rest are in the set \(S_{M}\).
+    
+    So \(S_{1}=\{x_{1},x_{2},\ldots \} \), then either the maximum \(\left( \max \right) \) of the set \(S_{1}\) exists ir it does not exist.
+    
+    Now suppoe the maximum of \(S_{1}\) does not exist and then consider the subsequenc \(x_{m}\) such that
+     \begin{align*}
+        x_{m_{1}}= x_{1}\\
+        x_{m_{2}}= x_{\min \{k \mid x_{k} > x_{m_{1}}\}}\\
+        x_{m_{3}}= x_{\min \{k \mid x_{k} > x_{m_{2}}\}}
+    \end{align*}   
+    and so on is our monotonic sequence,
+    
+    note that the \(x_{\min \{k \mid x_{k} > x_{m_{1}}\}}\) and \(x_{\min \{k \mid x_{k} > x_{m_{2}}\}}\)   exist since the \(\max S_{1} \) does not exist. 
+    
+    Now suppose that \(\max S_{1}=x_{k_{1}}\) so the maximum exists then if we drop \(k_{1}\) terms of the sequence then we are only left with the set \(S_{k+1}\) and now we again have only two possiblities either \(\max S_{k+1}\) exist or it does not exist, if it does not exist then we can find a monotonic sequence in the manner discussed above and if it exist then suppose \(x_{k_{2}}= \max S_{k+1}\) then again we have the same situation as above so either we have an increasing sequence \(S_{n}\) when the maximum does not exist or we have an decreasing sequence \(x_{k_{m}}\) both of which are monotonic sequences.  
+\end{tcolorbox}
+
+Proposition 10 (Bolzano Weierstrass Theorem):
+\begin{itemize}
+    \item Every bounded real sequence has a convergent subsequence.
+\end{itemize}
+Proof:
+\begin{itemize}
+    \item Putting the propositions 8 and 9 together, we get this result as an immediate corollary.
+\end{itemize}
+
+ \section{Metric Space:} 
+\begin{itemize}
+    \item Let \(X\) be a nonempty set. A function \(d: X \times X \rightarrow \mathbb{R}_{+}\) is a metric (distance function) if, for any \(a, b\), and \(c\) in \(X\), it satisfies the following three conditions:
+    \begin{enumerate}
+        \item Properness: \(d(a, b)=0\) if and only if \(a=b\),
+        \item Symmetry: \(d(a, b)=d(b, a)\), and
+        \item Triangle Inequality: \(d(a, b) \leq d(a, c)+d(c, b)\).
+    \end{enumerate}
+\end{itemize}
+\begin{tcolorbox}
+    A nonempty set \(X\) equipped with a metric \(d\) constitutes a metric space (\(X, d\)).
+\end{tcolorbox}
+
+let \(X=\mathbb{R}\) then \(d(x,y)=|x-y|\) is a valid distance function.
+
+let \(X \subseteq \mathbb{R}^2\) then \(d((x_{1},y_{1})(x_{2},y_{2}))= \sqrt{{(x_{2}-x_{1})}^2 +{(y_{2}-y_{1})}^2}\) is the Euclidean distance and also a valid metric, also another example of a metric is the taxicab metric or the Manhattan distance, \(d((x_{1},y_{1})(x_{2},y_{2}))= |x_{1}-x_{2}| + |y_{1}-y_{2}|\).
+
+Another valid mertic example is, Let \(X \subseteq \mathbb{R}^2\)   
+
+\(d((x_{1},y_{1})(x_{2},y_{2}))= \max\left( |x_{1}-x_{2}|,|y_{1}-y_{2}| \right) \)  
+
+Another example the Discrete metric is defined as, \(X \neq \phi\) 
+ \begin{align*}
+   d(a,b)= \begin{cases}
+        1 & \ \text{if} \ a \neq b\\
+        0 & \ \text{if} \ a = b
+    \end{cases}
+\end{align*}
+
+Similarly the Euclidean metric for \(\mathbb{R}^n\) is defined as, \(X=\mathbb{R}^n\)
+\begin{equation*}
+    d((x_{1},y_{1})(x_{2},y_{2})\ldots(x_{n},y_{n}))=\sqrt{{(x_{1}-y_{1})}^2 + {(x_{2}-y_{2})}^2 + \ldots + {(x_{n} - y_{n})}^2}
+\end{equation*}
+
+let \(\left( X,d \right) \) be a metric space, then for any \(a \in X\), and any \(\epsilon > 0\), \(\epsilon\)-neighbourhood is defined as
+\begin{equation*}
+    \mathcal{N}_{\epsilon}(a)=\{ b \in X \mid d(b,a) < \epsilon\}
+\end{equation*}      
+
+\underline{\textbf{Examples;}}
+\begin{enumerate}
+    \item \(X=\mathbb{R}\) and \(d(x,y)= |x-y|\)
+    then \(\mathcal{N}_{\frac{1}{2}}(0) = \left( \frac{-1}{2}, \frac{1}{2} \right) \).
+    \item \(X=[0,1]\) and \(d(x,y)=|x-y|\) 
+    then \(\mathcal{N}_{\frac{1}{2}}(0) = [ 0, \frac{1}{2}) \).        
+    \item \(X=\mathbb{Z}\) and \(d(x,y)=|x-y|\) 
+    then \(\mathcal{N}_{\frac{1}{2}}(0) = \{0\} \).     
+    \item \(X=\mathbb{R}^2\) and 
+    
+    \(d((x_{1},y_{1})(x_{2},y_{2}))= \sqrt{{(x_{2}-x_{1})}^2 +{(y_{2}-y_{1})}^2}\) 
+    then \(\mathcal{N}_{1}(0,0)\) will be an open circle at \((0,0)\) of radius \(1\) and similiarly \(\mathcal{N}_{2}(0,0)\) will be an open circle at \((0,0)\) of radius \(2\). More genreally if \(r \leq s\) if \(\mathcal{N}_{r}(a) \subset \mathcal{N}_{s}(a)\) .
+    \item \(X=\mathbb{R}\) and metric is the discrete metic then,
+    \(\mathcal{N}_{2}(0) = \mathbb{R}\) and \(\mathcal{N}_{3}(0)= \mathbb{R}\) and note that \(\mathcal{N}_{3}(0) \subset \mathcal{N}_{2}(0)\)          
+    \item \(X=\mathbb{R}^2\) and 
+    
+    \(d((x_{1},y_{1})(x_{2},y_{2}))= |x_{2}-x_{1}|+ |y_{2}-y_{1}|\) 
+    then \(\mathcal{N}_{1}(0,0)\) will be an open rhombus with the origin at \((0,0)\).
+    \item \(X=\mathbb{R}^2\) and 
+    
+    \(d((x_{1},y_{1})(x_{2},y_{2}))= \max{(|x_{2}-x_{1}|,|y_{2}-y_{1}|)}\) 
+    then \(\mathcal{N}_{1}(0,0)\) will be an open square at the origin.                   
+\end{enumerate}
+
+Let \((X,d)\) be a metric space then \( Y \subset X\) is said to be open in \((X,d)\) if,
+\((\forall y \in Y)(\exists \epsilon > 0) (\mathcal{N}_{\epsilon}(y) \subset Y)\),
+where \(\mathcal{N}_{\epsilon}(y)= \{ x \in X \mid d(x,y) < \epsilon\}\)
+
+\underline{\textbf{Examples;}}
+\begin{enumerate}
+    \item \(X=\mathbb{R}\) and \(d(x,y)=|x-y|\) then \([0,1)\) is not open because \((-\epsilon,\epsilon) \not\subset [0,1) \forall \epsilon > 0\)  
+    \item \(X=\mathbb{R}_{+}\) and \(d(x,y)=|x-y|\) then \([0,1)\) is an open set because now \(0\) does not create a problem like before.       
+\end{enumerate}
+
+Let \((X,d)\) be a metric space then \( Z \subset X\) is said to be closed in \((X,d)\) if, \(X/Z\) is open in \((X,d)\) where \(X/Z = \{ x \in X \mid x \notin Z\}\)
+
+\textbf{\underline{Examples;}}
+\begin{enumerate}
+    \item \(X=\mathbb{R}\) and \(d(x,y)=|x-y|\) then \(Z=[0,1) \) is not closed because it's complement \((-\infty, 0) \cup [1, \infty)\) is not open.        
+\end{enumerate}
+    
+\((X, d)\) be a metric space then
+
+\(Y \subset X\) is said to be bounded if
+
+ \((\exists \in>0, x \in X)\left(Y \subset N_\epsilon(x)\right)\)
+
+    
+\end{document}
