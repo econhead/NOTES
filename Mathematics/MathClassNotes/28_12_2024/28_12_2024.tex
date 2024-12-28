@@ -1,0 +1,300 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/28_12_2024/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Continuity of preferences}
+
+\begin{document}
+ \section{Open and Closed Sets Continued}
+  Let \(\left( X,d \right) \) be a metric space then the empty set \(\phi \) is open in \(X,d\) vacously, and the set \(X\) is also open in in \(X,d\), but because \(X\) is open then by the defintion of closed sets, \(\phi \) which the complement of \(X\) is also closed and the same reasoning applies to the set \(X\) too, therefore in any metric space \(\left( X,d \right) \), the sets \(X\) and \(\phi \) are always open and as well as closed.
+  
+  Consider a metric space \(\left( X,d \right) \) and an arbitrary collection of open sets, \(\{A_{\alpha}\}_{\alpha \in I}\)  where, \(A_{\alpha} \subset X\), then 
+  
+  \begin{equation*}
+      \bigcup_{\alpha \in I} A_{\alpha} \subset X
+  \end{equation*}
+  is an open set.
+  
+  \underline{Proof:} Consider an arbitrary \( x \in \cup_{\alpha \in I} A_{\alpha}\) then \(\exists \alpha' \in I \) such that \(x \in A_{\alpha'}\) and since \(A_{\alpha'}\) is open therefore \(\exists \epsilon > 0 \) such that \(\mathcal{N}_{\epsilon}(x) \subset A_{\alpha'} \subset \cup_{\alpha \in I} A_{\alpha}\).
+  
+  Now  Consider a metric space \(\left( X,d \right) \) and an arbitrary collection of open sets, \(\{A_{\alpha} \}_{\alpha \in I}\)  where, \(A_{\alpha} \subset X\), then 
+  
+  \begin{equation*}
+      \bigcap_{\alpha \in I} A_{\alpha} \subset X
+  \end{equation*}
+  is not necessarily open. 
+
+  Examples; 
+  \begin{itemize}
+    \item \(X \in \mathbb{R} \quad d(x,y)= |x-y|\) then, \(\left( \frac{-1}{n}, 1+\frac{1}{n} \right) \quad n \in (1, \infty)\) is an infinite collection of open sets, then
+    
+    \begin{equation*}
+        \bigcap_{n \in \mathbb{N}} \left( \frac{-1}{n}, 1+\frac{1}{n} \right) = [0,1]       
+    \end{equation*} 
+    is not open.   
+  \end{itemize} 
+
+  Now if we consider an aribitrary finite collection of open sets 
+  
+  \(\{A_{1},A_{2},\ldots,A_{n}\},\) then \[ \bigcap_{i=1}^n A_{i}\] is open.  
+
+  \underline{Proof:} Consider \( x \in \bigcap_{i=1}^n A_{i}\) then \(x \in A_{i} \quad \forall i \in \{1,2,\ldots,n\} \) but then \(\exists \epsilon_{i} >0 \)  such that \(\mathcal{N}_{\epsilon_{i}}(x) \subset A_{i}\) since \(A_{i}\) is open.
+  
+  now if we consider \(\epsilon = \min(\epsilon_{1},\epsilon_{2},\ldots, \epsilon_{n}\) then \(\mathcal{N}_{\epsilon}(x) \subset \mathcal{N}_{\epsilon_{i}}(x) \subset A_{i} \forall i \) and therefoe \(\mathcal{N}_{\epsilon}(x) \subset \bigcap_{i=1}^n A_{i}\) 
+  
+  note that when the collection of sets is infinite, then the minimium may not exsist and hence the arbitrary infinite collection is not necessarily open. 
+
+  Now consider an arbitrary collection of closed sets \( \{ B_{\alpha} \}_{\alpha \in I}\), in the metric space \(\left( X,d \right) \) such that \(B_{\alpha} \subset X\),
+  then,
+  \begin{equation*}
+      \bigcap_{\alpha \in I} B_{\alpha}
+  \end{equation*}      
+  
+  is closed.
+  
+  \underline{ Proof: } Consider an arbitrary finite collection of closed sets 
+  
+  \(\{B_{1},B_{2},B_{3},\ldots,B_{n}\}\)
+  
+  then \(\bigcap_{i=1}^n B_{i}\) is closed, we can use the Demorgan's law, which gives us 
+  \begin{equation*}
+      \left( \bigcap_{\alpha \in I} B_{\alpha} \right)^c = \bigcup_{\alpha \in I} B_{\alpha}^c 
+  \end{equation*}  
+  Note that by demorgan's law RHS is open because \(B_{\alpha}^c\) is open \(\forall \alpha \in I   \) and therefore LHS must be closed.
+  
+  \underline{Examples;}
+  \begin{itemize}
+    \item \(X=\mathbb{R}\) and \(d(x,y)=|x-y|\) then \[\bigcup_{n \in \mathbb{N}}[-1+\frac{1}{n}, 1 -\frac{1}{n}] = (-1,1)\] is not a closed set while each of the closed intervals are closed. 
+    \item \[\bigcap_{n \in \mathbb{N}}[-1+\frac{1}{n}, 1 -\frac{1}{n}] = \{0\}\]  is a closed set.   
+  \end{itemize}
+ 
+  \underline{\textbf{DSE PYQ 2005}}
+  Answer 5, 6, 7 and 8 using the following information. Consider a Society consists of individuals. These individuals may belong to various sets called Clubs and/or Tribes. The collections of Clubs and Tribes satisfy the following rules:
+\begin{itemize}
+    \item The entire Society is a Club.
+    \item The empty subset of Society is also a Club.
+    \item Given a collection of Clubs, the set of individuals who belong to at least one of these Clubs is also a Club.
+    \item Given any two Clubs, the set of individuals who belong to both Clubs is also a Club.
+    \item A set of individuals is called a Tribe if and only if the set of individuals not in it constitute a Club.
+\end{itemize}
+5. The union of two Tribes is necessarily
+
+(a) a Club
+
+(b) a Tribe
+
+(c) not a Club
+
+(d) not a Tribe
+
+6. The intersection of a collection of Tribes is necessarily
+
+(a) not a Club
+
+(b) not a Tribe
+
+(c) a Club
+
+(d) a Tribe
+
+7. Which of the following statements is necessarily true?
+
+(a) A set of individuals cannot be a Tribe and a Club.
+
+(b) There are at least two sets of individuals that are both a Club and a Tribe.
+
+(c) The union of a Club and a Tribe is a Tribe.
+
+(d) The intersection of a Club and a Tribe is a Club.
+
+8. Suppose we are given a Club and a Tribe. Then, the set of individuals who belong to the given Club but not to the given Tribe necessarily constitute
+
+(a) a Club
+
+(b) a Tribe
+
+(c) neither a Club, nor a Tribe
+
+(d) a Club and a Tribe
+
+\underline{Answer 5;}
+we have \(T_{1} \cup T_{2} = \left( T_{1}^c \cap T_{2}^c \right)^c \) will necessarily a tribe since \(T_{i}^c\) is a club \(\forall i\) and the intersection of two clubs is a club but the complement of a club is a tribe.
+
+Let us think about a counterexample to eliminate other options, say \(S=\{1,2\}\) then \(\phi, S, \{1\}\) are clubs and the corresponding tribes are \(\phi, S, \{2\}\) note that union of \(\phi\) and \(\{2\}\) is not a club and \(\phi \cup S\) is not a tribe.
+
+\underline{Answer 6;}
+\(T_{1}\cap T_{2}\cap \ldots \cap T_{n}= \left( T_{1}^c \cup T_{2}^c \cup \ldots \cup T_{n}^c \right)\) is a tribe.
+
+\underline{Answer 7;}
+There are atleast two sets of individuals that are both a club and a tribe, \(\phi, S\) are two such sets.
+
+\underline{Answer 8;} it is necessarily a club.
+
+ \section{Sequences in a metric space:} 
+\begin{itemize}
+    \item Let \((X, d)\) be a metric space. A sequence is an assignment of an element from \(X\) to each natural number.
+    \item In other words, it's a function \(x: \mathbb{N} \rightarrow X\).
+\end{itemize}
+  \subsection{
+    Convergence of a sequence in a metric space:} 
+\begin{itemize}
+    \item     Let \((X, d)\) be a metric space. \(\left(x_n\right)\) is said to converge to \(I_x\) if, for each \(\epsilon>0\), there exists an integer \(M \geq 0\) (that may depend on \(\epsilon\) ) such that \(d\left(x_m, l_x\right)<\epsilon\) for all \(m \in \mathbb{N}\) with \(m>M\). Note that this is equivalent to saying that \(\left(x_n\right)\) is converges to \(I_x\) if the real sequence \(d\left(x_n, l_x\right)\) converges to 0 .
+\end{itemize}
+
+Let \(\left( X,d \right) \) be a metric space and \(x: \mathbb{N} \rightarrow X\) then the sequence \(x_{1},x_{2},\ldots \to l\) if the sequence of real numbers \(d(x_{1},l),d(x_{2},l),d(x_{3},l)\ldots \to 0\) 
+
+ \subsection{Bounded sequence in a metric space:} 
+\begin{itemize}
+    \item Let \((X, d)\) be a metric space. We say that a sequence \(\left(x_n\right)\) in \(X\) is bounded if there exists a real number \(r>0\) and \(a \in X\) such that \(x_n \in \mathcal{N}_r(a)\) for all \(n \in \mathbb{N}\), that is, \(d\left(x_n, a\right)<r\) for all \(n \in \mathbb{N}\).
+\end{itemize}
+
+ \subsubsection{Proposition 11 :} 
+\begin{itemize}
+    \item  Let \(\left(\mathbb{R}^m, d\right)\) be the Euclidean metric space, and \(\left(x_n\right)\) a sequence in \(\mathbb{R}^m\). We have:
+    \begin{align*}
+        \begin{gathered}
+        x_n \rightarrow I_x \\
+        \text { if and only if } \\
+        x_n^i \rightarrow I_x^i \text { in } \mathbb{R} \text { for each } i=1,2, \ldots, m
+        \end{gathered}
+        \end{align*}
+\end{itemize}
+Say we have the euclidean metric space \(\left( \mathbb{R}^2,d \right) \) and 
+
+\(d((x_{1},y_{1}),(x_{2},y_{2}))= \sqrt{\left( x_{2}-x_{1} \right)^2 + \left( y_{2} - y_{1} \right)^2  }\)    
+
+Now suppose \((x_{1},y_{1}),(x_{2},y_{2}),\ldots,(x_{n,y_{n}}) \to \left( l_{x}, l_{y} \right) \quad \text{in } \mathbb{R}^2 \) then does the following hold?
+\begin{itemize}
+    \item \(x_{1},x_{2},\ldots,x_{n}, \ldots \to l_{x} \quad \text{in} \ \mathbb{R}\)  
+    \item \(y_{1},y_{2},\ldots,y_{n}, \ldots \to l_{y} \quad \text{in} \ \mathbb{R}\)  
+\end{itemize}
+
+\underline{Proof:} If \((x_{n,y_{n}}) \to \left( l_{x}, l_{y} \right) \quad \text{in } \mathbb{R}^2 \) then \((x_{n}) \to l_{x} \quad \text{in } \ \mathbb{R}\) 
+
+We want to show \(|x_{n}-l_{x| \to 0}\)  
+
+Note that 
+
+\(0 \leq |x_{n} - l_{x} | \leq \sqrt{(x_{n}- l_{x})^2 + (y_{n}-l_{y})^2}\)
+
+then by squeeze theorem, \(|x_{n}-l_{x}| \to 0\) and a similiar result holds for\(y_{n} \to l_{y}\)
+
+Now let us prove the converse if \((x_{n}) \to l_{x} \quad \text{ in} \ \mathbb{R}\) and \((y_{n}) \to l_{y} \quad \text{ in} \ \mathbb{R}\) then \((x_{n},y_{n}) \to (l_{x},l_{y})\)
+
+\underline{proof;} we have \(|x_{n} - l_{x}| \to 0\) and \(|y_{n} -l_{y}| \to 0\) 
+
+ \subsubsection{Proposition 12 :} 
+\begin{itemize}
+    \item Let \(\left(\mathbb{R}^m, d\right)\) be the Euclidean metric space, and \(\left(x_n\right)\) a sequence in \(\mathbb{R}^m\). We have:
+    
+    \(\left(x_n\right)\) is bounded
+    
+    if and only if
+    
+    \(\left(x_n^i\right)\) is bounded in \(\mathbb{R}\) for each \(i=1,2, \ldots, m\)
+\end{itemize}
+
+To prove: If \(\left(x_n\right)\) is bounded then \(\left(x_n^i\right)\) is bounded in \(\mathbb{R}\) for each \(i=1,2, \ldots, m\)
+\begin{itemize}
+    \item Take any \(\left(x_n\right)\) bounded in \(\mathbb{R}^m\).
+    \item So there exists \(r>0\) and \(a \in \mathbb{R}^m\) such that \(\sqrt{\sum_{i=1}^m\left(x_n^i-a^i\right)^2}<r\) for all \(n\).
+    \item This implies that \(\left|x_n^i-a^i\right|<r\) for all \(n\), for all \(i \in\{1,2, \ldots, m\}\). Thus, ( \(x_n^i\) ) is bounded for all \(i \in\{1,2, \ldots, m\}\).
+\end{itemize}
+To prove: If \(\left(x_n^i\right)\) is bounded in \(\mathbb{R}\) for each \(i=1,2, \ldots, m\) then \(\left(x_n\right)\) is bounded
+\begin{itemize}
+    \item Conversely, take any \(\left(x_n\right)\) with \(\left(x_n^i\right)\) bounded for each \(i \in\{1,2, \ldots, m\}\).
+    \item So there exists \(r_i>0\) and \(a^i \in \mathbb{R}\) such that \(\left|x_n^i-a^i\right|<r_i\) for all \(n\), for all \(i \in\{1,2, \ldots, m\}\).
+    \item Clearly, \(\sqrt{\sum_{i=1}^m\left(x_n^i-a^i\right)^2}<r\) for all \(n\) where \(r=\sqrt{\sum_{i=1}^m r_i{ }^2}\).
+\end{itemize}
+
+ \subsubsection{Proposition 13 (Bolzano Weierstrass Theorem) :} 
+\begin{itemize}
+    \item Let \(\left(\mathbb{R}^m, d\right)\) be the Euclidean metric space. Every bounded sequence has a convergent subsequence.
+\end{itemize}
+Proof:
+\begin{itemize}
+    \item We will use induction to show this.
+    \item For case \(m=1\), the statement is true by proposition 10 .
+    \item After supposing that the statement is true for all \(m-1\), we will show that it is true for \(m\).
+    \item Take any \(\left(x_n\right)\) bounded in \(\mathbb{R}^m\).
+    \item By proposition 12, \(\left(x_n^m\right)\) is bounded and by proposition 10 it has a convergent subsequence \(\left(x_{n_k}^m\right)\).
+    \item Consider the subsequence \(\left(x_{n_4}\right)\) of \(\left(x_n\right)\).
+    \item Now the sequence \(\left(x_{n_k}^1, \ldots, x_{n_k}^{m-1}\right)\) is in \(\mathbb{R}^{m-1}\) and is bounded by proposition 12 and has a convergent subsequence ( \(x_{n_{k_1}}^1, \ldots, x_{n_{k_j}}^{m-1}\) ) by induction step.
+    \item Clearly, \(\left(x_{n_{i, ~}}\right)\) is the required convergent subsequence of \(\left(x_n\right)\) (by proposition 11).
+\end{itemize}
+
+let's prove this for \(\mathbb{R}^2\)
+
+\underline{Proof;}
+suppose \((x_{n},y_{n})\) is bounded in \(\mathbb{R}^2\) 
+
+then any subsequence \((x_{n_{k}})\) is a convergent subsequence of \((x_{n})\)
+
+then consider a subsequence \((y_{n_{k}})\) of \((y_{n})\) might or might not be convergent 
+
+but since \((y_{n_{k}})\) is bounded it has a convergent \((y_{n_{k_{l}}})\)  
+
+and similiarly \((x_{n_{k_{l}}})\) is a convergent subsequence of \((x_{n_{k}})\) which is convergent. therefore \((x_{n_{k_{l}}},y_{n_{k_{l}}})\) is the required convergent subsequence of \((x_{n},y_{n})\).  
+ 
+ \subsubsection{Bounded Set:} 
+\begin{itemize}
+    \item Let \((X, d)\) be a metric space. Then \(Y \subseteq X\) is bounded if there exists \(x \in X\) and \(\delta \in(0, \infty)\) such that \(Y \subseteq \mathcal{N}_\delta(x)\).
+    \item If \(Y \subseteq X\) is not bounded, then it is unbounded.
+\end{itemize}
+
+ \subsubsection{Limit points of a Set:} 
+\begin{itemize}
+    \item \(x\) is a limit point or a cluster point of set \(A\) if for any open set \(U\) containing \(x\), \((U-\{x\}) \cap A \neq \emptyset\).
+    \item Equivalently, \(x\) is a limit point or a cluster point of set \(A\) if for any \(\epsilon\)-neighborhood of \(x\) \(\left(\mathcal{N}_\epsilon(x)\right),\left(\mathcal{N}_\epsilon(x)-\{x\}\right) \cap A \neq \emptyset\).
+\end{itemize}
+ 
+Examples;
+\((X,d)\) is a metric space and \(A \subset X\) then \(x \in X\) si known as the limit point of \(A\) if 
+    \begin{equation*}
+        \left( \forall \epsilon > 0 \right)(\mathcal{N}_{\epsilon}(x)|_{\{x\}} \cap A \neq \phi) 
+    \end{equation*}   
+\begin{itemize}
+    \item \(X = \mathbb{R}\) and \(d(x,y)=|x-y|\) then
+    \begin{table}[htpb]
+        \centering
+        \begin{tabular}{|c|c|c|}
+        \hline A & x & Is this a limit point of A?\\
+        \hline \((0,1)\) & 0 & Yes \\
+        \hline \(\mathbb{N}\) & 2 & No \\
+        \hline \((0,1)\) & 2 & No \\
+        \hline    
+        \end{tabular}
+    \end{table}         
+\end{itemize}
+
+limit points give us an alternate way of thinking about closed sets.
+
+\begin{table}[htpb]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline A & \(L(A)=\)set of limit points of \(A\) & Is \(A\) closed? & Is \(L(A) \subset A\) \\
+    \hline \((0,1)\) & \([0,1]\) & No & No\\
+    \hline \(\mathbb{N}\) & \(\phi\) & Yes & Yes\\
+    \hline \([0,1]\) & \([0,1]\) & Yes & Yes\\
+    \hline \(\phi\) & \(\phi\) & Yes & Yes\\
+    \hline \(\mathbb{R}\) & \(\mathbb{R}\)   & Yes & Yes\\
+    \hline                     
+    \end{tabular}
+\end{table}
+
+Let \((X,d)\) be a metric space, a set \(A\) is closed in \((X,d)\) iff it contains all its limit points \((L(A)\subset A)\).    
+\end{document}
