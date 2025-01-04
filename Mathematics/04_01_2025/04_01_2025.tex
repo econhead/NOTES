@@ -1,0 +1,180 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/04_01_2025/Figures}}       
+\author{Laxman Singh}
+\date{\today}
+\title{Metric Spaces Continued}
+
+\begin{document}
+   \section{Metric Spaces Contd.} 
+   \subsubsection{ Proposition 14} 
+\begin{itemize}
+    \item A set \(S\) in a metric space \(X\) is closed if, and only if, it contains all its limit points.
+\end{itemize}
+To prove: If A set S in a metric space \(X\) is closed then it contains all its limit points.
+\begin{itemize}   
+    \item Suppose \(S\) does not contain all its limit points.
+    \item Then there exists \(x \in X\) which is the limit point of \(S\) but is not in \(S\).
+    \item Since \(x\) is the limit point of \(S, \mathcal{N}_\epsilon(x)\setminus\{x\} \cap S \neq \emptyset\) for all \(\epsilon>0\) which implies that \(S^c\) not open and hence \(S\) is not closed.
+\end{itemize}  
+To prove: If A set \(S\) in a metric space contains all its limit points then it is a closed set.
+\begin{itemize}
+    \item Conversely, assume that \(S\) contain all its limit points but \(S\) is not closed.
+    \item Then \(S^c\) is not open.
+    \item Hence there is \(x \in S^c\) such that for every \(\epsilon>0, \mathcal{N}_\epsilon(x) \cap S \neq \emptyset\).
+    \item This together with \(x \notin S\) implies that for every \(\epsilon>0, \mathcal{N}_\epsilon(x) \setminus \{x\} \cap S \neq \emptyset\) implying further that \(x\) is the limit point of \(S\) but \(x \notin S\), contradicting that \(S\) contains all its lim points.
+\end{itemize}
+
+To Prove; If a set \(A \subset X\) is closed in \((X,d)\) implies Set \(A\) contains all it's limit points.
+
+The contrapositive of the above statement is, if a set \(A \subset X\) does not contain all it's limit points then the set \(A\) is not closed.       
+
+let's prove the contrapositive
+\begin{itemize}
+    \item Suppose \(A\) does not contain all it's limit points.
+    \item Now we want to show that \(X\setminus A\) is not open.
+    \item since \(A\) does not contain all it's limit points the following must be true
+    \(\exists l \in X \) such that \(l\) is the limit point of \(A \subset X\) but \(l \notin A\).
+    \item but this means, \((\forall \epsilon >0)(\mathcal{N}_{\epsilon}(l)\setminus \{l\}\cap A \neq \phi\)
+    \item but this implies \((\forall \epsilon >0)\mathcal{N}_{\epsilon}(l)\cap A \neq \phi\) 
+    \item \(\implies (\forall \epsilon > 0)(\mathcal{N}_{\epsilon}(l) \not\subset X\setminus A\).
+    \item Therefore the set \(X \setminus A\) is not open and hence set \(A\) is not closed.                  
+\end{itemize}
+
+ \subsubsection{Propositon 15} 
+ \begin{itemize}
+    \item A set \(S\) in a metric space \(X\) is closed if, and only if, every sequence in \(S\) that converges in \(X\) converges to a point in \(S\)
+ \end{itemize}
+To prove: If \(A\) set \(S\) in a metric space \(X\) is closed then every sequence in \(S\) that converges in \(X\) converges to a point in \(S\)
+\begin{itemize}
+    \item Assume that \(S\) is closed and that \(\left(x_n\right)\) is a sequence of points belonging to \(S\) converging to \(x \in X\).
+    \item We claim that \(x \in S\).
+    \item Arguing by contradiction, we assume that \(x \notin S\).
+    \item Since \(S^c\) is open, there is \(r_x>0\) such that \(\mathcal{N}_{r_{\varepsilon}}(x) \subseteq S^c\).
+    \item Then, since \(x_n \in S, d\left(x_n, x\right) \geq r_x\), contradicting that \(d\left(x_n, x\right) \rightarrow 0\).
+\end{itemize}
+To prove: If every sequence in \(S\) that converges in \(X\) converges to a point in \(S\) then \(S\) in a metric space \(X\) is closed
+\begin{itemize}
+    \item Conversely, assume that every convergent sequence ( \(x_n\) ) such that \(x_n \in S\) converges to a point in \(S\) but \(S\) is not closed. Then \(S^c\) is not open.
+    \item Hence there is \(x \in S^c\) such that for every \(r>0, \mathcal{N}_r(x) \cap S \neq \emptyset\).
+    \item In particular, for numbers \(1 / n\) where \(n \geq 1\), we find points \(x_n \in S\) such that \(d\left(x_n, x\right)<1 / n\).
+    \item Hence the sequence ( \(x_n\) ) converges to \(x\) and \(x \notin S\), contradiction.
+\end{itemize}
+
+To Prove; A set \(A \subset X\) is closed or it contains all it's limit points if \((\forall(x_{n}) \subset A)(\text{if there is} \ l \in X \ \text{such that} \ x_{n} \to l \implies l \in A)\).
+\begin{itemize}
+    \item The contrapositive of the above statement is; If a set does not contain all it's limit points then it contains a sequence that converges to a point that does not lie in the set or lies outside of it.
+    \item Suppose set \(A\) does not contain all it's limit points
+    \item \(\implies (\exists l \in X\setminus A)(\forall \epsilon >0)(\mathcal{N}_{\epsilon}(l)\setminus \{l\}\cap A \neq \phi\)
+    \item \(\implies (\exists l \in X\setminus A)(\forall n \in \mathbb{N})(\mathcal{N}_{\frac{1}{n}}(l)\setminus \{l\}\cap A \neq \phi\)
+    \item now if we pick a point form this non-empty set \(x_{n} \in \mathcal{N}_{\frac{1}{n}}\setminus \{l\}\cap A\)
+    \item Noitce that \(0\leq d(x_{n},l)<\frac{1}{n} \quad \forall n \in \mathbb{N}\) is true and also \(x_{n} \in A\)           
+    \item so by squeeze theorem \(d(x_{n},l)\to 0\) and \(l \in X \setminus A\)    
+\end{itemize}
+ \subsubsection{Propositon 16} 
+\begin{itemize}
+    \item Let \(S\) be a nonempty bounded subset of \(\mathbb{R}\). Show that there is an increasing sequence \(\left(x_n\right)\) in \(S\) such that \(x_n \rightarrow \sup S\) and a decreasing sequence \(\left(y_n\right)\) in \(S\) such that \(y_n \rightarrow \inf S\).
+\end{itemize}
+To prove: There is an increasing sequence \(\left(x_n\right)\) in \(S\) such that \(x_n \rightarrow \sup S\)
+\begin{itemize}
+    \item - Let \(S\) be a nonempty bounded subset of \(\mathbb{R}\) and \(x=\sup S\).
+    - For numbers \(1 / n\) where \(n \geq 1\), we find points \(x_n \in S\) such that \(d\left(x_n, x\right)<1 / n\).
+    - Hence, the sequence ( \(x_n\) ) converges to \(x\).
+    - Consider the sequence \(\left(y_n\right)\) obtained from \(\left(x_n\right)\) in the following way:
+\begin{align*}
+y_n=\max \left\{x_1, x_2, \ldots, x_n\right\}
+\end{align*}
+\item Clearly, \(\left(y_n\right)\) is an increasing sequence that converges to \(x\).
+\item The proof of the second claim is analogous. 
+\end{itemize}
+
+Let \(A\)   be an non-empty bounded subset of \(\mathbb{R}\), this means it has finite infimum and supremum, and \(A\) contains an increasing sequence that converges to \(\sup A\) and \(A\) also contains a decreasing sequence that converges to \(\inf A\).     
+
+let's prove the first part that it contains an increasing sequence...
+
+There are two possiblities that is 
+\begin{itemize}
+    \item if \(\sup A \in A \), then \(x_{n}=\sup\) is the required sequence since a constant sequence is an increasing sequence.
+    \item if \(\sup A \notin A\), then pick \(x_{1} \in (\sup A -1, \sup A) \cap A\) and let \(d_{2}=\min(\frac{1}{2},|x_{1}-\sup A|\)
+    \item then we pick \(x_{2} \in \sup A -d_{2}, \sup A) \cap A\) and let \(d_{3}=\min(\frac{1}{3},|x_{2}-\sup A|\), and so on pick \(x_{3} \in (\sup A -d_{3}, \sup A) \cap A\),...
+    \item note that since \(d_{n} \to 0\) the aboslute value of the distance between \(x_{n}\) and \(\sup A\) goes to \(0\).
+    \item therefore we get an increasing sequence in this manner that converges to \(\sup A\).                        
+\end{itemize}
+
+ \subsection{Compact Sets and Totally Bounded Sets}
+  \subsubsection{Compact Set} 
+\begin{itemize}
+    \item - Let \((X, d)\) be a metric space. A subset \(S\) of a metric space \(X\) is compact if every sequence in \(S\) has a subsequence that converges to a point in \(S\).
+\end{itemize}
+Exapmles;
+\begin{itemize}
+    \item Is \(A_{1}=\mathbb{R}\) a compact set? No! there are numerous sequences in \(\mathbb{R}\) which have non convergent subsequences.
+    \item Is \(A_{2}=\phi\) a compact set? Yes, vacously true!   
+    \item Is \(A_{3}=(0,1)\) a compact set? No, since the sequence \(x_{n}=\frac{1}{n+1}\in A_{3}\) has no subsequence that converges to a point in \(A_{3}\). Basically in other words we also need a set to be closed and bounded for it to be compact in euclidean metric spaces but is not necessarily true for other metric spaces.
+    \item Consider \(X=[0,1]\) and \[d(x,y)=\begin{cases} 1 & \text{if} \ x \neq y\\ 0 & \text{if} \ x=y \end{cases}\] Then is \(\frac{1}{n+1}\) a convergent sequence in \((X,d)\)? 
+    
+    No! because we say that \(x_{n}\to l\) in \((X,d)\) if \(d(x_{n},l) \to 0\)   
+    
+    A convergent sequence in discrete metric space has the property that all of it's terms except possibly finitely many terms are same, for example \(x_{n}= 1, \frac{1}{2},\frac{1}{2},\frac{1}{2},\ldots \)    
+    \item is \(A=(0,1) \in (X,d)\) compact? where \(X=[0,1]\) and \(d(x,y)\) is the discrete metric? No it is not compact.
+    \item is \(A_{2}=[0,1] \in (X,d)\) compact? No
+    \item is \(A_{3}=\{0,1\} \in (X,d)\) compact? Yes
+    \item Any finite subset of the set \(X\) will be compact.
+    \item let \(X=[0,1]\) and \(d(x,y)=|x-y|\) then is \(A=[0,1] \in (X,d)\) compact?  Yes, it is easier to see that this set is closed and bounded than to find a sequence that has all it's subsequences coverging to a point in \(A\).                   
+\end{itemize}
+
+ \subsubsection{Totally Bounded Set} 
+\begin{itemize}
+    \item  A set \(S\) in \(X\) is said to be totally bounded (or precompact) if, for any \(\epsilon>0\), there exists a finite subset \(T\) of \(X\) such that
+    \begin{align*}
+    S \subseteq \bigcup_{x \in T} \mathcal{N}_\epsilon(x)
+    \end{align*}
+\end{itemize}
+Examples;
+\begin{itemize}
+    \item say \(\mathbb{R},d(x,y)\) is our metric space where d(x,y) is the discrete metric, Is the set \((0,1)\) bounded in \((\mathbb{R},d)\)? yes(any epsilon greater than works for the neighbourhood) but is it totally bounded? no (it fails for \(\epsilon=\frac{1}{2}\)).
+\end{itemize}
+ 
+\subsubsection{Proposiotion 17} 
+\begin{itemize}
+    \item Every totally bounded subset of a metric space is bounded.
+\end{itemize}
+Proof:
+\begin{itemize}
+    \item Consider a totally bounded subset \(S\) of \(X\).
+    \item Thus, \(S \subseteq \cup_{i=1}^n \mathcal{N}_1\left(t_i\right)\) for some \(T=\{ t_1, \ldots, t_n \} \subseteq X\).
+    \item \(S\) is bounded because for \(r=\max \left\{d\left(t_i, t_j\right) \mid t_i, t_j \in T\right\}+1, S \subseteq \mathcal{N}_r\left(t_1\right)\).
+\end{itemize}
+
+To Prove that a totally bounded set is bounded;
+
+Proof:
+\begin{itemize}
+    \item Suppoe a set \(A\)  is totally bounded.
+    \item WTS; \(A\) is bounded.
+    \item Note that it is vacously true that if \(A\) is empty then it is bounded. so we only need to consider a non-empty set \(A\) that is totally bounded.
+    \item Since \(A\) is totally bounded, for \(\epsilon=1\), there exists finite set \(T \subset X\) such that \[A \subset \bigcup_{x\in T}\mathcal{N}_{1}(x)\] 
+    \item Then we can take the \(\max d(x_{i},x_{j)}\) where \(x_{i},x_{j} \in T\) for the bigger ball or
+    \item for \(x_{1} \in T\), take \(l=\max_{x_{i}\in T} d(x_{i}, x_{1})\) then we wnat to show that \(A \subset \mathcal{N}_{l+1}(x_{1})\) 
+    \item we can prove this as follows;
+    \begin{align*}
+        &p \in A \implies p \in \mathcal{N}_{l+1}(x_{1})\\
+        &d(p,x_{1}) \leq d(p,x_{k_{p}}) + d (x_{k_{p}}, x_{1}) \qquad [\text{By triangle's inequality}]
+    \end{align*}
+     and therefore \( p \in \mathcal{N}_{l+1}(x_{1})\) must be true.  
+\end{itemize}
+
+\end{document}

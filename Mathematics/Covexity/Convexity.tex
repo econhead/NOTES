@@ -1,0 +1,154 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/Covexity/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Convexity}
+
+\begin{document}
+\section{Convexity/Concavity of single variable functions} 
+If we arbitrariliy pick any two points on the graph of a function and connect those two points
+ with a line segment, if no part of this line segment lies above the graph of the function then
+  this function is concave and if no part of this line segment lies below the graph of the 
+  function then the function is said to be convex.
+
+examples of concave functions are \(f(x)=\max(x,1)\), \(f(x)=x+1\), 
+
+\(f(x)=-x^2\), etc. 
+
+examples of convex functions are \(f(x)=x^2\), \(f(x)=x+1\), etc.
+
+Note: if we have a twice differentiable function then we can use the second derivatrive test
+ for checking the concavity of the function.
+
+Can there be a concave function which is discontinous?
+
+If we have a function defined on an open interval of the real line then we can never find a
+discontinous concave function.
+
+But we have a function defined on a closed interval of the real line then we can find examples
+of discontinous concave function.
+
+\section{Convexity/Concavity of multi variable functions}
+\(f(x,y)=x^{0.5}y^{0.5}\) is a concave function but it's level curves are convex.
+
+\(f(x,y)=xy\) is neither concave nor convex but it's level curves are convex.
+
+\(f(x,y)=\min(x,y)\) is a concave function but it's level curves are convex. 
+
+\(f(x,y)= x+2y\) is both concave and convex and it's level curves are both concave and convex
+as well.
+
+but \(f(x,y)= (x+2y)^2\) is a convex function and it's level curves are straight lines.
+
+\(u(x,y)=\max(\min(x,2y),\min(2x,y))\) is neither convex nor concave and some holds for it's
+level curves.
+
+Note: Level curves are not functions. 
+\section{Convex Sets} 
+ \subsection{Convex Combination} 
+  Given two vectors \(x,x' \in \mathbb{R}\) and \(\lambda \in [0,1]\), a vector \(\lambda x +
+  (1-\lambda)x'\) is known as the convex combination of \(x\) and \(x'\).      
+ 
+  so set of all convex combinations of \(x\) and \(x'\) is the set of all the points lying on
+  the line segment joining \(x\) and \(x'\).
+  
+  \begin{figure}[ht]
+      \centering
+      \includegraphics[scale=0.36]{1.png}
+  \end{figure}
+  
+  A set \(S \subset \mathcal{R}^n\) is convex if \(\lambda x + (1-\lambda)x' \in S\) whenever 
+  \(x \in S\), \(x' \in S\), and \(\lambda \in [0,1]\).
+  
+  \begin{figure}[ht]
+      \centering
+      \includegraphics[scale=0.36]{2.png}
+  \end{figure}
+  \pagebreak
+
+  Can we say anything about Union and Intersection of two Convex sets?
+  \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.35]{3.png}
+  \end{figure}
+
+  Note that Intersection of two convex sets is alaways a convex set but their union is not
+  necessarily convex.
+
+  \textbf{\underline{Proof:}} 
+  \begin{itemize}
+    \item Let \(X\) adn \(Y\) be convex sets, Pick arbitray \(a\) and \(b\) from the set \(X 
+    \cap Y\).
+    \item Notice that \(a,b \in X\) and \(a,b \in Y\)
+    \item Consider any \(\lambda \in [0,1]\). Since \(X\) and \(Y\) are convex sets, we have \(\lambda a + (1-\lambda)b \in X\) and \(\lambda a + (1-\lambda)b \in Y\).
+    \item therefore \(\lambda a + (1-\lambda)b \in X \cap Y\).  
+  \end{itemize}
+
+   \subsection{Concave Functions} 
+   Let \(f: S \rightarrow \mathcal{R}\) be a function defined on the convex set \(S \subset \mathcal{R}^n\). Then \(f\) is concave on the set \(S\) if for all \(x \in S\), all \(x^{\prime} \in S\), and all \(\lambda \in(0,1)\) we have
+
+\begin{align*}
+f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \lambda f(x)+(1-\lambda) f\left(x^{\prime}\right)
+\end{align*}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{4.png}
+\end{figure}
+
+ \subsection{Convex Funtions}
+ Let \(f: S \rightarrow \mathcal{R}\) be a function defined on the convex set \(S \subset \mathcal{R}^n\). Then \(f\) is convex on the set \(S\) if for all \(x \in S\), all \(x^{\prime} \in S\), and all \(\lambda \in(0,1)\) we have
+
+\begin{align*}
+f\left(\lambda x+(1-\lambda) x^{\prime}\right) \leq \lambda f(x)+(1-\lambda) f\left(x^{\prime}\right)
+\end{align*}
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{5.png}
+\end{figure}
+
+ \subsection{Sum Theorem} 
+ Sum of two concave functions is a concave function:
+
+ If \(f: S \rightarrow \mathcal{R}\) and \(g: S \rightarrow \mathcal{R}\) are two concave functions, defined on the convex set \(S \subset \mathcal{R}^n\) then
+  \(t: S \rightarrow \mathcal{R}\) defined as
+ \begin{align*}
+  t(x)=f(x)+g(x)
+ \end{align*}
+ will be a concave function.
+
+ \underline{\textbf{Proof:}} 
+ \begin{itemize}
+    \item Pick arbitrary \(x, x^{\prime} \in S\) and \(\lambda \in[0,1]\)
+    \begin{align*}
+    \begin{array}{ll} 
+    & t\left(\lambda x+(1-\lambda) x^{\prime}\right) \\
+    =\quad & f\left(\lambda x+(1-\lambda) x^{\prime}\right)+g\left(\lambda x+(1-\lambda) x^{\prime}\right) \qquad \qquad \quad {[\text { By definition of } t]}\\
+    \geq \quad & \lambda f(x)+(1-\lambda) f\left(x^{\prime}\right)+\lambda g(x)+(1-\lambda) g\left(x^{\prime}\right) \qquad {[\text { By concavity of } f \ \text{and} \ g]} \\
+    = & \lambda(f(x)+g(x))+(1-\lambda)\left(f\left(x^{\prime}\right)+g\left(x^{\prime}\right)\right) \\
+    = & \lambda t(x)+(1-\lambda) t\left(x^{\prime}\right)
+    \end{array}
+   \end{align*}
+    
+    \item Therefore, \(t\) is a concave function
+ \end{itemize}
+
+ A smiliar result holds for the sum of two convex functions which tells us that the sum of two convex functions will be a convex function.
+
+ 
+\end{document}
