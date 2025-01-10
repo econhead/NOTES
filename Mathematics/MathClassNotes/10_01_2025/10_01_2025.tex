@@ -1,0 +1,264 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/10_01_2025/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Compact Sests and Continuity of functions }
+
+\begin{document}
+\section{Compact Sets Contd.} 
+\subsection{Proposition 18}
+\begin{itemize}
+    \item Any compact subset of a metric space \(X\) is closed and totally bounded.
+\end{itemize}
+\begin{itemize}
+    \item We will first show that any compact subset of a metric space \(X\) is closed:
+    \item Let \(S\) be the compact subset of \(X\).
+    \item Take any \(\left(x_n\right)\) in \(S\) with \(x_n \rightarrow I_x\) for some \(I_x \in X\).
+    \item We just need to show \(I_x \in S\) (See Proposition 15 ).
+    \item Since \(S\) is compact there is a subsequence \(\left(x_{n_*}\right)\) of \(\left(x_n\right)\) that converges to a point in \(S\).
+    \item Since \(\left(x_n\right)\) converges to \(I_x\), so \(\left(x_{n_k}\right)\) also converges to \(I_x\). Thus, \(I_x \in S\).
+\end{itemize}
+Now let us show that any compact subset of a metric space \(X\) is totally bounded:
+\begin{itemize}
+    \item Suppose the claim is not true, that is, there is a compact subset \(S\) of \(X\) with the following property: there exists an \(\epsilon>0\) such that \(\left\{\mathcal{N}_e(x): x \in T\right\}\) does not cover \(S\) for any finite \(T \subseteq S\).
+    \item To derive a contradiction, we wish to construct a sequence in \(S\) with no convergent subsequence.
+    \item Begin by picking an \(x_1 \in S\) arbitrarily.
+    \item By hypothesis, we cannot have \(S \subseteq \mathcal{N}_{\varepsilon}\left(x_1\right)\) so there must exist an \(x_2 \in S\) such that \(d\left(x_1, x_2\right) \geq \epsilon\).
+    \item Again, \(S \subseteq \mathcal{N}_\epsilon\left(x_1\right) \cup \mathcal{N}_\epsilon\left(x_2\right)\) cannot hold, so we can find an \(x_3 \in S\) such that \(d\left(x_i, x_3\right) \geq \epsilon, i=1,2\).
+    \item Proceeding inductively, we obtain a sequence \(\left(x_n\right)\) such that \(d\left(x_i, x_j\right) \geq \epsilon\) for any distinct \(i, j \in \mathbb{N}\).
+    \item Since \(S\) is compact, there must exist a convergent subsequence, say \(\left(x_{n_k}\right)\), of \(\left(x_n\right)\).
+    \item But this is impossible since \(\lim x_{n_k}=x\) would imply that
+    \begin{align*}
+    d\left(x_{n_k}, x_{n_j}\right) \leq d\left(x_{n_k}, x\right)+d\left(x, x_{n_j}\right)<\epsilon
+    \end{align*}
+ for large enough (distinct) \(k\) and \(I\).
+\end{itemize}
+
+Let \(\left( X,d \right)\) be our metric space then we want to show that \(Y \subset X\), \(Y\) is compact, implies that \(Y\) is closed and \(Y\) is totally bounded.      
+
+\begin{enumerate}
+    \item \(Y\) is compact \(\to\) Y is closed.
+    Since \(Y\) is compact, so every sequence in \(Y\) has a subsequence that converges to a point in Y.  
+    \begin{tcolorbox}
+        \underline{\textbf{Proof}}
+        Consider an arbitray sequence \(\left( x_{n} \right) \subset Y\) that converges to 
+        \(l \in X \). Since \(Y\) is compact, \(l \in Y\), and therefore \(Y\) is closed.   
+    \end{tcolorbox}
+    \item \(Y\) is compact \(\implies \) \(Y\) is totally bounded.  
+    
+    \underline{\textbf{Proof}}
+    The contrapositive of the above statement is;
+
+    \(Y \) is not totally bounded \(\implies\) \(Y\) is not compact.    
+
+    Y is not totally bounded means \(\exists \epsilon >0\) such that
+    
+    \[\left( \text{for no finite subset} \ T \ \text{of} \ X, Y \subset \bigcup_{x \in T} \mathcal{N}_{\epsilon}(x) \right) \]  
+
+    or, 
+
+    \[ \left( \text{for any finte subset} \ T \ \text{of} \ X, Y \not\subset \bigcup_{x \in T} \mathcal{N}_{\epsilon}(x) \right) \] 
+    
+    \(Y\)  is not compact means that there exsits a sequence in \(Y\) that has no subsequence that converges to a point in \(Y\).
+    
+    Since Y in not totally bounded we know that Y is not an empty set because an empty set is totally bounded, therefore we start by picking a point \(x_{1} \in Y\) then it is true \(Y \not\subset \mathcal{N}_{\epsilon}(x_{1})\) since \(Y \) is not totally bounded, 
+
+    Now we pick any \(x_{2} \in Y \setminus \mathcal{N}_{\epsilon}(x_{1})\), we can do this because we know the first n-ball does not contain the set \(Y\) completely, then it is true that;
+    \[ Y \not\subset \mathcal{N}_{\epsilon}(x_{1}) \cup \mathcal{N}_{\epsilon}(x_{2}) \]
+    similiarly we now pick \(x_{3} \in Y \setminus \mathcal{N}_{\epsilon}(x_{1}) \cup \mathcal{N}_{\epsilon}(x_{2})\) and then we know 
+    \begin{equation*}
+        Y \not\subset \mathcal{N}_{\epsilon}(x_{1}) \cup \mathcal{N}_{\epsilon}(x_{2}) \cup \mathcal{N}_{\epsilon}(x_{3})
+    \end{equation*}    
+    In this manner we get our sequence \(\left( x_{n} \right) \) which has the property 
+    \begin{equation*}
+        d(x_{i},x_{j}) \geq \epsilon \quad \text{for } i \neq j
+    \end{equation*}    
+    Now suppose that \(x_{n} \to l\)
+    
+    then \(d(x_{n},l) \to 0\)
+    
+    and \(\exists \ N \text{ s.t. } n > N, d(x_{n},l)<\frac{\epsilon}{4}\)  
+    
+    and by triangle's inequality \[d(x_{i},x_{j}) \leq d(x_{i},l) + d(x_{j},l) < \frac{\epsilon}{4} + \frac{\epsilon}{4} = \frac{\epsilon}{2} \ \ \text{for } i \neq j\]
+    which is a contradiction!
+\end{enumerate}
+
+\subsection{Proposition 19}
+\begin{itemize}
+    \item Given any \(m \in \mathbb{N}\), a subset of \(\mathbb{R}^m\) (with Euclidean metric) is compact if, and only if, it is closed and bounded.
+\end{itemize}
+If compact then closed and bounded:
+\begin{itemize}
+    \item  By proposition 17 and 18, every compact set is both closed 
+    
+    and bounded.
+\end{itemize}
+If closed and bounded then compact :
+\begin{itemize}
+    \item Now suppose \(S\) is closed and bounded.
+    \item To show \(S\) is compact, pick any sequence \(\left(x_n\right)\).
+    \item Since \(\left(x_n\right)\) is bounded, there exist a convergent subsequence ( \(x_{n_k}\) ) (by proposition 13).
+    \item Limit of \(\left(x_{n_k}\right)\) will lie in \(S\) since \(S\) is closed (by proposition 15).
+\end{itemize}
+
+Now let's prove that In \(\left( X,d \right)\) -  Euclidean metric space \((X \subset \mathbb{R}^n)\), if \(Y \subset X\) is closed and bounded then Y is compact. 
+
+\underline{\textbf{Proof}}
+
+Suppose \(Y\) is closed and bounded, consider an arbitrary sequence \(\left( x_{n} \subset Y \right) \), then by Bolzano-Weierstarass theorem, since \((x_{n})\) is bounded in \(\mathbb{R}^n\), it has a convergent subsequence \(x_{n_{k}} \to l\), since \(Y\) is closed, it follows that \(l \in Y\), therefore Y is compact.       
+
+We can find examples of metric spaces in which a set is compact and bounded that is not compact.
+
+\(X = \mathbb{R}\) and \(d(x,y)=\begin{cases}1 & \text{ if } x \neq y\\
+    0 & \text{ if } x=y \end{cases}\) 
+    
+Note that in this discrete metric space \(\mathbb{R}\) closed and bounded.
+
+say we now pick the sequence \(\left( \frac{1}{n} \right) \) or \((n)\) and it is easy to observe that neither of these sequences are not convergent and none of their subsequences convergent  to a point in the set \(X\).    
+
+\section{Continuity of a function}
+\subsection{Continuity of a function at a point:}
+A function \(f: (X,d_{x}) \rightarrow (Y,d_{y})\) is said to be continuous at \(x_0 \in X\) if for every \(\epsilon>0\), there exists \(\delta>0\) such that \(f\left(\mathcal{N}_\delta\left(x_0\right)\right) \subseteq \mathcal{N}_c\left(f\left(x_0\right)\right)\) (where for any subset \(A\) of \(X\), we define \(f(A)=\{f(x): x \in A\}\) ).
+
+We say that \(f: X \to Y\) is continuous at \(x_{0} \in X\) if \((\forall \epsilon > 0)(\exists \delta > 0)(f(\mathcal{N}_{\delta}(x_{0})) \subseteq \mathcal{N}_{\epsilon}(f(x_{0})))\)  
+
+Examples;
+\begin{enumerate}
+    \item Suppose \(X = \mathbb{N}\) and \(d_{x}(m,n)=|m-n|\)
+    
+    \(Y = \mathbb{R}\) and \(d_{y}(a,b)=|a-b|\)   
+    
+    Is \(f(x)=x\) where \(f: X \to Y\) continuous?
+    
+    Yes! because \(\mathcal{N}_{\delta}(2)=\{2\} \quad \text{ for } \delta \leq 1\) 
+    
+    \item Suppose \(X = \mathbb{N}\) and \(d_{x}(m,n)=|m-n|\)
+    
+    \(Y = \mathbb{R}\) and \(d_{y}(a,b)=\begin{cases} 1 & \text{ if } a \neq b\\ 0 & \text{ if } a=b \end{cases}\)   
+    
+    Is \(f(x)=x\) where \(f: X \to Y\) continuous? Yes in this case  
+    
+    \(f\left(\mathcal{N}_\delta\left(x_0\right)\right) = \mathcal{N}_c\left(f\left(x_0\right)\right)\)
+    
+    \item Suppose \(X = \mathbb{R}\) and \(d_{x}(m,n)=|m-n|\)
+    
+    \(Y = \mathbb{R}\) and \(d_{y}(a,b)=\begin{cases} 1 & \text{ if } a \neq b\\ 0 & \text{ if } a=b \end{cases}\)   
+    
+    Is \(f(x)=x\) where \(f: X \to Y\) continuous at \(x=2\)? NO!
+    
+    \item Suppose \(X = \mathbb{R}\) and \(d_{x}(a,b)=\begin{cases} 1 & \text{ if } a \neq b\\ 0 & \text{ if } a=b \end{cases}\)   
+    
+    \(Y = \mathbb{R}\) and \(d_{y}(a,b)=|a-b| \)  
+    
+    Is \(f(x)=\lfloor x \rfloor \) where \(f: X \to Y\) continuous at \(x=2\)? Yes! take \(\delta \leq 1\).   
+
+\end{enumerate}
+\subsection{Proposition 20}
+\begin{itemize}
+    \item A function \(f: X \rightarrow Y\) is continuous at \(x_0 \in X\) if, and only if, for every sequence \(\left(x_n\right)\) in \(X\) that converges to \(x_0\), the sequence \(f\left(x_n\right)\) in \(Y\) converges to \(f\left(x_0\right)\).
+\end{itemize}
+\(f\) is continous at \(x_{0} \in X\) iff    
+\(\left( \forall (x_{n}) \subset X \right)\left( x_{n} \to x_{0} \in X \implies f(x_{n}) \to f(x_{0}) \right)  \)  
+
+To prove : If \(f\) is continuous at \(x_0\) then for every sequence \(\left(x_n\right)\) in \(X\) that converges to \(x_0\), we have the sequence \(f\left(x_n\right)\) in \(Y\) converges to \(f\left(x_0\right)\) :
+\begin{itemize}
+    \item Suppose \(f: X \rightarrow Y\) is continuous at \(x_0 \in X\).
+    \item Now pick any sequence \(\left(x_n\right)\) in \(X\) that converges to \(x_0\).
+    \item We claim that \(f\left(x_n\right)\) converges to \(f\left(x_0\right)\).
+    \item To prove this, consider an arbitrary \(\epsilon>0\).
+    \item Since \(f\) is continuous at \(x_0\), there exists \(\delta>0\) such that \(f\left(\mathcal{N}_\delta\left(x_0\right)\right) \subseteq \mathcal{N}_\epsilon\left(f\left(x_0\right)\right)\).
+    \item Now ( \(x_n\) ) converges to \(x_0\), thus there exists \(N\) such that \(x_n \in \mathcal{N}_\delta\left(x_0\right)\) for all \(n \geq N\).
+    \item So, we have \(f\left(x_n\right) \in f\left(\mathcal{N}_\delta\left(x_0\right)\right) \subseteq \mathcal{N}_\epsilon\left(f\left(x_0\right)\right)\) for all \(n \geq N\).
+    \item Hence, \(f\left(x_n\right)\) converges to \(f\left(x_0\right)\).
+\end{itemize}
+
+To prove : If for every sequence \(\left(x_n\right)\) in \(X\) that converges to \(x_0\), we have the sequence \(f\left(x_n\right)\) in \(Y\) converges to \(f\left(x_0\right)\) then \(f\) is continuous at \(x_0\) :
+\begin{itemize}
+    \item Conversely, suppose \(f\) is not continuous at \(x_0\).
+    \item That is, there exists \(\epsilon>0\) for which \(f\left(\mathcal{N}_\delta\left(x_0\right)\right) \nsubseteq \mathcal{N}_\epsilon\left(f\left(x_0\right)\right)\) for all \(\delta>0\).
+    \item In particular, \(f\left(\mathcal{N}_{\frac{1}{n}}\left(x_0\right)\right) \nsubseteq \mathcal{N}_\epsilon\left(f\left(x_0\right)\right)\) for all \(n \in \mathbb{N}\).
+    \item So we can pick a sequence \(\left(x_n\right)\) in such a way that the following is satisfied: \(x_n \in \mathcal{N}_{\frac{1}{n}}\left(x_0\right)\) and \(f\left(x_n\right) \notin \mathcal{N}_e\left(f\left(x_0\right)\right)\) for all \(n \in \mathbb{N}\).
+    \item Thus, \(x_n \rightarrow x_0\) but \(f\left(x_n\right) \nrightarrow f\left(x_0\right)\).
+\end{itemize}
+
+\begin{tcolorbox}
+    Let's prove the contrapositve of \(B \implies A\)  
+    \begin{equation*}
+        \left( \exists (x_{n}) \subset X \right)(x_{n} \to x_{0} \vee f(x_{n} \not\longrightarrow f(x_{0}))  
+    \end{equation*}    
+    suppose \(f\) is not continous at \(x_{0} \in X\)  means that there exists \(\epsilon>0\) for which \(f\left(\mathcal{N}_\delta\left(x_0\right)\right) \nsubseteq \mathcal{N}_\epsilon\left(f\left(x_0\right)\right)\) for all \(\delta>0\). 
+
+    then the following is also true 
+    \begin{equation*}
+        (\exists \epsilon > 0)(\forall n \in \mathbb{N})(f(\mathcal{N}_{\frac{1}{n}}(x_{0})) \not\subset \mathcal{N}_{\epsilon}(f(x_{0})))
+    \end{equation*}    
+    Pick \(x_{n} \in \mathcal{N}_{\frac{1}{n}}(x_{0})\) such that \(f(x_{n}) \notin \mathcal{N}_{\epsilon}(f(x_{0}))\)
+    
+    \(0 \leq d_{x}(x_{n},x_{0}) \leq \frac{1}{n}\)
+    
+    \((x_{n}) \to x_{0}\) and
+    
+    \( d_y(f(x_n),f(x0)) \geq \epsilon\)
+    
+    So \(f(x_{n})\) does not converge to \(f(x_{0})\)    
+\end{tcolorbox}
+\subsection{Continuity of a function over a set}
+\begin{tcolorbox}
+A function \(f: X \rightarrow Y\) is said to be continuous over \(D \subset X\)   if it is continuous at every \(x \in D\).
+\end{tcolorbox}
+
+\subsection{Continuity of a function}
+\begin{itemize}
+    \item A function \(f: X \rightarrow Y\) is said to be continuous if it is continuous at every \(x \in X\).
+\end{itemize}
+\subsection{Proposition 21}
+\begin{itemize}
+    \item A function \(f: X \rightarrow Y\) is continuous if, and only if, for each open set \(V\) of \(Y, f^{-1}(V)\) is open in \(X\) (where for any subset \(B\) of \(Y\), we define \(f^{-1}(B)=\{x: f(x) \in B\}\) ).
+\end{itemize}
+
+To prove: If a function \(f: X \rightarrow Y\) is continuous then for each open set \(V\) of \(Y, f^{-1}(V)\) is open in \(X\) :
+\begin{itemize}
+    \item - Suppose \(f: X \rightarrow Y\) is continuous.
+    \item Consider any open set \(V\) of \(Y\). We claim that \(f^{-1}(V)\) is open in \(X\).
+    \item To prove this, pick an arbitrary \(x \in f^{-1}(V)\).
+    \item Since \(V\) is an open subset of \(Y\) and \(f(x) \in V\), there exists \(\epsilon>0\) such that \(\mathcal{N}_\epsilon(f(x)) \subseteq V\).
+    \item By continuity of \(f\) at \(x\), there exists \(\delta>0\) such that \(f\left(\mathcal{N}_\delta(x)\right) \subseteq \mathcal{N}_\epsilon(f(x)) \subseteq V\).
+    \item Thus we have \(\mathcal{N}_\delta(x) \subseteq f^{-1}(V)\).
+\end{itemize}
+
+To prove: If for each open set \(V\) of \(Y, f^{-1}(V)\) is open in \(X\) then \(f: X \rightarrow Y\) is continuous:
+\begin{itemize}
+    \item - Conversely, suppose \(f^{-1}(V)\) is open in \(X\) for every \(V\) open in \(Y\).
+    \item We claim that \(f\) is continuous.
+    \item To prove this, pick an arbitrary \(x \in X\) and an arbitrary \(\epsilon>0\).
+    \item Since \(\mathcal{N}_\epsilon(f(x))\) is open in \(Y\), so \(f^{-1}\left(\mathcal{N}_e(f(x))\right)\) is open in \(X\) which along with the fact \(x \in f^{-1}\left(\mathcal{N}_\epsilon(f(x))\right)\) implies that there exists \(\delta>0\) such that \(\mathcal{N}_\delta(x) \subseteq f^{-1}\left(\mathcal{N}_\epsilon(f(x))\right)\) or equivalently, \(f\left(\mathcal{N}_\delta(x)\right) \subseteq \mathcal{N}_e(f(x))\).
+\end{itemize}
+
+Let's prove that if a function \(f: X \to Y\) is continuous implies 
+
+\((\forall \text{ open set } V \subset Y)(f^{-1}(v)\) is open in \(X\)  )
+
+\underline{\textbf{Proof}}
+
+Consider any open set \(V \subset Y\)
+
+Consider \(f^{-1}(v)\), if \(f^{-1}(v)\) is empty then it is open. If it is non-empty, then consider any \(x_{0} \in f^{-1}(v)\) 
+
+Since we know that \(f\) is contionus, \(f\) is continuous at \(x_{0}\) and since \(f(x_{0}) \in V\) and \(V\) is open, so \(\exists \epsilon > 0 \) such that \(\mathcal{N} _{\epsilon}(f(x_{0}))\subset V\) and since \(f\) is continous at \(x_{0}\) \(\exists \delta > 0 \text{such that } f(\mathcal{N}_{\delta}(x_{0}))\subset \mathcal{N}_{\epsilon}(f(x_{0})) \subset V\)
+
+So \(\mathcal{N}_{\delta}(x_{0}) \subset f^{-1}(V)\)  
+\end{document}
