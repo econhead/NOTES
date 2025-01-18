@@ -150,5 +150,227 @@ f\left(\lambda x+(1-\lambda) x^{\prime}\right) \leq \lambda f(x)+(1-\lambda) f\l
 
  A smiliar result holds for the sum of two convex functions which tells us that the sum of two convex functions will be a convex function.
 
- 
+\subsection{Concave function and hypograph is a convex set} 
+Let \(f: S \rightarrow \mathbb{R}\) be a function defined on the convex set \(S \subset \mathcal{R}^n\). Then \(f\) is concave if and only if the set of points below its graph (hypograph) is convex:
+\begin{tcolorbox}
+    \begin{equation*}
+        f \text{ is concave } \Leftrightarrow \{(x,y) \in S \times \mathcal{R} : x \in S \text{ and } y \leq f(x)\} \text{ is convex }
+    \end{equation*} 
+\end{tcolorbox}   
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{6.png}
+\end{figure}
+To Show: \(f\) is concave
+\(\Longrightarrow\{(x, y) \in S \times \mathcal{R}: x \in S\) and \(y \leq f(x)\}\)
+is a convex set
+\begin{enumerate}
+    \item Suppose \(f\) is concave.
+    \item Pick arbitrary \(\left(x^{\prime}, y^{\prime}\right)\) and \(\left(x^{\prime \prime}, y^{\prime \prime}\right)\) from the hypograph and \(\lambda \in(0,1)\)
+    \item Using (1), we get \(f\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}\right) \geq \lambda f\left(x^{\prime}\right)+(1-\lambda) f\left(x^{\prime \prime}\right)\)
+    \item Using (2), we get \(f\left(x^{\prime}\right) \geq y^{\prime}\) and \(f\left(x^{\prime \prime}\right) \geq y^{\prime \prime}\)
+    \item Using (3) and (4), we get \(f\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}\right) \geq \lambda y^{\prime}+(1-\lambda) y^{\prime \prime}\)
+    \item Therefore, \(\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}, \lambda y^{\prime}+(1-\lambda) y^{\prime \prime}\right)\) belongs to the hypograph
+\end{enumerate}
+    
+Hence, hypograph is a convex set.
+
+To Show: \(\{(x, y) \in S \times \mathcal{R}: x \in S\) and \(y \leq f(x)\}\) is a convex set \(\Longrightarrow f\) is concave
+\begin{enumerate}
+    \item Suppose \(\{(x, y) \in S \times \mathcal{R}: y \leq f(x)\}\) is convex
+    \item Pick any arbitrary \(x^{\prime}, x^{\prime \prime} \in S\), and any \(\lambda \in(0,1)\)
+    \item We have \(\left(x^{\prime}, f\left(x^{\prime}\right)\right)\) and \(\left(x^{\prime \prime}, f\left(x^{\prime \prime}\right)\right)\) belongs to the hypograph i.e.,
+    \begin{align*}
+    \begin{aligned}
+    & \left(x^{\prime}, f\left(x^{\prime}\right)\right) \in\{(x, y) \in S \times \mathcal{R}: y \leq f(x)\} \\
+    & \left(x^{\prime \prime}, f\left(x^{\prime \prime}\right)\right) \in\{(x, y) \in S \times \mathcal{R}: y \leq f(x)\}
+    \end{aligned}
+    \end{align*}
+    \item Using (1), we get
+    \begin{align*}
+    \begin{aligned}
+    & \lambda\left(x^{\prime}, f\left(x^{\prime}\right)\right)+(1-\lambda)\left(x^{\prime \prime}, f\left(x^{\prime \prime}\right)\right)= \\
+    & \left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}, \lambda f\left(x^{\prime}\right)+(1-\lambda) f\left(x^{\prime \prime}\right)\right)
+    \end{aligned}
+    \end{align*}
+    belongs to the hypograph
+    \item Therefore,
+    \begin{align*}
+    f\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}\right) \geq \lambda f\left(x^{\prime}\right)+(1-\lambda) f\left(x^{\prime \prime}\right)
+    \end{align*}
+    \end{enumerate}
+Hence, \(f\) is concave
+\section{Min Theorem}
+Minimum of two concave functions is a concave function:
+
+If \(f: S \rightarrow \mathcal{R}\) and \(g: S \rightarrow \mathcal{R}\) are two concave functions, defined on the convex set \(S \subset \mathcal{R}^n\) then \(h: S \rightarrow \mathcal{R}\) defined as
+\begin{align*}
+h(x)=\min \{f(x), g(x)\}
+\end{align*}
+will be a concave function.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{7.png}
+\end{figure}
+Hypograph of \(h(x)\) :
+\begin{align*}
+\{(x, y) \in S \times \mathcal{R}: x \in S \text { and } y \leq h(x)\}
+\end{align*}
+or, \(\{(x, y) \in S \times \mathcal{R}: x \in S\) and \(y \leq \min \{f(x), g(x)\}\}\)
+
+or, \(\{(x, y) \in S \times \mathcal{R}: x \in S\) and \(y \leq f(x)\} \cap\{(x, y) \in S \times \mathcal{R}: x \in S\) and \(y \leq g(x)\}\)
+
+or, Intersection of hypograph of \(f(x)\) and hypograph of \(g(x)\)
+
+\section{Transformations of Concave functions}
+If
+\begin{itemize}
+    \item \(f: S \rightarrow \mathcal{R}\) is concave, where \(S\) is a convex subset of \(\mathcal{R}^n\) and,
+    \item \(\mathrm{g}: \mathcal{R} \rightarrow \mathcal{R}\) is increasing and concave
+\end{itemize}
+Then
+
+\(g \circ f: S \rightarrow \mathbb{R}\) defined as \(g \circ f(x)=g(f(x))\) is also concave.
+
+Pick arbitrary \(x^{\prime}, x^{\prime \prime} \in S\) and \(\lambda \in(0,1)\)
+\begin{align*}
+\begin{aligned}
+g \circ f\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}\right) & =g\left(f\left(\lambda x^{\prime}+(1-\lambda) x^{\prime \prime}\right)\right) \ldots(\text { by definition of } g \circ f) \\
+& \geq g\left(\lambda f\left(x^{\prime}\right)+(1-\lambda) f\left(x^{\prime \prime}\right)\right) \ldots(\because f \text { is concave and } g \text { is increasing }) \\
+& \geq \lambda g\left(f\left(x^{\prime}\right)\right)+(1-\lambda) g\left(f\left(x^{\prime \prime}\right)\right) \ldots(\because g \text { is concave }) \\
+& =\lambda g \circ f\left(x^{\prime}\right)+(1-\lambda) g \circ f\left(x^{\prime \prime}\right) \ldots(\text { by definition of } g \circ f)
+\end{aligned}
+\end{align*}
+Therefore, \(g \circ f\) is a concave function.
+
+\section{Domain Extension}
+If \(f: S \rightarrow \mathcal{R}\) is a concave function, defined on the convex set \(S \subset \mathcal{R}^n\) then \(h: S \times T \rightarrow \mathcal{R}\) defined as
+\begin{align*}
+h(x, y)=f(x)
+\end{align*}
+will be a concave function, where \(T\) is a convex subset of \(\mathcal{R}\)
+
+\underline{\textbf{Proof}}
+\begin{itemize}
+    \item Pick arbitrary \((x, y),\left(x^{\prime}, y^{\prime}\right) \in S \times T\) and arbitrary \(\lambda \in[0,1]\)
+    \begin{align*}
+    \begin{aligned}
+    & h\left(\lambda x+(1-\lambda) x^{\prime}, \lambda y+(1-\lambda) y^{\prime}\right) \\
+    =\quad & f\left(\lambda x+(1-\lambda) x^{\prime}\right) \qquad{[\text { By definition of } h] } \\
+    \geq \quad & \lambda f(x)+(1-\lambda) f\left(x^{\prime}\right) \qquad [\text{ By concavity of  }f]\\
+    = \ \ \  &\lambda h(x, y)+(1-\lambda) h\left(x^{\prime}, y^{\prime}\right) \qquad 
+    [\text{ By definition of } h] 
+    \end{aligned}
+    \end{align*}
+   \item Therefore, \(h\) is a concave function
+\end{itemize}
+\section{Connection b/w Concave and Convex functions}
+Suppose a function \(f: S \rightarrow \mathcal{R}\) defined on the convex set \(S \subset \mathcal{R}^n\), we say \(f\) is a concave function if and only if \(-f\) is a convex function.
+
+\underline{\textbf{Proof}}
+
+If \(f\) is a concave function, then the following statements are equivalent; 
+\begin{itemize}
+    \item \(f(\lambda x + (1 -\lambda)x') \geq \lambda f(x) + (1-\lambda)f(x')\) 
+    \item \(-f(\lambda x + (1 -\lambda)x') \geq -(\lambda f(x) + (1-\lambda)f(x'))\) 
+    \item \(-f(\lambda x + (1 -\lambda)x') \geq \lambda (-f(x)) + (1-\lambda)(-f(x'))\)
+    \item \(-f\) is a convex function.   
+\end{itemize}
+
+\subsection{Properties of a convex function:}
+\begin{itemize}
+    \item Sum Theorem:
+    
+    Sum of two convex functions is a convex function
+    \item Max Theorem:
+    
+    Max of two convex functions is a convex function
+    \item Transformation:
+    
+    Suppose \(f: S \rightarrow \mathcal{R}\) is convex, where \(S\) is a convex subset of \(\mathcal{R}^n\) and \(g: \mathcal{R} \rightarrow \mathcal{R}\) is increasing and convex then \(g \circ f: S \rightarrow \mathbb{R}\) defined as \(g \circ f(x)=g(f(x))\) is also a convex function
+    \item Epigraph is a convex set:
+    
+    \(f\) is convex iff the set of points above its graph(epigraph) is a convex set
+\end{itemize}
+\section{Quasiconcavity}
+Let \(f: S \rightarrow \mathcal{R}\) be a function defined on the convex set \(S \subset \mathcal{R}^n\). Then \(f\) is Quasiconcave if every upper contour/level set of \(f\) is convex i.e
+\begin{align*}
+P_a=\{x \in S: f(x) \geq a\} \text { is a convex set, } \forall  \ a \in \mathcal{R}
+\end{align*}
+\textbf{\underline{Examples}}
+\begin{itemize}
+    \item \(f: \mathcal{R} \rightarrow \mathcal{R}\) given by \(f(x)=x\)
+
+Suppose, \(a=-2\)
+\begin{align*}
+\begin{gathered}
+P_{-2}=\{x \in \mathcal{R}: f(x) \geq-2\} \\
+P_{-2}=\{x \in \mathcal{R}: x \geq-2\} = [-2,\infty)
+\end{gathered}
+\end{align*}
+Similiarly for any arbitrary \(a\), \(P_{a}=[a,\infty)\) which is a convex set and therefore \(f\) is a quasiconcave function.  
+
+\item \(g: \mathcal{R}_{+}^2 \rightarrow \mathcal{R}\) given by \(g(x, y)=x y\) Suppose, \(a=4\)
+\begin{align*}
+&P_4=\left\{(x, y) \in \mathcal{R}_{+}^2: g(x, y) \geq 4\right\} \\
+&P_4=\left\{(x, y) \in \mathcal{R}_{+}^2: x y \geq 4\right\} \text{ is a convex set }
+\end{align*}
+Similarly for any arbitrary \(a\), \(P_{a} = \{(x,y) \in \mathbb{R}^2_{+} : xy \geq a\}\) is a convext set and hence the function \(g\) is also quasiconcave.  
+
+Other examples of quasiconcave functions are,
+\item \(u(x,y)=\min(x,y)\) 
+\item \(h(x,y)=\min(x,y) + \max(x,y) = x + y\)   
+\end{itemize} 
+
+\subsection{Averages are better than extremes}
+Suppose a function \(f: S \rightarrow \mathcal{R}\) defined on the convex set \(S \subset \mathcal{R}^n\);
+\begin{tcolorbox}
+    \(f \text{ is quasiconcave } \Leftrightarrow \forall x, x^{\prime} \in S\), and \(\forall \lambda \in[0,1]\), 
+    
+    we have \(f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\)
+\end{tcolorbox}
+ To Show: \(f\) is quasiconcave \( \Longrightarrow f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\)  
+\begin{enumerate}
+    \item Suppose \(f\) is quasiconcave i.e \(P_a=\{y \in S: f(y) \geq a\}\) is a convex set
+    \item Pick arbitrary \(x, x^{\prime} \in S\) and \(\lambda \in[0,1]\)
+    \item  We know, \(f(x) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\) and \(f\left(x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\)
+    \item Using (3), we get
+    \begin{align*}
+    x \in P_{\min \left\{f(x), f\left(x^{\prime}\right)\right\}} \text { and } x^{\prime} \in P_{\min \left\{f(x), f\left(x^{\prime}\right)\right\}}
+    \end{align*}
+    \item Using (1) and (4), we get
+    \begin{align*}
+    \lambda x+(1-\lambda) x^{\prime} \in P_{\min \left\{f(x), f\left(x^{\prime}\right)\right\}}
+    \end{align*}
+    \item Using definition of \(P_a\), we get \(f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\)
+    
+    Therefore, \(f\) satisfies "Averages Better than extremes" property.
+\end{enumerate}
+To Show: \(f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}\) \(\Longrightarrow f\) is quasiconcave i.e \(P_a\) is a convex set.
+\begin{enumerate}
+    \item Suppose \(f\) satisfies "Averages Better than extremes" property i.e
+    \begin{align*}
+    f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq \min \left\{f(x), f\left(x^{\prime}\right)\right\}
+    \end{align*}
+    \item Pick any arbitrary \(x, x^{\prime} \in P_a\), and arbitrary \(a \in \mathcal{R}\)
+    \item Using (2), we get \(f(x) \geq a\) and \(f\left(x^{\prime}\right) \geq a\)
+    \item Using (3), we get \(\min \left\{f(x), f\left(x^{\prime}\right)\right\} \geq a\)
+    \item Using (1) and (4), we get
+    \begin{align*}
+    f\left(\lambda x+(1-\lambda) x^{\prime}\right) \geq a 
+    \end{align*}
+    \item Using (5) and definition of \(P_a\) we get \(\lambda x+(1-\lambda) x^{\prime} \in P_a\) i.e., \(P_a\) is a convex set.
+\end{enumerate}
+\subsection{Domain Restriction}
+\(f: S \to \mathbb{R}\) is concave \(\Leftrightarrow f: S_{\text{ rest }} \to \mathbb{R} \) is also concave where \(S_{ \text{ rest }} \subset S\).    
+
+If we consider any subset of \(S\) which is also convex, then restricting the function to this subset of \(S\) will give us a concave function.
+
+\textbf{\underline{Examples}}
+\begin{itemize}
+    \item  Is \(u=xy\) concave?
+    
+    if we restrict our domain to \(x=y\) then \(u|_{\text{ rests}} = x^2\) which is not a concave function and hence \(u\) can not be concave.    
+\end{itemize}
+A similar result holds for convex functions.
 \end{document}
