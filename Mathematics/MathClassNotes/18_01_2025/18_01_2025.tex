@@ -1,0 +1,160 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{attachfile}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/18_01_2025/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{}
+
+\begin{document}
+\section{Proposition 22}
+\begin{itemize}
+    \item Let \(f: X \rightarrow Y\) be a continuous function on a compact set \(X\), then \(f(X)=\{f(x): x \in X\}\) is compact in \(Y\).
+\end{itemize}
+\underline{\textbf{Proof}}
+\begin{itemize}
+    \item Suppose \(X\) is compact and \(f: X \rightarrow Y\) be a continuous function.
+    \item We claim that \(f(X)\) is compact.
+    \item Pick any arbitrary sequence \(\left(y_n\right)\) from \(f(X)\).
+    \item Consider a sequence \(\left(x_n\right)\) in \(X\) that satisfy the following condition: \(y_n=f\left(x_n\right)\) for all \(n \in \mathbb{N}\).
+    \item Given that \(X\) is compact, ( \(x_n\) ) has a convergent subsequence \(\left(x_{n_k}\right)\) that converges to some \(x \in X\).
+    \item By continuity of \(f, f\left(x_{n_k}\right)\) (which is the subsequence of \(\left(f\left(x_n\right)\right)\) or \(\left.\left(y_n\right)\right)\) converges to \(f(x)\).
+    \item Thus, \(f(X)\) is compact.
+\end{itemize}
+
+So we have the metric spaces \((X,d_{x})\) and \((Y,d_{y})\) and the function \(f: X \to Y\) which is continous and we want to show that \(f(X)=\{f(x) \in Y \mid x \in X\} \subset Y\) is compact. 
+
+Consider any sequence \((y_{n}) \subset f(X)\), note that \(\exists \text{ a sequence } (x_{n}) \text{ s.t. } y_{n}=f(x_{n}) \ \forall \ n\), by the definition of \(f(X)\).
+
+Now since \(X\) is compact, there exists a subsequence \(x_{n_{k}}\) of \((x_{n})\) such that \(x_{n_{k}} \to l \in X \)
+
+Conisder \((y_{n_{k}})\) where \(y_{n_{k}} = f(x_{n_{k}})\)
+
+Since \(f\) is continous at \(l\), \(y_{n_{k}} \to f(l) \in f(X)\)     
+\section{Proposition 23}
+Weierstrass Maximum Theorem :
+\begin{itemize}
+    \item If \(X\) is a nonempty compact subset of \(\mathbb{R}^m\) and \(f: X \rightarrow \mathbb{R}\) is a real-valued continuous function on \(X\), then there exists \(x^* \in X\) such that
+    \begin{align*}
+    f\left(x^*\right) \geq f(x) \quad \forall x \in X
+    \end{align*}
+    \item Application: Consider the utility maximization problem: 
+     \begin{align*}
+        &\max _{\left(x_1, x_2\right)} u\left(x_1, x_2\right) \\
+        &\text{ s.t. } \left(x_1, x_2\right) \in \mathcal{B}\left(p_1, p_2, I\right)=\{\left(y_1, y_2\right) \in \mathbb{R}_{+}^2 \mid p_1 y_1+p_2 y_2 \leq I\}\\ 
+        &\text{ For } p_1>0, p_2>0, I \geq 0\\
+    \end{align*}
+    and continuous \(u\), the solution to this maximization problem exists.
+\end{itemize}
+\underline{\textbf{Proof}}
+\begin{itemize}
+    \item Since \(X\) is compact, \(f(X)\) is compact (by proposition 22) and hence bounded (by proposition 19).
+    \item There exists an increasing sequence \(\left(y_n\right)\) in \(f(X)\) such that \(y_n \rightarrow \sup f(X)\) (by proposition 16).
+    \item \(f(X)\) is also closed (by proposition 19), so we have \(\sup f(X) \in f(X)\) (by proposition 15).
+    \item Thus, there exists \(x^* \in X\) such that
+     \begin{align*}
+    f\left(x^*\right) \geq f(x) \quad \forall x \in X
+    \end{align*}
+
+    This result is applicalbe with Euclidean Metric.
+\end{itemize}
+
+So in other words if \(X \neq \phi \) is a compact set of \(\mathbb{R}^m\) and \(f: X \to \mathbb{R}\) is a continous function on \(X\), then the solution to the problem
+ \begin{align*}
+    \max_{x \in X} f(x) 
+\end{align*}
+exists.
+
+notes that from the last result \(f(X) \subset \mathbb{R}\) is compact, and since it is compact it is also bounded and we have a finite supremum, \(\sup f(X) < \infty\).
+
+Now we need to show that \(\exists x^* \in X \text{ s.t. } f(x^*)=\sup f(X)\)  
+
+Notice that by a previous result we proved earlier, \(\exists (y_{n}) \text{ in } f(X) \text{ s.t. } y_{n} \to \sup f(X) \in f(X)\) because \(f(X)\) is compact and hence closed the limit of the sequence \(y_{n}\) that is \(\sup f(X)\) also lies in \(f(X)\). 
+
+In a similar way the the solution to a minimization problem exitst if the conditons of this proposition holds, since mimizing \(f(X)\)  is the same thing as maximizing \(-f(x)\).  
+
+\section{Convexity}
+Our primary focus is to deal with the following type of problems, 
+ \begin{align*}
+    \max_{x \in X} f(x)
+\end{align*}
+or,
+\begin{align*}
+    \min_{x \in X} f(x)
+\end{align*}
+and we will primarily be focusing on the functions with convex domains, such that \(f: X \to \mathbb{R}\) where \(X \subset \mathbb{R}^n\)
+
+\href{https://github.com/econhead/NOTES/blob/master/Mathematics/Convexity/Convexity.pdf}{Theorems and Proofs on concavity and convexity of funcitons.}
+
+let's focus on the following optimization problems;
+
+What can you say about the set of solutions to the problem;
+ \begin{align*}
+    \max_{x \in X} f(x) 
+\end{align*}
+where \(f\) is quasi-concave and \(X\) is a convex set.
+
+Yes, the set of solutions to the above problem will be a convex set.
+
+\underline{\textbf{Proof}}
+
+Suppose \(M\) denotes the set of solutions, i.e., 
+
+\(M= \{x^* \in X \mid f(x^*)\geq f(x) \quad \forall \ x \in X\}\)   
+
+Suppose \(x',x'' \in M\)  then because \(f\) is quasiconcave,
+ \begin{align*}
+    f(\lambda x' + (1-\lambda)x'') &\geq \min(f(x'),f(x''))\\
+    & =f(x') \geq f(x) \quad \forall \ x \in X
+\end{align*}
+Therefore \(\lambda x' + (1-\lambda)x'' \in M\)  
+
+Note that if \(f\) is strictly quasi concave then it can not have more than one solution that is \(M\) is either empty or singleton set, because when \(f\) is strictly quasi concave then the following holds,
+\begin{equation*}
+    f(\lambda x' + (1-\lambda)x'') > \min(f(x'),f(x'')) 
+\end{equation*} 
+which contadicts the fact that \(x',x''\) are maximizers.      
+
+\subsection{ The cost minimization probelm}
+ \begin{align*}
+      C(w,q) = \max_{x \in \mathbb{R}^m_{+}} & \quad w\cdot x \\
+       s.t. & \quad f(x) \geq q \\
+\end{align*}
+where \(x(w,q)\) is the solution to this problem and \(f\) is the production function and \(q\) is some target level of output and \(C\) is a concave function of \(w\), then we want to prove that holding \(q\) fixed \(C\) is concave in input prices;
+
+ \begin{align*}
+    C(\lambda w' + (1-\lambda)w'' ,q) \geq \lambda C(w',q) + (1-\lambda)C(w'',q) \quad \forall \ q\\
+\end{align*}
+
+Now \(C(w',q)=w' \cdot x(w',q)\) 
+
+\( \ \ \ \ \ \ \ C(w'',q)=w'' \cdot x(w'',q)\) 
+ \begin{align*}
+    C(\lambda w' +(1-\lambda)w'', q)&= . (\lambda w' +(1-\lambda)w'') \cdot x(\lambda w' +(1-\lambda)w'',q)\\
+    &=\lambda w' \cdot x(\lambda w' +(1-\lambda)w'', q)+ (1-\lambda)w''\cdot x(\lambda w' +(1-\lambda)w'',q)\\
+    &\geq \lambda w' \cdot x(w',q) + (1-\lambda) w'' \cdot x(w'',q)\\
+    &=\lambda C(w',q) + (1-\lambda)C(w'',q)
+\end{align*} 
+
+A few examples;
+
+\(\begin{aligned} & f(l, k)=\min (l, k) \\ & C(w, r, q)=(\omega+r) q \\ 
+    & f(l, k)=l+k \\ & C(\omega, r, q)=(\min (w, r)) q \\ 
+    & f(l, k)=l k \\ & C(w, r, q)=(2 \sqrt{w r}) \sqrt{q}
+\end{aligned}\)
+
+Holding \(q\) fixed all the cost functions are concave. 
+\end{document}
