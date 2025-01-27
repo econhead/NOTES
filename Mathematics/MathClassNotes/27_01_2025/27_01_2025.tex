@@ -1,0 +1,151 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/27_01_2025/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Optimization}
+
+\begin{document}
+\section{Indirect Utility function}
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x,y) \in \mathbb{R}^2_{+}}& u(x,y)\\
+        \text{s.t.}& \ p_{x}x+p_{y}y \leq M
+    \end{align*}
+\end{tcolorbox}
+Solving the above probelm gives us the demand functions,
+ \begin{align*}
+    x^d(p_{x},p_{y},M)\\
+    y^d(p_{x},p_{y},M)      
+\end{align*}
+The indirect utility function is defined as
+ \begin{align*}
+    V(p_{x},p_{y},M)=u(x^d(p_{x},p_{y},M),y^d(p_{x},p_{y},M))
+\end{align*}
+It gives us the optimal utility level at the price-income vector \((p_{x},p_{y},M)\)
+
+\subsection{Properties of Indirect Utility function}
+\begin{itemize}
+    \item Indirect utility function is homogenous of degree \(0\) because demand is homogenous of degree\(0\).
+    \item Indirect utility function is non-decreasing in income \(M\) 
+    
+    and non-increasing in prices \(p_{x},p_{y}\) because for \(m'>m''\),
+    
+    \( \mathcal{B}(p_x,p_y,M'') \subset \mathcal{B}(p_x,p_y,M') \)    
+    
+    and
+
+    \(v(p_{x},p_{y},M') \geq v(p_{x},p_{y},M'')\)  
+    \item Indirect utility function is quasi-convex.
+    
+    we want to prove that \(\{(p_{x},p_{y},M) \mid v(p_{x},p_{y},M) \leq  \bar{v} \}\) is a convex set for all \(\bar{v} \)
+    
+    \underline{\textbf{Proof}}
+
+    Consider arbitrary \( \bar{v} \) and consider arbitrary \(\left( p_{x}',p_{y}',M' \right) \in A_{ \bar{v} } \) and \(\left( p_{x}'',p_{y}'',M'' \right) \in A_{ \bar{v} } \)  and arbitray \(\lambda \in [0,1]\) then we want to show 
+    
+    \(\lambda(p_{x}',p_{y}',M') + (1-\lambda)(p_{x}'', p_{y}'', M'') \in A_{ \bar{v}  }\)
+    
+    In other words we want to show that
+    
+    \(v(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\leq  \bar{v}  \)  
+
+    we know that \(v(p_{x}',p_{y}', M') \leq  \bar{v}  \) and   \(v(p_{x}'',p_{y}'', M'') \leq  \bar{v}  \)
+    
+    \(\mathcal{B}(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\leq  \bar{v}  \) is our budget set.
+
+    and we know that this inequality holds,
+
+    \((\lambda p_{x}' +(1-\lambda)p_{x}'')x + (\lambda p_{y}' +(1-\lambda)p_{y}'')y \leq \lambda M' + (1-\lambda)M''\)  
+
+    This tells us that any choice from out budget set \(\mathcal{B}\) that satisfy the above inequality also satisfies either 
+    
+    \(p_{x}'x+p_{y}'y \leq M'\)  or \(p_{x}''x+p_{y}''y \leq M''\) 
+    
+    this implies that 
+    \begin{align*}
+        v(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\\
+    \leq \max\left( v(p_{x}',p_{y}',M'),v(p_{x}'',p_{y}'',M'') \right)  \leq \bar{v} 
+    \end{align*}  
+\end{itemize}
+
+\section{Expenditure Function}
+\begin{tcolorbox}
+     \begin{align*}
+        \min_{(x,y)\in \mathbb{R}^2_{+}}& p_{x}x+p_{y}y\\
+        \text{s.t.}& \ u(x,y) \geq  \bar{u}  
+    \end{align*}
+\end{tcolorbox}
+Solving the above expenditure minimzation problem gives us the Hicksian demands,
+ \begin{align*}
+    x^h(p_{x},p_{y}, \bar{u} )\\
+    y^h(p_{x},p_{y},  \bar{u} )  
+\end{align*}
+
+and the expenditure function is defined as follows 
+
+\(e(p_{x},p_{y}, \bar{u} ) = p_{x}x^h(p_{x},p_{y}, \bar{u} ) + p_{y}y^h(p_{x},p_{y}, \bar{u} )   \)  
+
+\subsection{Properties of the Expenditure function}
+\begin{itemize}
+    \item  The expenditure function is homogeneous of degree \(1\) in prices,
+    
+    \(e(\lambda p_{x},\lambda p_{y}, \mu ) = \lambda e(p_{x}, p_{y}, \mu)\)
+    
+    Note that the Hicksian demands are homogenous of degree \(0\) in prices because multiplying the objective in our expenditure minimzation problem by \(\lambda\), (where \(\lambda > 0\)) does not change the solution.
+    
+    \item The expenditure function is non-decreasing in \(\mu\) and it is also non-decreasing in prices \(p_{x},p_{y}\).
+    
+    we know that our expenditure minimization problem is
+    \begin{align*}
+        \min_{(x,y)\in \mathbb{R}^2_{+}}& p_{x}x+p_{y}y\\
+        \text{s.t.}& \ u(x,y) \geq  \bar{\mu '}  
+    \end{align*} 
+    Now consider another satifaction level \(\mu '' \) such that \(\mu ' > \mu ''\) 
+
+    \item The expenditure function is concave in prices.
+\end{itemize}
+\subsubsection{Kuhn-Tucker Optimization Problems}
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x,y)\in \mathbb{R}^{2}_{+}} & \quad \sqrt{x} + \sqrt{y} \\
+        s.t. & \quad p_{x}x+p_{y}y \leq M\\
+        & \quad x \geq 1\\
+        & \quad y \geq 1
+ \end{align*}
+Assume that \(p_{x}+p_{y}<M \) 
+\end{tcolorbox}
+\begin{align*}
+    &\mathcal{L}(x,y)=\sqrt{x}+\sqrt{y} - \lambda (p_{x}x+p_{y}y -M) + \mu_{x}(x-1) + \mu_{y}(y-1)\\
+    &\frac{\partial \mathcal{L}}{\partial x}= \frac{1}{2\sqrt{x}} - \lambda p_{x} + \mu_{x} = 0\\
+    &\frac{\partial \mathcal{L}}{\partial y}= \frac{1}{2\sqrt{y}} - \lambda p_{y} + \mu_{y} = 0\\
+    &\lambda \geq 0, \quad p_{x}x+p_{y}y \leq M, \quad \lambda(p_{x}x+p_{y}y-M)=0\\
+    &\mu_{x} \geq 0, \quad x \geq 1, \quad \mu_{x}(x-1)=0\\
+    &\mu_{y} \geq 0, \quad y \geq 1, \quad \mu_{y}(y-1)=0\\
+ \end{align*}
+ Now if \(p_{x}x+p_{y}y <M\) then \(\lambda =0\) and \(\mu_{x}<0\) as well as \(\mu_{y}<0\) this rules out four of the eight possible cases.
+ 
+ Now we only check for the cases \(p_{x}x+p_{y}y=M\)
+ \begin{align*}
+        \begin{array}{|c|c|c|c|}
+           \hline x=1 & x=1 & x>1 & x>1\\
+           \hline y=1 & y>1 & y=1 & y>1\\
+           \hline \text{NP} & \mu_{y}=0 & & \\
+           & y=\frac{M-p_{x}}{p_{y}}>1& &\\
+           \hline
+        \end{array}
+\end{align*} 
+\end{document}
