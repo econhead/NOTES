@@ -1,0 +1,310 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhead[L]{Laxman Singh}
+\fancyhead[R]{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\graphicspath{{/Users/econhead/NOTES/Mathematics/MathClassNotes/27/28_01_2025/Figures}}
+\author{Laxman Singh}
+\date{\today}
+\title{Optimization}
+
+\begin{document}
+\section{Indirect Utility function}
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x,y) \in \mathbb{R}^2_{+}}& u(x,y)\\
+        \text{s.t.}& \ p_{x}x+p_{y}y \leq M
+    \end{align*}
+\end{tcolorbox}
+Solving the above probelm gives us the demand functions,
+ \begin{align*}
+    x^d(p_{x},p_{y},M)\\
+    y^d(p_{x},p_{y},M)      
+\end{align*}
+The indirect utility function is defined as
+ \begin{align*}
+    V(p_{x},p_{y},M)=u(x^d(p_{x},p_{y},M),y^d(p_{x},p_{y},M))
+\end{align*}
+It gives us the optimal utility level at the price-income vector \((p_{x},p_{y},M)\)
+
+\subsection{Properties of Indirect Utility function}
+\begin{itemize}
+    \item Indirect utility function is homogenous of degree \(0\) because demand is homogenous of degree\(0\).
+    \item Indirect utility function is non-decreasing in income \(M\) 
+    
+    and non-increasing in prices \(p_{x},p_{y}\) because for \(m'>m''\),
+    
+    \( \mathcal{B}(p_x,p_y,M'') \subset \mathcal{B}(p_x,p_y,M') \)    
+    
+    and
+
+    \(v(p_{x},p_{y},M') \geq v(p_{x},p_{y},M'')\)  
+    \item Indirect utility function is quasi-convex.
+    
+    we want to prove that \(\{(p_{x},p_{y},M) \mid v(p_{x},p_{y},M) \leq  \bar{v} \}\) is a convex set for all \(\bar{v} \)
+    
+    \underline{\textbf{Proof}}
+
+    Consider arbitrary \( \bar{v} \) and consider arbitrary \(\left( p_{x}',p_{y}',M' \right) \in A_{ \bar{v} } \) and \(\left( p_{x}'',p_{y}'',M'' \right) \in A_{ \bar{v} } \)  and arbitray \(\lambda \in [0,1]\) then we want to show 
+    
+    \(\lambda(p_{x}',p_{y}',M') + (1-\lambda)(p_{x}'', p_{y}'', M'') \in A_{ \bar{v}  }\)
+    
+    In other words we want to show that
+    
+    \(v(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\leq  \bar{v}  \)  
+
+    we know that \(v(p_{x}',p_{y}', M') \leq  \bar{v}  \) and   \(v(p_{x}'',p_{y}'', M'') \leq  \bar{v}  \)
+    
+    \(\mathcal{B}(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\leq  \bar{v}  \) is our budget set.
+
+    and we know that this inequality holds,
+
+    \((\lambda p_{x}' +(1-\lambda)p_{x}'')x + (\lambda p_{y}' +(1-\lambda)p_{y}'')y \leq \lambda M' + (1-\lambda)M''\)  
+
+    This tells us that any choice from out budget set \(\mathcal{B}\) that satisfy the above inequality also satisfies either 
+    
+    \(p_{x}'x+p_{y}'y \leq M'\)  or \(p_{x}''x+p_{y}''y \leq M''\) 
+    
+    this implies that 
+    \begin{align*}
+        v(\lambda p_{x}' +(1-\lambda)p_{x}'', \ \lambda p_{y}' +(1-\lambda)p_{y}'', \ \lambda M' +(1-\lambda)M'')\\
+    \leq \max\left( v(p_{x}',p_{y}',M'),v(p_{x}'',p_{y}'',M'') \right)  \leq \bar{v} 
+    \end{align*}  
+\end{itemize}
+
+\section{Expenditure Function}
+\begin{tcolorbox}
+     \begin{align*}
+        \min_{(x,y)\in \mathbb{R}^2_{+}}& p_{x}x+p_{y}y\\
+        \text{s.t.}& \ u(x,y) \geq  \bar{u}  
+    \end{align*}
+\end{tcolorbox}
+Solving the above expenditure minimzation problem gives us the Hicksian demands,
+ \begin{align*}
+    x^h(p_{x},p_{y}, \bar{u} )\\
+    y^h(p_{x},p_{y},  \bar{u} )  
+\end{align*}
+
+and the expenditure function is defined as follows 
+
+\(e(p_{x},p_{y}, \bar{u} ) = p_{x}x^h(p_{x},p_{y}, \bar{u} ) + p_{y}y^h(p_{x},p_{y}, \bar{u} )   \)  
+
+\subsection{Properties of the Expenditure function}
+\begin{itemize}
+    \item  The expenditure function is homogeneous of degree \(1\) in prices,
+    
+    \(e(\lambda p_{x},\lambda p_{y}, \mu ) = \lambda e(p_{x}, p_{y}, \mu)\)
+    
+    Note that the Hicksian demands are homogenous of degree \(0\) in prices because multiplying the objective in our expenditure minimzation problem by \(\lambda\), (where \(\lambda > 0\)) does not change the solution.
+    
+    \item The expenditure function is non-decreasing in \(\mu\) and it is also non-decreasing in prices \(p_{x},p_{y}\).
+    
+    we know that our expenditure minimization problem is
+    \begin{align*}
+        \min_{(x,y)\in \mathbb{R}^2_{+}}& p_{x}x+p_{y}y\\
+        \text{s.t.}& \ u(x,y) \geq  \bar{\mu '}  
+    \end{align*} 
+    Now consider another satifaction level \(\mu '' \) such that \(\mu ' > \mu ''\) 
+
+    \item The expenditure function is concave in prices.
+\end{itemize}
+\subsubsection{Kuhn-Tucker Optimization Problems}
+\begin{tcolorbox}
+    \begin{align*}
+        \max_{(x,y)\in \mathbb{R}^{2}_{+}} & \quad \sqrt{x} + \sqrt{y} \\
+        s.t. & \quad p_{x}x+p_{y}y \leq M\\
+        & \quad x \geq 1\\
+        & \quad y \geq 1
+ \end{align*}
+Assume that \(p_{x}+p_{y}<M \) 
+\end{tcolorbox}
+\begin{align*}
+    &\mathcal{L}(x,y)=\sqrt{x}+\sqrt{y} - \lambda (p_{x}x+p_{y}y -M) + \mu_{x}(x-1) + \mu_{y}(y-1)\\
+    &\frac{\partial \mathcal{L}}{\partial x}= \frac{1}{2\sqrt{x}} - \lambda p_{x} + \mu_{x} = 0\\
+    &\frac{\partial \mathcal{L}}{\partial y}= \frac{1}{2\sqrt{y}} - \lambda p_{y} + \mu_{y} = 0\\
+    &\lambda \geq 0, \quad p_{x}x+p_{y}y \leq M, \quad \lambda(p_{x}x+p_{y}y-M)=0\\
+    &\mu_{x} \geq 0, \quad x \geq 1, \quad \mu_{x}(x-1)=0\\
+    &\mu_{y} \geq 0, \quad y \geq 1, \quad \mu_{y}(y-1)=0\\
+ \end{align*}
+ Now if \(p_{x}x+p_{y}y <M\) then \(\lambda =0\) and \(\mu_{x}<0\) as well as \(\mu_{y}<0\) this rules out four of the eight possible cases.
+ 
+ Now we only check for the cases \(p_{x}x+p_{y}y=M\)
+ \begin{align*}
+        \begin{array}{|c|c|c|c|}
+           \hline x=1 & x=1 & x>1 & x>1\\
+           \hline y=1 & y>1 & y=1 & y>1\\
+           \hline \text{NP} & \mu_{y}=0 & & \\
+           & y=\frac{M-p_{x}}{p_{y}}>1& &\\
+           \hline
+        \end{array}
+\end{align*} 
+\section{Compensated Law of Demand}
+Hicksian demand function is non-increasing in price.
+
+Consider two sets of prices, \(\left( p_{x}', p_{y}' \right), \left( p_{x}'',p_{y}'' \right)  \) and then we focus on the following;
+\begin{equation*}
+    x^h(p_{x}',p_{y}', \bar{y} )p_{x}' + y^h(p_{x}',p_{y}', \bar{ u} )p_{y}'  
+\end{equation*}  
+Is it comparable to 
+\begin{equation*}
+    x^h(p_{x}'',p_{y}'', \bar{y} )p_{x}' + y^h(p_{x}'',p_{y}'', \bar{ u} )p_{y}'  
+\end{equation*}   
+Note that because \((p_{x}',p_{y}', \bar{u} ) \) is expenditure minimizing therefore we have the following;
+ \begin{align}
+    x^h(p_{x}',p_{y}', \bar{y} )p_{x}' + y^h(p_{x}',p_{y}', \bar{ u} )p_{y}'  \leq x^h(p_{x}'',p_{y}'', \bar{y} )p_{x}' + y^h(p_{x}'',p_{y}'', \bar{ u} )p_{y}' 
+\end{align}
+and whe \((p_{x}'',p_{y}'', \bar{u} ) \) is expenditure minimizing we have,
+\begin{align}
+    x^h(p_{x}'',p_{y}'', \bar{y} )p_{x}'' + y^h(p_{x}'',p_{y}'', \bar{ u} )p_{y}''  \leq x^h(p_{x}',p_{y}', \bar{y} )p_{x}'' + y^h(p_{x}',p_{y}', \bar{ u} )p_{y}'' 
+\end{align}
+adding \((1)\) and \((2)\) we get,
+ \begin{align*}
+    x^h(p_{x}',p_{y}', \bar{u} )(p_{x}'-p_{x}'') + y^h(p_{x}',p_{y}', \bar{u} )(p_{y}'-p_{y}'') \leq x^h(p_{x}'',p_{y}'', \bar{u} )(p_{x}'-p_{x}'') + y^h(p_{x}'',p_{y}'', \bar{u} )(p_{y}'-p_{y}'') 
+\end{align*}  
+Now suppose we only change price of \(x\) and hold the price of y constant at \( \bar{p_{y}}  \)  then the above inequality can be rewritten as,
+ \begin{align*}
+    x^h(p_{x}', \bar{p_{y}},  \bar{u})(p_{x}'-p_{x}'') \leq x^h(p_{x}'', \bar{p_{y}}, \bar{u} )(p_{x}'-p_{x}'')      
+\end{align*}
+Rearranging the above we get 
+ \begin{align*}
+    \left( x^h(p_{x}', \bar{p_{y}}, \bar{u} )-x^h(p_{x}'', \bar{p_{y}}, \bar{u} )    \right) (p_{x}'-p_{x}'')\leq 0
+\end{align*}
+Now if we have \(p_{x}'>p_{x}''\) then \(x^h(p_{x}', \bar{p_{y}}, \bar{u} ) \leq x^h(p_{x}'', \bar{y} , \bar{u} )     \)    
+\section{Envelope Theorem}
+Suppose we solve the following maximization problem 
+ \begin{align*}
+    \max_{x} \ f(x,a)
+\end{align*}
+then the solution to this problem \(x^*(a)\) will satisfy \(\frac{\partial f}{\partial x}=0\) 
+
+Now if we look at the function \(v(a)=f(x^*(a),a)\) 
+
+then \[\frac{dv}{da}=\frac{\partial f}{\partial x}\bigg\lvert_{x=x^*(a)}=\frac{dx^*(a)}{da}+\frac{\partial f}{\partial a}\]
+
+and therefore \[\frac{dv}{da}=\frac{\partial f}{\partial a}\]
+
+\section{Equivalent and Compensating variation}
+\(EV = e(p^0,u^1)-w\)
+
+and
+
+\(CV = w- e(p^1,u^0)\) 
+
+and  if
+
+\(w=e(p^0,u^0)=e(p^1,u^1)\) 
+
+So 
+
+\[EV = e(p^0,u^1)-e(p^1,u^1)=\int_{p_{x}^1}^{p_{x}^0} h(p_{x}, \bar{p_{y}}  ,u^1)dp_{x}\]
+
+and
+
+\[CV = e(p^0,u^0)- e(p^1,u^0)=\int_{p_{x}^1}^{p_{x}^0} h(p_{x}, \bar{p_{y}}  ,u^0)dp_{x}\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{1.png}
+\end{figure}
+
+\section{Linear Algebra}
+\subsection{Vector spaces}
+A vector space is a set \(V\) along with an addition operation on \(V\) and a scalar multiplication operation on \(V\) such that the following properties hold;
+\begin{itemize}
+    \item Commutativity;  \(u+v=v+u \quad \forall \ u, v \in V\)
+    \item Associativity;  \((u+v)+w=u+(v+w) \quad \forall \ u,v \in V\)
+  
+    \((a,b)\cdot v= a\cdot (b \cdot v) \ \forall \ a,b \in \mathbb{R}, \ \forall \ v \in V \)
+    \item Additive identity; \(\exists \ 0 \in V \text{ s.t. } v+0=v \ \forall \ v \in V    \)
+    \item Additive inverse; \(\left( \forall u \in V  \right) \left( \exists w \in V    \right) \left( v+w=0 \right) \)  
+    \item \(1\) is the multiplicative identity ; \(1 \cdot v = v \ \forall \ v \in V\)   
+    \item Distributive Properties; \(a(u+V)=a\cdot u + a \cdot v\)
+    
+    \((a+b)\cdot u = a \cdot u + b \cdot u \ \forall \ a,b \in \mathbb{R} \ \forall \ u, v \in V\)  
+\end{itemize} 
+\subsection{Supspaces}
+A subset \(U\) of \(V\) is called a subspace of \(V\) if it is also a vector space. To check if \(U\) is a subspace or not we only need to check the following;
+\begin{itemize}
+    \item Additive identity; \(0 \in U\)
+    \item Closed under addition; \((\forall \ u, v \in U )(u+v \in U)\)
+    \item Closed under scalar multiplication; \((\forall \ a \in \mathbb{R})(\forall \ u  \in U)(a\cdot u \in U)\)     
+\end{itemize} 
+\subsubsection{Examples}
+\begin{enumerate}
+    \item \(\left( \mathbb{R}^2, +, \cdot \right) \) 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{image.png}
+    \end{figure} 
+    Note that it is not closed under additon;
+
+    \item \(\left( \mathbb{R}^2, + , \cdot \right) \),  \(\{0,0\}\)  
+    is a subspace.
+    \item\(\left( \mathbb{R}^2, + , \cdot \right) \), a line passing through the origin is also a subspace.
+     \end{enumerate} 
+     \subsection{Linear Independence}
+     Suppose we have the following vectors \(v_{1},v_{2},\ldots,v_{n} \in V\)
+     
+     Then a linear combination of all these vectors is
+     \(a_{1}\cdot v_{1}+ a_{2} \cdot v_{2} +\ldots +a_{n}\cdot v_{n}\) where \(a_{1},a_{2},\ldots,a_{n}\in \mathbb{R}\)
+     
+     and the span of these vectors is 
+
+     Span\((v_{1},v_{2},\ldots,v_{n})=\{a_{1}\cdot v_{1} + a_{2} \cdot v_{2}+ \ldots  + a_{n}\cdot v_{n} \mid a_{1}, a_{2}, \ldots , a_{n} \in \mathbb{R}\}\) 
+     
+     Note that the span of these vectors is also a vector space.
+
+     Now say for some \(v\) we can write \(v\) as linear combination of \(v_{1},v_{2},\ldots,v_{n}\) in more than way that is    \(v=a_{1} \cdot v_{1} + a_{2} \cdot v_{2} + \ldots + a_{n} \cdot v_{n}\)
+     
+     and \(v=a_{1}' \cdot v_{1} + a_{2}' \cdot v_{2} + \ldots + a_{n}' \cdot v_{n}\)  
+
+     then we can also write 0 as, \(0=(a_{1}'-a_{1})v_{1} + \ldots + (a_{n}'-a_{n})v_{n}\)  
+     then if we have a way of writing the two non zero vectors as an all zero vector where the scalars are not all zeros then we have that those two vectors are not linearly independent.
+     \subsubsection{Examples} 
+     \begin{align*}
+        \begin{aligned}
+        & \left(\mathbb{R}^2,+, \cdot\right) \\
+        & (1,2),(2,4) \\
+        & \operatorname{span}((1,2),(2,4))=\left\{(x, y) \in \mathbb{R}^2 \mid y=2 x\right\}
+        \end{aligned}
+        \end{align*}
+        
+        
+        Are \((1,2),(2,4)\) linearly independence?
+        
+        \begin{align*}
+        2 \cdot(1,2)-1 \cdot(2,4)=(0,0)
+        \end{align*}
+        
+        \((1,2)\) and \((2,4)\) are not linearly independent:
+        \(\operatorname{span}((0,0),(1,1))=\left\{(x, y) \in \mathbb{R}^2 \mid y=x\right\}\)
+        
+        \begin{align*}
+        1 \cdot(0,0)+0 \cdot(1,1)=(0,0)
+        \end{align*}
+
+        A basis of \(V\) is a list of vectors that is linearly independent and spans \(V\) 
+        \subsubsection{Examples}
+        Is \(\{(1,0),(0,1),(2,3)\}\) the basic for \(\mathbb{R}^2\) ?
+
+\begin{align*}
+2(1,0)+3(0,1)-1(2,3)=(0,0)
+\end{align*}
+
+
+Is \(\{(1,0)\}\) the basis for \(\mathbb{R}^2\) ?
+
+\begin{align*}
+\operatorname{span}(\{(1,0)\}) \neq \mathbb{R}^2
+\end{align*}
+  
+\end{document}
