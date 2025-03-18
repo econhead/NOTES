@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage[a4paper, left=10mm, right=10mm]{geometry}
+\setstretch{1.1}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}}
+\pdfsuppresswarningpagegroup=1
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.6pt}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\footrulewidth}{1pt}
+\lfoot{Laxman Singh}
+\cfoot{\thepage}
+\rfoot{\today}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\author{Laxman Singh}
+\date{\today}
+
