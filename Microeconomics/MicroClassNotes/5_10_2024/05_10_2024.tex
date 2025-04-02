@@ -6,7 +6,7 @@
 \usepackage{float}
 \floatstyle{boxed}
 \restylefloat{figure}
-\graphicspath{{/Users/econhead/NOTES/Microeconomics/MicroClassNotes/Figures/}}
+\graphicspath{{/Users/econhead/Econshcool-notes/Microeconomics/MicroClassNotes/05_10_2024/Figures/}}
 \usepackage{fancyhdr}
 \setlength{\headheight}{14pt}
 \pagestyle{fancyplain}
@@ -130,7 +130,7 @@ Note that \(\mathrm{(Stay out, Fight)}\) is a Nash equilbrium but not a subgame 
 Solving this game Using Backward Induction;\\
 First firm 2(follower) solves its profit maximization problem taking output of firm 1, \(q_{1}\) as given; 
 \begin{eqnarray*}
-    \max_{q_{2}\geq 0} q_{2}(\max(15-q_{1}-q_{1},0))
+    \max_{q_{2}\geq 0} q_{2}(\max(15-q_{1}-q_{2},0))
 \end{eqnarray*}
     Solution to which gives us the best response function of player 2 given  \(q_{1}, \ BR_{2}(q_{1})\)
 \begin{eqnarray*}
@@ -193,8 +193,9 @@ Solving using backward induction follower firm 2 solves its profit maximization 
 Solving which gives us, \\
 \begin{eqnarray*}
     BR_{2}(q_{1})\in \begin{cases}
+        \{0\} & \text{ if } q_{1} > 6\\
         \{\frac{16-q_{1}}{2}\} &  \text{if} \ \ q_{1} < 6\ \\
-        \mathbb{R}_{+}  & \text{if} \ \ q_{1}\geq 6
+        \{ 0, \frac{16-q_1}{2}\} & \text{ if } q_{1} = 6 \\
     \end{cases}
 \end{eqnarray*}
 and, 
